@@ -1,0 +1,145 @@
+<section class="pawpath pawpath__hero-strip" id="pawpath-hero-{{ section.id }}">
+  {% unless section.settings.hero_image != blank %}
+    <link
+      rel="preload"
+      as="image"
+      href="{{ 'pawpath-hero-walk.jpg' | asset_url }}"
+    >
+  {% endunless %}
+  <div class="pawpath__hero">
+    <div class="pawpath__hero-media">
+      {% if section.settings.hero_image != blank %}
+        {{
+          section.settings.hero_image
+          | image_url: width: 2000
+          | image_tag:
+            loading: 'eager',
+            fetchpriority: 'high',
+            widths: '800,1200,1600,2000',
+            sizes: '100vw',
+            alt: section.settings.hero_image_alt
+        }}
+      {% else %}
+        {% render 'pawpath-render-image',
+          asset: 'hero',
+          width: 2400,
+          loading: 'eager',
+          sizes: '100vw',
+          alt: section.settings.hero_image_alt,
+          class: 'pawpath__hero-default-img'
+        %}
+      {% endif %}
+    </div>
+    <div class="pawpath__hero-overlay" aria-hidden="true"></div>
+    <div class="pawpath__hero-content">
+      <div class="pawpath__container">
+        <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1 class="pawpath__heading pawpath__heading--hero">{{ section.settings.heading }}</h1>
+        <p class="pawpath__lead pawpath__lead--light">{{ section.settings.subheading }}</p>
+        <div class="pawpath__actions">
+          <a class="pawpath__button pawpath__button--white" href="{{ section.settings.primary_link }}">
+            {{ section.settings.primary_label }}
+          </a>
+          <a class="pawpath__button pawpath__button--ghost" href="{{ section.settings.secondary_link }}">
+            {{ section.settings.secondary_label }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pawpath__trust-bar">
+    <div class="pawpath__container">
+      <div class="pawpath__trust-grid">
+        <div class="pawpath__trust-item">
+          <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'lock' %}</div>
+          <div>
+            <strong>Secure Checkout</strong>
+            <span>Shopify encrypted payments</span>
+          </div>
+        </div>
+        <div class="pawpath__trust-item">
+          <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'truck' %}</div>
+          <div>
+            <strong>Fast US Shipping</strong>
+            <span>Most orders in 3–7 business days</span>
+          </div>
+        </div>
+        <div class="pawpath__trust-item">
+          <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'paw' %}</div>
+          <div>
+            <strong>Curated for Dogs</strong>
+            <span>Travel, feeding & car essentials</span>
+          </div>
+        </div>
+        <div class="pawpath__trust-item">
+          <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'return' %}</div>
+          <div>
+            <strong>Easy Returns</strong>
+            <span>30 days on unused items</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero lifestyle image"
+    },
+    {
+      "type": "text",
+      "id": "hero_image_alt",
+      "label": "Hero image alt text",
+      "default": "Dog and owner on a park walk with travel gear"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "PawPath"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Make Every Outing Easier"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Smart dog travel, feeding, and enrichment gear for cleaner cars, calmer breaks, and better walks."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button",
+      "default": "Shop Best Sellers"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button",
+      "default": "Build Your Dog Outing Kit"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary link"
+    }
+  ],
+  "presets": [{ "name": "PawPath hero" }]
+}
+{% endschema %}

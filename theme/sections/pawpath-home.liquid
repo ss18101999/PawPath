@@ -1,0 +1,435 @@
+<section class="pawpath" id="pawpath-home-{{ section.id }}">
+  {%- comment -%} COLLECTIONS {%- endcomment -%}
+  <div id="collections" class="pawpath__section pawpath__section--collections">
+    <div class="pawpath__shop-banner">
+      <div class="pawpath__shop-banner-media">
+        {% render 'pawpath-render-image',
+          asset: 'lifestyle-park',
+          width: 2000,
+          loading: 'eager',
+          sizes: '100vw',
+          alt: 'Dog enjoying a park day outing',
+          class: 'pawpath__shop-banner-img'
+        %}
+      </div>
+      <div class="pawpath__shop-banner-overlay" aria-hidden="true"></div>
+      <div class="pawpath__container pawpath__shop-banner-content">
+        <p class="pawpath__eyebrow pawpath__eyebrow--light">Shop By Need</p>
+        <h2 class="pawpath__heading pawpath__heading--banner">Everything your dog needs for easier outings.</h2>
+        <p class="pawpath__lead pawpath__lead--light">Travel gear, car essentials, feeding tools, and enrichment — curated for walks, errands, and road trips.</p>
+      </div>
+    </div>
+    <div class="pawpath__container pawpath__collections-wrap">
+      <div class="pawpath__collections-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'collection' %}
+            {% liquid
+              assign col = block.settings.collection
+              if col == blank and block.settings.collection_handle != blank
+                assign col = collections[block.settings.collection_handle]
+              endif
+              assign card_url = block.settings.fallback_link
+              if col != blank
+                assign card_url = col.url
+              endif
+              assign collection_asset = ''
+              case block.settings.collection_handle
+                when 'travel-gear'
+                  assign collection_asset = 'collection-travel'
+                when 'car-essentials'
+                  assign collection_asset = 'collection-car'
+                when 'feeding-hydration'
+                  assign collection_asset = 'collection-feeding'
+                when 'enrichment'
+                  assign collection_asset = 'collection-enrichment'
+                when 'bundles'
+                  assign collection_asset = 'collection-bundles'
+              endcase
+            %}
+            <a class="pawpath__collection-card" href="{{ card_url }}" {{ block.shopify_attributes }}>
+              <div class="pawpath__collection-media">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400,600,800', sizes: '(max-width: 640px) 100vw, 20vw', alt: block.settings.title, class: 'pawpath__collection-img' }}
+                {% elsif collection_asset != blank %}
+                  {% render 'pawpath-render-image',
+                    asset: collection_asset,
+                    width: 1200,
+                    sizes: '(max-width: 640px) 100vw, 20vw',
+                    alt: block.settings.title,
+                    class: 'pawpath__collection-img'
+                  %}
+                {% elsif col != blank and col.image != blank %}
+                  {{ col.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400,600,800', sizes: '(max-width: 640px) 100vw, 20vw', alt: col.title, class: 'pawpath__collection-img' }}
+                {% else %}
+                  <div class="pawpath__collection-placeholder pawpath__collection-placeholder--{{ forloop.index }}" role="img" aria-label="{{ block.settings.title }}">
+                    <span class="pawpath__placeholder-tag">{{ block.settings.title }}</span>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="pawpath__collection-overlay" aria-hidden="true"></div>
+              <div class="pawpath__collection-content">
+                <div class="pawpath__collection-icon">{% render 'pawpath-icons', icon: block.settings.icon %}</div>
+                <h3>{{ block.settings.title }}</h3>
+                <p>{{ block.settings.description }}</p>
+                <span class="pawpath__collection-arrow">Shop collection</span>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} VALUE PROPS {%- endcomment -%}
+  <div class="pawpath__section pawpath__section--sand">
+    <div class="pawpath__container">
+      <div class="pawpath__section-header pawpath__section-header--center">
+        <p class="pawpath__eyebrow">Why PawPath</p>
+        <h2 class="pawpath__heading pawpath__heading--section">Practical gear for real-life outings with your dog.</h2>
+      </div>
+      <div class="pawpath__grid pawpath__grid--3">
+        <article class="pawpath__card pawpath__card--icon">
+          <div class="pawpath__trust-icon pawpath__trust-icon--large">{% render 'pawpath-icons', icon: 'car' %}</div>
+          <h3>Cleaner Car Rides</h3>
+          <p>Protect your seats from mud, fur, spills, and post-park chaos.</p>
+        </article>
+        <article class="pawpath__card pawpath__card--icon">
+          <div class="pawpath__trust-icon pawpath__trust-icon--large">{% render 'pawpath-icons', icon: 'bowl' %}</div>
+          <h3>Calmer Mealtimes</h3>
+          <p>Slow-feeding and enrichment gear helps turn treats and meals into a more focused routine.</p>
+        </article>
+        <article class="pawpath__card pawpath__card--icon">
+          <div class="pawpath__trust-icon pawpath__trust-icon--large">{% render 'pawpath-icons', icon: 'walk' %}</div>
+          <h3>Ready For The Road</h3>
+          <p>Hydration, snacks, safety, and comfort gear made for daily walks and weekend trips.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} LIFESTYLE {%- endcomment -%}
+  <div class="pawpath__section">
+    <div class="pawpath__container">
+      <div class="pawpath__section-header pawpath__section-header--center">
+        <p class="pawpath__eyebrow">Life With Your Dog</p>
+        <h2 class="pawpath__heading pawpath__heading--section">From daily walks to weekend road trips.</h2>
+      </div>
+      <div class="pawpath__lifestyle-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'lifestyle' %}
+            {% liquid
+              assign lifestyle_asset = ''
+              case block.settings.placeholder_style
+                when 'car'
+                  assign lifestyle_asset = 'lifestyle-car'
+                when 'walk'
+                  assign lifestyle_asset = 'lifestyle-walk'
+                when 'mealtime'
+                  assign lifestyle_asset = 'lifestyle-mealtime'
+                when 'park'
+                  assign lifestyle_asset = 'lifestyle-park'
+              endcase
+            %}
+            <div class="pawpath__lifestyle-panel{% if block.settings.tall %} pawpath__lifestyle-panel--tall{% endif %}" {{ block.shopify_attributes }}>
+              <div class="pawpath__lifestyle-media">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '500,800,1000', sizes: '(max-width: 990px) 100vw, 50vw', alt: block.settings.title }}
+                {% elsif lifestyle_asset != blank %}
+                  {% render 'pawpath-render-image',
+                    asset: lifestyle_asset,
+                    width: 1600,
+                    sizes: '(max-width: 990px) 100vw, 50vw',
+                    alt: block.settings.title,
+                    class: 'pawpath__lifestyle-img'
+                  %}
+                {% else %}
+                  <div class="pawpath__lifestyle-placeholder pawpath__lifestyle-placeholder--{{ block.settings.placeholder_style }}" role="img" aria-label="{{ block.settings.title }}">
+                    <span class="pawpath__placeholder-tag">{{ block.settings.title }}</span>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="pawpath__lifestyle-overlay" aria-hidden="true"></div>
+              <div class="pawpath__lifestyle-content">
+                <div class="pawpath__lifestyle-icon">{% render 'pawpath-icons', icon: block.settings.icon %}</div>
+                <h3>{{ block.settings.title }}</h3>
+                <p>{{ block.settings.description }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} USE CASES {%- endcomment -%}
+  <div class="pawpath__section pawpath__section--sand">
+    <div class="pawpath__container">
+      <div class="pawpath__section-header pawpath__section-header--center">
+        <p class="pawpath__eyebrow">Built For Real Life</p>
+        <h2 class="pawpath__heading pawpath__heading--section">Every product solves a real outing problem.</h2>
+        <p class="pawpath__lead">Gear that makes travel with your dog easier — walks, errands, park days, and road trips.</p>
+      </div>
+      <div class="pawpath__grid pawpath__grid--3">
+        {% for block in section.blocks %}
+          {% if block.type == 'use_case' %}
+            <article class="pawpath__card pawpath__card--use-case" {{ block.shopify_attributes }}>
+              <div class="pawpath__use-case-icon">{% render 'pawpath-icons', icon: block.settings.icon %}</div>
+              <p class="pawpath__use-case-scenario">{{ block.settings.scenario }}</p>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.description }}</p>
+              {% if block.settings.link != blank %}
+                <a class="pawpath__text-link" href="{{ block.settings.link }}">{{ block.settings.link_label }} →</a>
+              {% endif %}
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} BUNDLES {%- endcomment -%}
+  <div id="bundles" class="pawpath__section">
+    <div class="pawpath__container">
+      <div class="pawpath__section-header">
+        <p class="pawpath__eyebrow">Outing Kits</p>
+        <h2 class="pawpath__heading pawpath__heading--section">Build Your PawPath Kit</h2>
+        <p class="pawpath__lead">Bundle the products your dog needs for walks, car rides, and park days. Fewer messes, fewer forgotten items, and more tail-wagging trips.</p>
+      </div>
+      {% for block in section.blocks %}
+        {% if block.type == 'bundle' %}
+          {% liquid
+            assign bundle_asset = 'collection-bundles'
+            if block.settings.link contains 'walk-ready'
+              assign bundle_asset = 'lifestyle-walk'
+            elsif block.settings.link contains 'road-trip'
+              assign bundle_asset = 'lifestyle-car'
+            endif
+          %}
+          <a class="pawpath__bundle pawpath__bundle--link" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+            <div class="pawpath__bundle-thumb">
+              {% render 'pawpath-render-image',
+                asset: bundle_asset,
+                width: 800,
+                sizes: '120px',
+                alt: block.settings.title,
+                class: 'pawpath__bundle-img'
+              %}
+            </div>
+            <div>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.description }}</p>
+            </div>
+            <div class="pawpath__bundle-cta">
+              <span class="pawpath__price">{{ block.settings.price_label }}</span>
+              <span class="pawpath__bundle-shop">Shop bundles</span>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {%- comment -%} TESTIMONIALS {%- endcomment -%}
+  <div class="pawpath__section pawpath__section--reviews">
+    <div class="pawpath__container">
+      <div class="pawpath__section-header pawpath__section-header--center">
+        <p class="pawpath__eyebrow">Dog Owner Favorites</p>
+        <h2 class="pawpath__heading pawpath__heading--section">Made for walks, rides, and real life.</h2>
+        <p class="pawpath__lead pawpath__lead--center">Example reviews from our launch copy — replace with real customer feedback after your first orders.</p>
+      </div>
+      <div class="pawpath__grid pawpath__grid--3">
+        {% for block in section.blocks %}
+          {% if block.type == 'review' %}
+            <article class="pawpath__review-card" {{ block.shopify_attributes }}>
+              <div class="pawpath__review-stars" aria-hidden="true">★★★★★</div>
+              <p class="pawpath__review-quote">"{{ block.settings.quote }}"</p>
+              <div class="pawpath__review-author">
+                <div class="pawpath__review-avatar">{% render 'pawpath-icons', icon: 'paw' %}</div>
+                <div>
+                  <strong>{{ block.settings.author }}</strong>
+                  <span>{{ block.settings.detail }}</span>
+                </div>
+              </div>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} FAQ {%- endcomment -%}
+  <div id="faq" class="pawpath__section pawpath__section--sand">
+    <div class="pawpath__container">
+      <div class="pawpath__section-header pawpath__section-header--center">
+        <p class="pawpath__eyebrow">FAQ</p>
+        <h2 class="pawpath__heading pawpath__heading--section">Questions before you shop?</h2>
+      </div>
+      <div class="pawpath__faq pawpath__faq--centered">
+        {% for block in section.blocks %}
+          {% if block.type == 'faq' %}
+            <details class="pawpath__faq-item" {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.question }}</summary>
+              <p>{{ block.settings.answer }}</p>
+            </details>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} CTA {%- endcomment -%}
+  <div class="pawpath__cta-band">
+    <div class="pawpath__cta-bg">
+      {% render 'pawpath-render-image',
+        asset: 'lifestyle-park',
+        width: 1600,
+        loading: 'lazy',
+        sizes: '100vw',
+        alt: 'Dog at the park',
+        class: 'pawpath__cta-bg-img'
+      %}
+    </div>
+    <div class="pawpath__container pawpath__cta-inner">
+      <p class="pawpath__eyebrow">Join the pack</p>
+      <h2 class="pawpath__heading pawpath__heading--section">Get The Dog Outing Checklist</h2>
+      <p class="pawpath__lead">New product drops, bundle deals, and simple tips for easier walks and road trips. Free US shipping on orders over $50.</p>
+      <div class="pawpath__actions pawpath__actions--center">
+        <a class="pawpath__button pawpath__button--white" href="{{ section.settings.primary_link }}">
+          {{ section.settings.primary_label }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath homepage body",
+  "settings": [
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "CTA button label",
+      "default": "Shop Best Sellers"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "CTA button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection card",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "collection_handle", "label": "Collection handle (fallback)", "default": "travel-gear" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Travel Gear" },
+        { "type": "text", "id": "description", "label": "Description", "default": "Outing essentials for walks, errands, and park days" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "walk", "label": "Walk" },
+            { "value": "car", "label": "Car" },
+            { "value": "water", "label": "Water" },
+            { "value": "bowl", "label": "Bowl" },
+            { "value": "paw", "label": "Paw" },
+            { "value": "bundle", "label": "Bundle" }
+          ],
+          "default": "walk"
+        },
+        { "type": "image_picker", "id": "image", "label": "Custom image" },
+        { "type": "url", "id": "fallback_link", "label": "Fallback link" }
+      ]
+    },
+    {
+      "type": "lifestyle",
+      "name": "Lifestyle panel",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Cleaner Car Rides" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "car", "label": "Car" },
+            { "value": "walk", "label": "Walk" },
+            { "value": "bowl", "label": "Bowl" },
+            { "value": "water", "label": "Water" }
+          ],
+          "default": "car"
+        },
+        {
+          "type": "select",
+          "id": "placeholder_style",
+          "label": "Default image style",
+          "options": [
+            { "value": "car", "label": "Car rides" },
+            { "value": "walk", "label": "Walks" },
+            { "value": "mealtime", "label": "Mealtimes" },
+            { "value": "park", "label": "Park days" }
+          ],
+          "default": "car"
+        },
+        { "type": "checkbox", "id": "tall", "label": "Tall panel", "default": false }
+      ]
+    },
+    {
+      "type": "use_case",
+      "name": "Use case",
+      "settings": [
+        { "type": "text", "id": "scenario", "label": "Scenario label", "default": "On a walk" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Fresh water without the hassle" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "water", "label": "Water" },
+            { "value": "car", "label": "Car" },
+            { "value": "bowl", "label": "Bowl" },
+            { "value": "walk", "label": "Walk" }
+          ],
+          "default": "water"
+        },
+        { "type": "url", "id": "link", "label": "Product link" },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop water bottles" }
+      ]
+    },
+    {
+      "type": "bundle",
+      "name": "Outing kit",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Walk Ready Kit" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        { "type": "text", "id": "price_label", "label": "Price label", "default": "$64.95" },
+        { "type": "url", "id": "link", "label": "Product or collection link" }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "text", "id": "author", "label": "Author", "default": "Dog parent" },
+        { "type": "text", "id": "detail", "label": "Detail", "default": "Verified example review" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "textarea", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "PawPath homepage body" }]
+}
+{% endschema %}

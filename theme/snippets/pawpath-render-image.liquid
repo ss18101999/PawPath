@@ -1,0 +1,45 @@
+{% comment %}
+  High-quality PawPath images via full-resolution theme assets (asset_url, not asset_img_url).
+  asset_img_url recompresses and blurs — we serve originals only.
+{% endcomment %}
+
+{% liquid
+  assign img_loading = loading | default: 'lazy'
+  assign img_alt = alt | default: 'PawPath dog travel gear'
+  assign img_class = class | default: ''
+%}
+
+{% case asset %}
+  {% when 'hero' %}
+    <img src="{{ 'pawpath-hero-walk.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" fetchpriority="high" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'collection-travel' %}
+    <img src="{{ 'pawpath-collection-travel.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'collection-car' %}
+    <img src="{{ 'pawpath-collection-car.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'collection-feeding' %}
+    <img src="{{ 'pawpath-collection-feeding.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'collection-enrichment' %}
+    <img src="{{ 'pawpath-collection-enrichment.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'collection-bundles' %}
+    <img src="{{ 'pawpath-collection-bundles.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'lifestyle-car' %}
+    <img src="{{ 'pawpath-lifestyle-car.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'lifestyle-walk' %}
+    <img src="{{ 'pawpath-lifestyle-walk.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'lifestyle-mealtime' %}
+    <img src="{{ 'pawpath-lifestyle-mealtime.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'lifestyle-park' %}
+    <img src="{{ 'pawpath-lifestyle-park.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'product-water-bottle' %}
+    <img src="{{ 'pawpath-product-water-bottle.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'product-car-cover' %}
+    <img src="{{ 'pawpath-product-car-cover.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'product-seat-belt' %}
+    <img src="{{ 'pawpath-product-seat-belt.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'product-treat-pouch' %}
+    <img src="{{ 'pawpath-product-treat-pouch.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'product-enrichment' %}
+    <img src="{{ 'pawpath-product-enrichment.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+  {% when 'product-slow-feeder' %}
+    <img src="{{ 'pawpath-product-slow-feeder.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+{% endcase %}

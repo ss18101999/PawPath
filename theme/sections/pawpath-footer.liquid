@@ -1,0 +1,144 @@
+<footer class="pawpath pawpath__footer" id="pawpath-footer-{{ section.id }}">
+  <div class="pawpath__footer-main">
+    <div class="pawpath__container">
+      <div class="pawpath__footer-grid">
+        <div class="pawpath__footer-brand">
+          <h2>{{ section.settings.brand_name }}</h2>
+          <p>{{ section.settings.brand_description }}</p>
+          <div class="pawpath__footer-social">
+            {% if section.settings.instagram_url != blank %}
+              <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                {% render 'pawpath-icons', icon: 'instagram' %}
+              </a>
+            {% endif %}
+            {% if section.settings.facebook_url != blank %}
+              <a href="{{ section.settings.facebook_url }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                {% render 'pawpath-icons', icon: 'facebook' %}
+              </a>
+            {% endif %}
+            {% if section.settings.tiktok_url != blank %}
+              <a href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                {% render 'pawpath-icons', icon: 'tiktok' %}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="pawpath__footer-col">
+          <h3>Shop</h3>
+          <ul class="pawpath__footer-links">
+            <li><a href="/collections/all">All Products</a></li>
+            <li><a href="/collections/travel-gear">Travel Essentials</a></li>
+            <li><a href="/collections/car-essentials">Road Trip Gear</a></li>
+            <li><a href="/collections/feeding-hydration">Feeding & Hydration</a></li>
+            <li><a href="{{ routes.collections_url }}/enrichment">Enrichment</a></li>
+          </ul>
+        </div>
+
+        <div class="pawpath__footer-col">
+          <h3>Support</h3>
+          <ul class="pawpath__footer-links">
+            <li><a href="/pages/contact">Contact Us</a></li>
+            <li><a href="/pages/faq">FAQ</a></li>
+            <li><a href="/pages/shipping-returns">Shipping Policy</a></li>
+            {% for policy in shop.policies %}
+              {% if policy.title contains 'Refund' or policy.title contains 'Return' %}
+                <li><a href="{{ policy.url }}">Refund Policy</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if shop.policies.size == 0 %}
+              <li><a href="/pages/shipping-returns">Refund Policy</a></li>
+            {% endif %}
+          </ul>
+        </div>
+
+        <div class="pawpath__footer-col">
+          <h3>About</h3>
+          <ul class="pawpath__footer-links">
+            <li><a href="/pages/about">About PawPath</a></li>
+            <li><a href="/pages/about">Our Mission</a></li>
+            <li><a href="/#bundles">Outing Kits</a></li>
+          </ul>
+          {% if section.settings.show_newsletter %}
+            <div class="pawpath__footer-newsletter" style="margin-top: 20px;">
+              {% form 'customer', class: 'pawpath-newsletter-form' %}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="pawpath__newsletter-row">
+                  <input
+                    type="email"
+                    name="contact[email]"
+                    placeholder="Email for outing tips"
+                    aria-label="Email address"
+                    required
+                  >
+                  <button type="submit" class="pawpath__button pawpath__button--outline pawpath__newsletter-btn">Join</button>
+                </div>
+              {% endform %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pawpath__footer-bottom">
+    <div class="pawpath__container">
+      <div class="pawpath__footer-bottom-inner">
+        <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+        <div class="pawpath__footer-policies">
+          {% for policy in shop.policies %}
+            <a href="{{ policy.url }}">{{ policy.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "PawPath footer",
+  "tag": "footer",
+  "class": "pawpath-footer-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "PawPath Supply"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_description",
+      "label": "Brand description",
+      "default": "Easy outings for happy dogs. Practical travel, feeding, and car gear for walks, road trips, park days, and calmer mealtimes."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter signup",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath footer"
+    }
+  ]
+}
+{% endschema %}

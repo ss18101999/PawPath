@@ -1,0 +1,21 @@
+{%- doc -%}
+  Honest product labels — no fabricated review counts.
+  @param {object} product - Shopify product object
+{%- enddoc -%}
+
+{% if product != blank and product.id != empty %}
+  <div class="pawpath__product-labels">
+    {% if product.tags contains 'bestseller' %}
+      <span class="pawpath__badge pawpath__badge--bestseller">Bestseller</span>
+    {% endif %}
+    {% if product.tags contains 'new' %}
+      <span class="pawpath__badge pawpath__badge--new">New Arrival</span>
+    {% endif %}
+    {% if product.tags contains 'bundle' %}
+      <span class="pawpath__badge pawpath__badge--bundle">Outing Kit</span>
+    {% endif %}
+    {% if product.tags contains 'high-aov' %}
+      <span class="pawpath__badge pawpath__badge--premium">Premium Pick</span>
+    {% endif %}
+  </div>
+{% endif %}

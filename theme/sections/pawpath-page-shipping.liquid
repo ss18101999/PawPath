@@ -1,0 +1,31 @@
+<section class="pawpath pawpath__section">
+  <div class="pawpath__container">
+    <p class="pawpath__eyebrow">Shipping & Returns</p>
+    <h1 class="pawpath__heading pawpath__heading--section">Clear delivery expectations.</h1>
+    <p class="pawpath__lead">We believe in honest shipping times and straightforward returns — because your trust matters more than a quick sale.</p>
+    <div class="pawpath__grid pawpath__grid--3" style="margin-top: 48px;">
+      <article class="pawpath__card pawpath__card--icon">
+        <div class="pawpath__trust-icon pawpath__trust-icon--large">{% render 'pawpath-icons', icon: 'truck' %}</div>
+        <h3>Processing & Delivery</h3>
+        <p>Orders ship within 1–2 business days. Most US orders arrive in 3–7 business days. Tracking is sent by email when your package ships.</p>
+      </article>
+      <article class="pawpath__card pawpath__card--icon">
+        <div class="pawpath__trust-icon pawpath__trust-icon--large">{% render 'pawpath-icons', icon: 'lock' %}</div>
+        <h3>Free Shipping</h3>
+        <p>Free standard shipping on all US orders over $50. No hidden fees at checkout.</p>
+      </article>
+      <article class="pawpath__card pawpath__card--icon">
+        <div class="pawpath__trust-icon pawpath__trust-icon--large">{% render 'pawpath-icons', icon: 'return' %}</div>
+        <h3>Returns</h3>
+        <p>30-day returns on unused items in original packaging. Used pet products cannot be accepted for hygiene reasons. <a href="/pages/contact">Contact us</a> to start a return.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath shipping page",
+  "presets": [{ "name": "PawPath shipping page" }]
+}
+{% endschema %}

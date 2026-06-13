@@ -1,0 +1,53 @@
+{% comment %}
+  Product card image when Shopify product media is missing.
+  @param {object} product
+  @param {string} [image_sizes]
+{% endcomment %}
+
+{% liquid
+  assign product_asset = ''
+  case product.handle
+    when 'trailsip-portable-dog-water-bottle'
+      assign product_asset = 'product-water-bottle'
+    when 'roadguard-waterproof-dog-car-seat-cover'
+      assign product_asset = 'product-car-cover'
+    when 'saferide-dog-seat-belt-tether'
+      assign product_asset = 'product-seat-belt'
+    when 'pocketpup-travel-treat-pouch'
+      assign product_asset = 'product-treat-pouch'
+    when 'sniffquest-enrichment-snuffle-mat'
+      assign product_asset = 'product-enrichment'
+    when 'pawpath-portable-slow-feeder-lick-mat'
+      assign product_asset = 'product-slow-feeder'
+    when 'walk-ready-bundle', 'road-trip-bundle'
+      assign product_asset = 'collection-bundles'
+  endcase
+%}
+
+<a
+  class="contents pawpath__product-fallback-link"
+  href="{{ product.selected_or_first_available_variant.url }}"
+  aria-label="{{ product.title }}"
+>
+  {% if product_asset != blank %}
+    <div class="product-media-container card-gallery__placeholder pawpath__product-fallback">
+      {% render 'pawpath-render-image',
+        asset: product_asset,
+        alt: product.title,
+        width: 800,
+        sizes: image_sizes,
+        class: 'pawpath__product-fallback-img'
+      %}
+    </div>
+  {% else %}
+    <div class="product-media-container card-gallery__placeholder pawpath__product-fallback">
+      {% render 'pawpath-render-image',
+        asset: 'collection-travel',
+        alt: product.title,
+        width: 800,
+        sizes: image_sizes,
+        class: 'pawpath__product-fallback-img'
+      %}
+    </div>
+  {% endif %}
+</a>

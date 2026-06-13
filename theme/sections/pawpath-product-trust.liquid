@@ -1,0 +1,169 @@
+{% comment %}
+  PawPath product page enhancements: benefits, shipping, trust badges, FAQ.
+{% endcomment %}
+
+<section class="pawpath pawpath__pdp-trust" id="pawpath-pdp-{{ section.id }}">
+  <div class="pawpath__container">
+    <div class="pawpath__pdp-grid">
+      <div>
+        <p class="pawpath__eyebrow">Why You'll Love It</p>
+        <h2 class="pawpath__heading pawpath__heading--section">Built for real outings with your dog.</h2>
+        <ul class="pawpath__benefits-list" style="margin-top: 28px;">
+          {% for block in section.blocks %}
+            {% if block.type == 'benefit' %}
+              <li {{ block.shopify_attributes }}>
+                <div>
+                  <strong>{{ block.settings.title }}</strong>
+                  <span>{{ block.settings.description }}</span>
+                </div>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <div class="pawpath__pdp-badges">
+          <div class="pawpath__pdp-badge">
+            {% render 'pawpath-icons', icon: 'lock' %}
+            Secure Checkout
+          </div>
+          <div class="pawpath__pdp-badge">
+            {% render 'pawpath-icons', icon: 'truck' %}
+            Fast US Shipping
+          </div>
+          <div class="pawpath__pdp-badge">
+            {% render 'pawpath-icons', icon: 'return' %}
+            Easy 30-Day Returns
+          </div>
+          <div class="pawpath__pdp-badge">
+            {% render 'pawpath-icons', icon: 'shield' %}
+            Quality Guaranteed
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="pawpath__shipping-box" style="margin-bottom: 24px;">
+          <h4>Shipping Information</h4>
+          <p><strong>Processing:</strong> Orders ship within 1–2 business days.</p>
+          <p><strong>Delivery:</strong> Most US orders arrive in 3–7 business days.</p>
+          <p><strong>Free shipping:</strong> On all US orders over $50.</p>
+          <p style="margin-bottom:0;color:var(--pp-muted);font-size:0.85rem;">Tracking provided via email once your order ships.</p>
+        </div>
+
+        <p class="pawpath__eyebrow">Common Questions</p>
+        <div class="pawpath__faq">
+          {% for block in section.blocks %}
+            {% if block.type == 'faq' %}
+              <details class="pawpath__faq-item" {{ block.shopify_attributes }}>
+                <summary>{{ block.settings.question }}</summary>
+                <p>{{ block.settings.answer }}</p>
+              </details>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath product trust",
+  "tag": "section",
+  "class": "pawpath-pdp-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Practical everyday use"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Built for walks, road trips, park days, and calmer mealtimes."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Is this easy to clean?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Yes. Most PawPath products are designed for quick wipe-down or rinse-clean convenience after muddy park days."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath product trust",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Practical everyday use",
+            "description": "Built for walks, road trips, park days, and calmer mealtimes without falling apart."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Compact and travel-friendly",
+            "description": "Lightweight design that packs easily into bags, glove boxes, and day-trip kits."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Easy to clean",
+            "description": "Wipe-down or rinse-clean materials for post-outing cleanup in minutes."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Dog-parent approved",
+            "description": "Curated by pet owners who understand the mess, joy, and chaos of life with dogs."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is this easy to clean?",
+            "answer": "Yes. Most PawPath products are designed for quick wipe-down or rinse-clean convenience after muddy adventures."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What size dogs is this for?",
+            "answer": "Check the product description for size guidance. Most PawPath gear fits small through large breeds."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return this if it doesn't work for my dog?",
+            "answer": "Absolutely. We offer a 30-day hassle-free return policy on unused items in original packaging."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

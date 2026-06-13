@@ -1,0 +1,25 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */{
+  "sections": {
+    "about": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"pawpath\"><div class=\"pawpath__section\"><div class=\"pawpath__container\"><p class=\"pawpath__eyebrow\">About PawPath Supply</p><h1 class=\"pawpath__heading pawpath__heading--section\">Easy outings for happy dogs.</h1><p class=\"pawpath__lead\">PawPath Supply was created for dog owners who love bringing their pups along but do not love the mess, stress, and forgotten essentials that come with it. We curate practical dog gear for real-life outings: daily walks, park days, errands, road trips, and weekends away.</p><div class=\"pawpath__grid pawpath__grid--3\" style=\"margin-top: 48px;\"><article class=\"pawpath__card pawpath__card--icon\"><div class=\"pawpath__trust-icon pawpath__trust-icon--large\">{% render 'pawpath-icons', icon: 'walk' %}</div><h3>Walks & Park Days</h3><p>Hydration bottles, treat pouches, and on-the-go gear for the outings you take every week.</p></article><article class=\"pawpath__card pawpath__card--icon\"><div class=\"pawpath__trust-icon pawpath__trust-icon--large\">{% render 'pawpath-icons', icon: 'car' %}</div><h3>Road Trips & Errands</h3><p>Seat covers, safety tethers, and car-friendly gear that keeps your back seat ready for passengers.</p></article><article class=\"pawpath__card pawpath__card--icon\"><div class=\"pawpath__trust-icon pawpath__trust-icon--large\">{% render 'pawpath-icons', icon: 'bowl' %}</div><h3>Feeding & Enrichment</h3><p>Slow feeders and enrichment tools for calmer mealtimes at home or away.</p></article></div></div></div></div>",
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "about"
+  ]
+}

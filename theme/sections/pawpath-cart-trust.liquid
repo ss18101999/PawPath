@@ -1,0 +1,26 @@
+<div class="pawpath pawpath__cart-trust">
+  <div class="pawpath__container">
+    <div class="pawpath__cart-trust-grid">
+      <div class="pawpath__cart-trust-item">
+        {% render 'pawpath-icons', icon: 'lock' %}
+        <span>Secure checkout</span>
+      </div>
+      <div class="pawpath__cart-trust-item">
+        {% render 'pawpath-icons', icon: 'truck' %}
+        <span>Free shipping over $50</span>
+      </div>
+      <div class="pawpath__cart-trust-item">
+        {% render 'pawpath-icons', icon: 'return' %}
+        <span>30-day returns</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "PawPath cart trust",
+  "enabled_on": { "templates": ["cart"] },
+  "presets": [{ "name": "PawPath cart trust" }]
+}
+{% endschema %}

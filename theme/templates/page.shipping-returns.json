@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "shipping_returns": {
+      "type": "pawpath-page-shipping",
+      "settings": {}
+    }
+  },
+  "order": ["shipping_returns"]
+}

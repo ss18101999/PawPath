@@ -1,0 +1,69 @@
+{% comment %}
+  Resolves PawPath fallback image asset filenames.
+  @param {object} [product]
+  @param {string} [collection_handle]
+  @param {string} [lifestyle_style]
+  @param {string} [key] - hero, bundles, etc.
+{% endcomment %}
+
+{% liquid
+  assign asset_name = ''
+
+  if product != blank and product.handle != blank
+    case product.handle
+      when 'trailsip-portable-dog-water-bottle'
+        assign asset_name = 'pawpath-product-water-bottle.jpg'
+      when 'roadguard-waterproof-dog-car-seat-cover'
+        assign asset_name = 'pawpath-product-car-cover.jpg'
+      when 'saferide-dog-seat-belt-tether'
+        assign asset_name = 'pawpath-product-seat-belt.jpg'
+      when 'pocketpup-travel-treat-pouch'
+        assign asset_name = 'pawpath-product-treat-pouch.jpg'
+      when 'sniffquest-enrichment-snuffle-mat'
+        assign asset_name = 'pawpath-product-enrichment.jpg'
+      when 'pawpath-portable-slow-feeder-lick-mat'
+        assign asset_name = 'pawpath-product-slow-feeder.jpg'
+      when 'walk-ready-bundle', 'road-trip-bundle'
+        assign asset_name = 'pawpath-collection-bundles.jpg'
+    endcase
+  endif
+
+  if asset_name == blank and collection_handle != blank
+    case collection_handle
+      when 'travel-gear'
+        assign asset_name = 'pawpath-collection-travel.jpg'
+      when 'car-essentials'
+        assign asset_name = 'pawpath-collection-car.jpg'
+      when 'feeding-hydration'
+        assign asset_name = 'pawpath-collection-feeding.jpg'
+      when 'enrichment'
+        assign asset_name = 'pawpath-collection-enrichment.jpg'
+      when 'bundles'
+        assign asset_name = 'pawpath-collection-bundles.jpg'
+    endcase
+  endif
+
+  if asset_name == blank and lifestyle_style != blank
+    case lifestyle_style
+      when 'car'
+        assign asset_name = 'pawpath-lifestyle-car.jpg'
+      when 'walk'
+        assign asset_name = 'pawpath-lifestyle-walk.jpg'
+      when 'mealtime'
+        assign asset_name = 'pawpath-lifestyle-mealtime.jpg'
+      when 'park'
+        assign asset_name = 'pawpath-lifestyle-park.jpg'
+    endcase
+  endif
+
+  if asset_name == blank and key != blank
+    case key
+      when 'hero'
+        assign asset_name = 'pawpath-hero-walk.jpg'
+      when 'bundles'
+        assign asset_name = 'pawpath-collection-bundles.jpg'
+    endcase
+  endif
+%}
+
+{{ asset_name }}

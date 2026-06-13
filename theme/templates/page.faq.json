@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "faq": {
+      "type": "pawpath-page-faq",
+      "settings": {}
+    }
+  },
+  "order": ["faq"]
+}
