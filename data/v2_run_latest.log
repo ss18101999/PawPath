@@ -1,0 +1,493 @@
+
+[0s] ━━ PawPath V2 pipeline started ━━
+[0s] mode=import import_limit=5
+[0s] ▶ Phase 1 — Discovery & scoring
+
+[0s] ━━ Discovery — 26 search terms, up to 2 pages each ━━
+[0s]   [1/104] (0%) search "dog travel water bottle portable" p1 (popularity)
+[4s]   "dog travel water bottle portable" p1 (popularity): +35 new (pool 35)
+[11s]   "dog travel water bottle portable" p1 (relevance): +9 new (pool 44)
+[16s]   "dog travel water bottle portable" p2 (popularity): +18 new (pool 62)
+[20s]   "dog travel water bottle portable" p2 (relevance): +17 new (pool 79)
+[20s]   term 1/26 done — +79 for "dog travel water bottle portable"
+[20s]   [5/104] (4%) search "dog treat pouch hiking" p1 (popularity)
+[23s]   "dog treat pouch hiking" p1 (popularity): +17 new (pool 96)
+[26s]   "dog treat pouch hiking" p1 (relevance): +36 new (pool 132)
+[30s]   "dog treat pouch hiking" p2 (popularity): +24 new (pool 156)
+[33s]   "dog treat pouch hiking" p2 (relevance): +34 new (pool 190)
+[33s]   term 2/26 done — +111 for "dog treat pouch hiking"
+[36s]   "collapsible dog bowl travel" p1 (popularity): +14 new (pool 204)
+[36s]   [10/104] (9%) search "collapsible dog bowl travel" p1 (relevance)
+[41s]   "collapsible dog bowl travel" p1 (relevance): +4 new (pool 208)
+[44s]   "collapsible dog bowl travel" p2 (popularity): +5 new (pool 213)
+[48s]   "collapsible dog bowl travel" p2 (relevance): +32 new (pool 245)
+[48s]   term 3/26 done — +55 for "collapsible dog bowl travel"
+[52s]   "dog walking bag treat" p1 (popularity): +32 new (pool 277)
+[55s]   "dog walking bag treat" p1 (relevance): +10 new (pool 287)
+[55s]   [15/104] (14%) search "dog walking bag treat" p2 (popularity)
+[57s]   "dog walking bag treat" p2 (popularity): +42 new (pool 329)
+[1m00s]   "dog walking bag treat" p2 (relevance): +8 new (pool 337)
+[1m00s]   term 4/26 done — +92 for "dog walking bag treat"
+[1m03s]   "dog car seat cover" p1 (popularity): +37 new (pool 374)
+[1m05s]   "dog car seat cover" p1 (relevance): +13 new (pool 387)
+[1m08s]   "dog car seat cover" p2 (popularity): +34 new (pool 421)
+[1m08s]   [20/104] (19%) search "dog car seat cover" p2 (relevance)
+[1m12s]   "dog car seat cover" p2 (relevance): +21 new (pool 442)
+[1m12s]   term 5/26 done — +105 for "dog car seat cover"
+[1m14s]   "dog seat belt harness" p1 (popularity): +10 new (pool 452)
+[1m18s]   "dog seat belt harness" p1 (relevance): +22 new (pool 474)
+[1m21s]   "dog seat belt harness" p2 (popularity): +4 new (pool 478)
+[1m24s]   "dog seat belt harness" p2 (relevance): +27 new (pool 505)
+[1m24s]   term 6/26 done — +63 for "dog seat belt harness"
+[1m24s]   [25/104] (24%) search "pet car hammock back seat" p1 (popularity)
+[1m26s]   "pet car hammock back seat" p1 (popularity): +6 new (pool 511)
+[1m29s]   "pet car hammock back seat" p1 (relevance): +22 new (pool 533)
+[1m31s]   "pet car hammock back seat" p2 (popularity): +17 new (pool 550)
+[1m35s]   "pet car hammock back seat" p2 (relevance): +31 new (pool 581)
+[1m35s]   term 7/26 done — +76 for "pet car hammock back seat"
+[1m40s]   "dog booster seat car" p1 (popularity): +19 new (pool 600)
+[1m40s]   [30/104] (28%) search "dog booster seat car" p1 (relevance)
+[1m43s]   "dog booster seat car" p1 (relevance): +5 new (pool 605)
+[1m45s]   "dog booster seat car" p2 (popularity): +2 new (pool 607)
+[1m50s]   "dog booster seat car" p2 (relevance): +12 new (pool 619)
+[1m50s]   term 8/26 done — +38 for "dog booster seat car"
+[1m53s]   "slow feeder dog bowl" p1 (popularity): +32 new (pool 651)
+[1m55s]   [35/104] (33%) search "slow feeder dog bowl" p2 (popularity)
+[1m58s]   "slow feeder dog bowl" p2 (popularity): +25 new (pool 676)
+[2m00s]   "slow feeder dog bowl" p2 (relevance): +9 new (pool 685)
+[2m00s]   term 9/26 done — +66 for "slow feeder dog bowl"
+[2m06s]   "dog silicone lick mat" p1 (popularity): +6 new (pool 691)
+[2m09s]   "dog silicone lick mat" p1 (relevance): +15 new (pool 706)
+[2m12s]   "dog silicone lick mat" p2 (popularity): +6 new (pool 712)
+[2m12s]   [40/104] (38%) search "dog silicone lick mat" p2 (relevance)
+[2m15s]   "dog silicone lick mat" p2 (relevance): +26 new (pool 738)
+[2m15s]   term 10/26 done — +53 for "dog silicone lick mat"
+[2m17s]   "portable dog water dispenser" p1 (popularity): +12 new (pool 750)
+[2m22s]   "portable dog water dispenser" p1 (relevance): +15 new (pool 765)
+[2m24s]   "portable dog water dispenser" p2 (popularity): +19 new (pool 784)
+[2m27s]   "portable dog water dispenser" p2 (relevance): +4 new (pool 788)
+[2m27s]   term 11/26 done — +50 for "portable dog water dispenser"
+[2m27s]   [45/104] (43%) search "collapsible silicone dog bowl" p1 (popularity)
+[2m29s]   "collapsible silicone dog bowl" p1 (popularity): +16 new (pool 804)
+[2m33s]   "collapsible silicone dog bowl" p1 (relevance): +3 new (pool 807)
+[2m36s]   "collapsible silicone dog bowl" p2 (popularity): +9 new (pool 816)
+[2m41s]   "collapsible silicone dog bowl" p2 (relevance): +1 new (pool 817)
+[2m41s]   term 12/26 done — +29 for "collapsible silicone dog bowl"
+[2m46s]   "snuffle mat for dogs" p1 (popularity): +28 new (pool 845)
+[2m46s]   [50/104] (48%) search "snuffle mat for dogs" p1 (relevance)
+[2m52s]   "snuffle mat for dogs" p1 (relevance): +4 new (pool 849)
+[2m55s]   "snuffle mat for dogs" p2 (popularity): +8 new (pool 857)
+[2m58s]   "snuffle mat for dogs" p2 (relevance): +40 new (pool 897)
+[2m58s]   term 13/26 done — +80 for "snuffle mat for dogs"
+[3m01s]   "dog puzzle feeder toy" p1 (popularity): +15 new (pool 912)
+[3m03s]   "dog puzzle feeder toy" p1 (relevance): +12 new (pool 924)
+[3m03s]   [55/104] (52%) search "dog puzzle feeder toy" p2 (popularity)
+[3m08s]   "dog puzzle feeder toy" p2 (popularity): +7 new (pool 931)
+[3m11s]   "dog puzzle feeder toy" p2 (relevance): +24 new (pool 955)
+[3m11s]   term 14/26 done — +58 for "dog puzzle feeder toy"
+[3m18s]   "dog lick mat slow feeding" p1 (relevance): +9 new (pool 964)
+[3m22s]   "dog lick mat slow feeding" p2 (popularity): +3 new (pool 967)
+[3m22s]   [60/104] (57%) search "dog lick mat slow feeding" p2 (relevance)
+[3m25s]   "dog lick mat slow feeding" p2 (relevance): +15 new (pool 982)
+[3m25s]   term 15/26 done — +27 for "dog lick mat slow feeding"
+[3m27s]   "interactive dog feeding mat" p1 (popularity): +11 new (pool 993)
+[3m33s]   "interactive dog feeding mat" p2 (popularity): +2 new (pool 995)
+[3m36s]   "interactive dog feeding mat" p2 (relevance): +8 new (pool 1003)
+[3m36s]   term 16/26 done — +21 for "interactive dog feeding mat"
+[3m36s]   [65/104] (62%) search "dog travel water bottle" p1 (popularity)
+[3m42s]   "dog travel water bottle" p1 (popularity): +4 new (pool 1007)
+[3m46s]   "dog travel water bottle" p1 (relevance): +5 new (pool 1012)
+[3m53s]   "dog travel water bottle" p2 (popularity): +14 new (pool 1026)
+[3m57s]   "dog travel water bottle" p2 (relevance): +1 new (pool 1027)
+[3m57s]   term 17/26 done — +24 for "dog travel water bottle"
+[3m59s]   [70/104] (67%) search "dog car seat cover" p1 (relevance)
+[4m14s]   [75/104] (72%) search "dog snuffle mat" p2 (popularity)
+[4m22s]   "dog snuffle mat" p2 (relevance): +15 new (pool 1042)
+[4m22s]   term 19/26 done — +15 for "dog snuffle mat"
+[4m29s]   [80/104] (76%) search "slow feeder dog bowl" p2 (relevance)
+[4m37s]   "dog treat pouch" p1 (popularity): +21 new (pool 1063)
+[4m40s]   "dog treat pouch" p1 (relevance): +25 new (pool 1088)
+[4m43s]   "dog treat pouch" p2 (popularity): +28 new (pool 1116)
+[4m46s]   "dog treat pouch" p2 (relevance): +29 new (pool 1145)
+[4m46s]   term 21/26 done — +103 for "dog treat pouch"
+[4m46s]   [85/104] (81%) search "portable dog bowl" p1 (popularity)
+[4m48s]   "portable dog bowl" p1 (popularity): +5 new (pool 1150)
+[4m53s]   "portable dog bowl" p2 (popularity): +3 new (pool 1153)
+[4m56s]   "portable dog bowl" p2 (relevance): +2 new (pool 1155)
+[4m56s]   term 22/26 done — +10 for "portable dog bowl"
+[4m58s]   "dog car harness" p1 (popularity): +5 new (pool 1160)
+[4m58s]   [90/104] (86%) search "dog car harness" p1 (relevance)
+[5m02s]   "dog car harness" p1 (relevance): +1 new (pool 1161)
+[5m08s]   "dog car harness" p2 (relevance): +10 new (pool 1171)
+[5m08s]   term 23/26 done — +16 for "dog car harness"
+[5m12s]   [95/104] (91%) search "dog lick mat" p2 (popularity)
+[5m18s]   "dog lick mat" p2 (relevance): +3 new (pool 1174)
+[5m18s]   term 24/26 done — +3 for "dog lick mat"
+[5m27s]   "collapsible dog bowl" p2 (popularity): +7 new (pool 1181)
+[5m27s]   [100/104] (96%) search "collapsible dog bowl" p2 (relevance)
+[5m30s]   "collapsible dog bowl" p2 (relevance): +22 new (pool 1203)
+[5m30s]   term 25/26 done — +29 for "collapsible dog bowl"
+[5m34s]   "dog hiking gear" p1 (popularity): +9 new (pool 1212)
+[5m45s]   "dog hiking gear" p1 (relevance): +5 new (pool 1217)
+[5m49s]   "dog hiking gear" p2 (popularity): +1 new (pool 1218)
+[5m49s]   [104/104] (100%) search "dog hiking gear" p2 (relevance)
+[5m52s]   "dog hiking gear" p2 (relevance): +4 new (pool 1222)
+[5m52s]   term 26/26 done — +19 for "dog hiking gear"
+[5m52s] Search complete — 1222 unique products to score
+
+[5m52s] ━━ Scoring & image checks — 1222 products ━━
+[5m52s]   [1/1222] (0%) scoring: Pet Water Bottle Feeder Bowl Garbage Bag Storage P
+[5m52s]   checking 1 image(s)...
+[5m53s]     image 1/1 score=75
+[5m54s]   checking 1 image(s)...
+[5m54s]     image 1/1 score=75
+[5m55s]   checking 1 image(s)...
+[5m55s]     image 1/1 score=80
+[5m56s]   checking 1 image(s)...
+[5m56s]     image 1/1 score=75
+[5m58s]   checking 1 image(s)...
+[5m58s]     image 1/1 score=65
+[5m59s]   [48/1222] (3%) scoring: Air Conditioner Air Cooler Fan Water Cooling Fan A
+[5m59s]   checking 1 image(s)...
+[5m59s]     image 1/1 score=75
+[6m00s]   checking 1 image(s)...
+[6m01s]     image 1/1 score=75
+[6m02s]   checking 1 image(s)...
+[6m02s]     image 1/1 score=75
+[6m04s]   checking 1 image(s)...
+[6m04s]     image 1/1 score=75
+[6m05s]   checking 1 image(s)...
+[6m06s]     image 1/1 score=75
+[6m06s]   [96/1222] (7%) scoring: New Winter Dog Coat Waterproof Pet Clothes For Med
+[6m07s]   checking 1 image(s)...
+[6m07s]     image 1/1 score=75
+[6m08s]   checking 1 image(s)...
+[6m09s]     image 1/1 score=75
+[6m14s]   checking 1 image(s)...
+[6m14s]     image 1/1 score=80
+[6m15s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[6m18s]   checking 1 image(s)...
+[6m18s]     image 1/1 score=75
+[6m21s]   checking 1 image(s)...
+[6m21s]     image 1/1 score=75
+[6m22s]   [144/1222] (11%) scoring: Cat Tent Cooling Mat  Dog House Pet Sofa Camping D
+[6m23s]   checking 1 image(s)...
+[6m23s]     image 1/1 score=75
+[6m26s]   checking 1 image(s)...
+[6m26s]     image 1/1 score=80
+[6m29s]   checking 1 image(s)...
+[6m30s]     image 1/1 score=80
+[6m35s]   checking 1 image(s)...
+[6m35s]     image 1/1 score=0
+[6m38s]   checking 1 image(s)...
+[6m39s]     image 1/1 score=65
+[6m39s]   [192/1222] (15%) scoring: Portable Silicone Double Dog Food Bowls Foldable N
+[6m42s]   checking 1 image(s)...
+[6m43s]     image 1/1 score=75
+[6m46s]   checking 1 image(s)...
+[6m46s]     image 1/1 score=65
+[6m50s]   checking 1 image(s)...
+[6m50s]     image 1/1 score=75
+[6m54s]   checking 1 image(s)...
+[6m55s]     image 1/1 score=75
+[6m58s]   [240/1222] (19%) scoring: Cat Bowl Dog Bowl Food Bowl To Protect The Cervica
+[6m59s]   checking 1 image(s)...
+[6m59s]     image 1/1 score=75
+[7m00s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[7m01s]   checking 1 image(s)...
+[7m01s]     image 1/1 score=65
+[7m03s]   checking 1 image(s)...
+[7m03s]     image 1/1 score=80
+[7m05s]   checking 1 image(s)...
+[7m05s]     image 1/1 score=65
+[7m07s]   checking 1 image(s)...
+[7m08s]     image 1/1 score=65
+[7m09s]   [288/1222] (23%) scoring: Waterproof USB Anti-theft Bag Men Oxford Crossbody
+[7m10s]   checking 1 image(s)...
+[7m10s]     image 1/1 score=75
+[7m12s]   checking 1 image(s)...
+[7m13s]     image 1/1 score=75
+[7m16s]   checking 1 image(s)...
+[7m16s]     image 1/1 score=65
+[7m18s]   checking 1 image(s)...
+[7m19s]     image 1/1 score=65
+[7m22s]   checking 1 image(s)...
+[7m22s]     image 1/1 score=75
+[7m24s]   [336/1222] (27%) scoring: Side Opening Small Luggage Compartment, 20 Inch Co
+[7m26s]   checking 1 image(s)...
+[7m27s]     image 1/1 score=65
+[7m31s]   checking 1 image(s)...
+[7m32s]     image 1/1 score=80
+[7m35s]   checking 1 image(s)...
+[7m36s]     image 1/1 score=75
+[7m37s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[7m39s]   checking 1 image(s)...
+[7m40s]     image 1/1 score=75
+[7m44s]   checking 1 image(s)...
+[7m45s]     image 1/1 score=75
+[7m46s]   [384/1222] (31%) scoring: Pu Leather Car Seat Cover
+[7m51s]   checking 1 image(s)...
+[7m51s]     image 1/1 score=75
+[7m56s]   checking 1 image(s)...
+[7m56s]     image 1/1 score=35
+[8m01s]   checking 1 image(s)...
+[8m02s]     image 1/1 score=65
+[8m07s]   checking 1 image(s)...
+[8m08s]     image 1/1 score=75
+[8m13s]   checking 1 image(s)...
+[8m14s]     image 1/1 score=65
+[8m14s]   [432/1222] (35%) scoring: All-inclusive Seat Cover Full Leather Car Seat Cus
+[8m20s]   checking 1 image(s)...
+[8m21s]     image 1/1 score=80
+[8m24s]   checking 1 image(s)...
+[8m25s]     image 1/1 score=75
+[8m27s]   checking 1 image(s)...
+[8m28s]     image 1/1 score=75
+[8m32s]   checking 1 image(s)...
+[8m33s]     image 1/1 score=75
+[8m35s]   [480/1222] (39%) scoring: Dog Harness
+[8m35s]   checking 1 image(s)...
+[8m36s]     image 1/1 score=75
+[8m40s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[8m42s]   checking 1 image(s)...
+[8m42s]     image 1/1 score=65
+[8m47s]   checking 1 image(s)...
+[8m48s]     image 1/1 score=65
+[8m50s]   checking 1 image(s)...
+[8m51s]     image 1/1 score=75
+[8m54s]   checking 1 image(s)...
+[8m55s]     image 1/1 score=80
+[8m57s]   [528/1222] (43%) scoring: Acrylic Adjustable Pet Hammock Basking In The Sun
+[8m59s]   checking 1 image(s)...
+[8m59s]     image 1/1 score=65
+[9m01s]   checking 1 image(s)...
+[9m01s]     image 1/1 score=75
+[9m03s]   checking 1 image(s)...
+[9m03s]     image 1/1 score=80
+[9m07s]   checking 1 image(s)...
+[9m07s]     image 1/1 score=80
+[9m13s]   checking 1 image(s)...
+[9m14s]     image 1/1 score=75
+[9m15s]   [576/1222] (47%) scoring: Pet Marching Mattress, Cat Hammock, Breathable, Sc
+[9m16s]   checking 1 image(s)...
+[9m17s]     image 1/1 score=75
+[9m21s]   checking 1 image(s)...
+[9m21s]     image 1/1 score=75
+[9m27s]   checking 1 image(s)...
+[9m27s]     image 1/1 score=80
+[9m33s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[9m33s]   checking 1 image(s)...
+[9m33s]     image 1/1 score=75
+[9m39s]   checking 1 image(s)...
+[9m39s]     image 1/1 score=75
+[9m40s]   [624/1222] (51%) scoring: Avocado Pet Dog Cat Automatic Feeder Bowl For Dogs
+[9m42s]   checking 1 image(s)...
+[9m42s]     image 1/1 score=75
+[9m45s]   checking 1 image(s)...
+[9m45s]     image 1/1 score=75
+[9m49s]   checking 1 image(s)...
+[9m49s]     image 1/1 score=35
+[9m52s]   checking 1 image(s)...
+[9m53s]     image 1/1 score=75
+[9m57s]   checking 1 image(s)...
+[9m58s]     image 1/1 score=65
+[9m58s]   [672/1222] (54%) scoring: Pet Bowl Tilted Cat Double Bowls Protect Cervical 
+[10m02s]   checking 1 image(s)...
+[10m03s]     image 1/1 score=75
+[10m06s]   checking 1 image(s)...
+[10m06s]     image 1/1 score=80
+[10m09s]   checking 1 image(s)...
+[10m10s]     image 1/1 score=75
+[10m12s]   checking 1 image(s)...
+[10m12s]     image 1/1 score=75
+[10m16s]   [720/1222] (58%) scoring: Spot Pet Mat, Waterproof And Easy To Clean Silicon
+[10m16s]   checking 1 image(s)...
+[10m16s]     image 1/1 score=75
+[10m22s]   checking 1 image(s)...
+[10m22s]     image 1/1 score=75
+[10m23s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[10m26s]   checking 1 image(s)...
+[10m26s]     image 1/1 score=75
+[10m31s]   checking 1 image(s)...
+[10m31s]     image 1/1 score=65
+[10m35s]   checking 1 image(s)...
+[10m36s]     image 1/1 score=75
+[10m38s]   [768/1222] (62%) scoring: 1Pc Smart Pet Water Fountain Automatic Cat Water D
+[10m39s]   checking 1 image(s)...
+[10m40s]     image 1/1 score=75
+[10m43s]   checking 1 image(s)...
+[10m44s]     image 1/1 score=75
+[10m48s]   checking 1 image(s)...
+[10m49s]     image 1/1 score=75
+[10m54s]   checking 1 image(s)...
+[10m54s]     image 1/1 score=70
+[10m57s]   checking 1 image(s)...
+[10m57s]     image 1/1 score=75
+[10m59s]   [816/1222] (66%) scoring: Pet Drinker Dog Cat Feeding Bowl
+[11m00s]   checking 1 image(s)...
+[11m00s]     image 1/1 score=75
+[11m04s]   checking 1 image(s)...
+[11m05s]     image 1/1 score=75
+[11m09s]   checking 1 image(s)...
+[11m09s]     image 1/1 score=80
+[11m15s]   checking 1 image(s)...
+[11m16s]     image 1/1 score=75
+[11m17s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[11m19s]   checking 1 image(s)...
+[11m19s]     image 1/1 score=75
+[11m20s]   [864/1222] (70%) scoring: Non Slip Dog Sniffing Snuffle Mat Washable Sunflow
+[11m23s]   checking 1 image(s)...
+[11m23s]     image 1/1 score=75
+[11m28s]   checking 1 image(s)...
+[11m28s]     image 1/1 score=75
+[11m33s]   checking 1 image(s)...
+[11m34s]     image 1/1 score=75
+[11m38s]   checking 1 image(s)...
+[11m39s]     image 1/1 score=75
+[11m42s]   checking 1 image(s)...
+[11m42s]     image 1/1 score=75
+[11m42s]   [912/1222] (74%) scoring: Magnetic Building Blocks DIY Magnets Toys For Kids
+[11m47s]   checking 1 image(s)...
+[11m48s]     image 1/1 score=75
+[11m50s]   checking 1 image(s)...
+[11m50s]     image 1/1 score=75
+[11m54s]   checking 1 image(s)...
+[11m55s]     image 1/1 score=75
+[11m59s]   checking 1 image(s)...
+[11m59s]     image 1/1 score=65
+[12m04s]   [960/1222] (78%) scoring: Christmas Pet Bowl Cat Slow Feeding
+[12m04s]   checking 1 image(s)...
+[12m05s]     image 1/1 score=80
+[12m08s]   checking 1 image(s)...
+[12m08s]     image 1/1 score=75
+[12m11s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[12m13s]   checking 1 image(s)...
+[12m13s]     image 1/1 score=80
+[12m18s]   checking 1 image(s)...
+[12m19s]     image 1/1 score=75
+[12m24s]   checking 1 image(s)...
+[12m24s]     image 1/1 score=75
+[12m26s]   [1008/1222] (82%) scoring: Family Outdoor Travel Water Bottle Sleeve
+[12m28s]   checking 1 image(s)...
+[12m28s]     image 1/1 score=65
+[12m33s]   checking 1 image(s)...
+[12m34s]     image 1/1 score=75
+[12m38s]   checking 1 image(s)...
+[12m39s]     image 1/1 score=75
+[12m43s]   checking 1 image(s)...
+[12m44s]     image 1/1 score=65
+[12m47s]   checking 1 image(s)...
+[12m47s]     image 1/1 score=65
+[12m49s]   [1056/1222] (86%) scoring: 1pc Outdoor Travel Mesh Oxford Pet Puppy Carrier H
+[12m53s]   checking 1 image(s)...
+[12m53s]     image 1/1 score=80
+[12m59s]   checking 1 image(s)...
+[12m59s]     image 1/1 score=65
+[13m05s]   checking 1 image(s)...
+[13m06s]     image 1/1 score=80
+[13m11s]   checking 1 image(s)...
+[13m12s]     image 1/1 score=80
+[13m17s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[13m18s]   checking 1 image(s)...
+[13m18s]     image 1/1 score=75
+[13m20s]   [1104/1222] (90%) scoring: Portable Arm Mobile Phone Holder Outdoor Sport Run
+[13m25s]   checking 1 image(s)...
+[13m25s]     image 1/1 score=75
+[13m32s]   checking 1 image(s)...
+[13m32s]     image 1/1 score=80
+[13m39s]   checking 1 image(s)...
+[13m40s]     image 1/1 score=65
+[13m45s]   checking 1 image(s)...
+[13m45s]     image 1/1 score=75
+[13m51s]   checking 1 image(s)...
+[13m51s]     image 1/1 score=75
+[13m51s]   [1152/1222] (94%) scoring: Pet weighing dog food bowl
+[13m56s]   checking 1 image(s)...
+[13m57s]     image 1/1 score=80
+[14m03s]   checking 1 image(s)...
+[14m03s]     image 1/1 score=65
+[14m07s]   checking 1 image(s)...
+[14m07s]     image 1/1 score=65
+[14m11s]   checking 1 image(s)...
+[14m12s]     image 1/1 score=65
+[14m17s]   [1200/1222] (98%) scoring: Medium And Large Dogs Dog Bowl Bamboo Stand Stainl
+[14m17s]   checking 1 image(s)...
+[14m18s]     image 1/1 score=75
+[14m23s]   checking 1 image(s)...
+[14m23s]     image 1/1 score=75
+[14m28s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[14m28s]   checking 1 image(s)...
+[14m28s]     image 1/1 score=65
+[14m28s]   [1222/1222] (100%) scoring: JR GEAR Genuine Ultra-light Inflatable Moisture-pr
+[14m28s]   checking 1 image(s)...
+[14m29s]     image 1/1 score=75
+[14m29s]   progress — best so far: score 95 "Bag Silicone Feed Dogs Treat Pouch Pet T"
+[14m29s] Ranking done — top score 95: Bag Silicone Feed Dogs Treat Pouch Pet Training Bag Bun
+[14m29s] ✓ Phase 1 — Discovery & scoring (869.1s)
+[14m29s] Discovered 1222 scored opportunities
+
+[14m29s] ━━ Quality gate — 1222 products (min score 58.0) ━━
+[14m29s]   [1/1222] (0%) accept score=95 Bag Silicone Feed Dogs Treat Pouch Pet T
+[14m29s]   [81/1222] (6%) accept score=79 Portable Pet Water Dispenser Feeder Leak
+[14m29s]   [162/1222] (13%) reject score=77 Pet Pet Carrier Apron Outdoor Travel Sma
+[14m29s]   [243/1222] (19%) reject score=74 Tea Water Bottle Travel Drinkware Portab
+[14m29s]   [324/1222] (26%) accept score=73 Dog Harness Small Dog Vest Type Leash
+[14m29s]   [405/1222] (33%) reject score=71 Travel Water Bottle Cover Shoulder Bag O
+[14m29s]   [486/1222] (39%) reject score=69 Waterproof Foldable Travel Dog Bowl
+[14m29s]   [567/1222] (46%) reject score=68 Pet Bowl Tilted Cat Double Bowls Protect
+[14m29s]   [648/1222] (53%) reject score=65 Dogs Snuffle Mat Pet Feeding Mats Puppy 
+[14m29s]   [729/1222] (59%) reject score=62 Unisex Casual Travel Fanny Pack Waterpro
+[14m29s]   [810/1222] (66%) reject score=58 Pet Tableware Slow Food Suction Cup Slow
+[14m29s]   [891/1222] (72%) reject score=55 Dog Slow Feeder Bowl Silicone Lick Mat T
+[14m29s]   [972/1222] (79%) reject score=52 Travel Portable Silicone Folding Hot Wat
+[14m29s]   [1053/1222] (86%) reject score=50 Multi-functional Suction Cup Lick Pad Fo
+[14m29s]   [1134/1222] (92%) reject score=47 Cycling Backpack And Hiking Hydration Ge
+[14m29s]   [1215/1222] (99%) reject score=40 Woven headphone bag-silver gray-1 piece
+[14m29s]   [1222/1222] (100%) reject score=36 Support pan European shipping--Emergency
+[14m29s] Curation — 216 accepted, 1006 rejected
+[14m29s]   top pick: score 95 — Bag Silicone Feed Dogs Treat Pouch Pet Training Ba
+[14m29s] Report saved → /Users/shivansh.sharma/Shivansh/PawPath/data/v2_opportunities.json
+
+[14m29s] ━━ Phase 4–6 — Importing top 5 curated products ━━
+[14m29s] Importing 5 product(s)...
+[14m29s] ── Product 1/5 (score 95) ──
+[14m30s]   fetching CJ product: Bag Silicone Feed Dogs Treat Pouch Pet Traini
+[14m30s]   adding to CJ My Products...
+[14m33s]   assigning collection...
+[14m34s]   collection → Car Essentials
+[14m34s]   generating premium content...
+[14m36s]   creating Shopify product (1 variants, 1 images)...
+[14m42s]   setting SEO + metafields...
+[14m45s] ✓ PawPath Travel — Bag Silicone Feed Dogs Treat Pouch Pet Training... → /products/pawpath-travel-bag-silicone-feed-dogs-treat-pouch-pet-training (Car Essentials)
+[14m45s] ── Product 2/5 (score 89) ──
+[14m47s] ⚠ skipped 2 In 1 Dog Water Bottle, Leak Proof Portable Pet W (already_in_shopify)
+[14m47s] ── Product 3/5 (score 86) ──
+[14m48s]   fetching CJ product: Pet Outdoor Foldable Bottle Dog Travel Water 
+[14m48s]   adding to CJ My Products...
+[14m50s]   assigning collection...
+[14m51s]   collection → Feeding & Hydration
+[14m51s]   generating premium content...
+[14m53s]   creating Shopify product (1 variants, 1 images)...
+[14m59s]   setting SEO + metafields...
+[15m02s] ✓ PawPath — Pet Outdoor Foldable Bottle Dog Travel Water Bottle Dog... → /products/pawpath-pet-outdoor-foldable-bottle-dog-travel-water-bottle-dog (Feeding & Hydration)
+[15m02s] ── Product 4/5 (score 85) ──
+[15m04s]   fetching CJ product: Portable Dog Water Bottle For Walking Portabl
+[15m04s]   adding to CJ My Products...
+[15m05s]   assigning collection...
+[15m07s]   collection → Feeding & Hydration
+[15m07s]   generating premium content...
+[15m09s]   creating Shopify product (1 variants, 1 images)...
+[15m14s]   setting SEO + metafields...
+[15m18s] ✓ PawPath — Portable Dog Water Bottle For Walking Portable Pet Water... → /products/pawpath-portable-dog-water-bottle-for-walking-portable-pet-water (Feeding & Hydration)
+[15m18s] ── Product 5/5 (score 85) ──
+[15m19s]   fetching CJ product: Pet Harness Luxury Dog Leash Set Chest Dog  N
+[15m19s]   adding to CJ My Products...
+[15m21s]   assigning collection...
+[15m23s]   collection → Car Essentials
+[15m23s]   generating premium content...
+[15m24s]   creating Shopify product (1 variants, 1 images)...
+[15m30s]   setting SEO + metafields...
+[15m33s] ✓ PawPath Road Trip — Pet Harness Luxury Dog Leash Set Chest Dog... → /products/pawpath-road-trip-pet-harness-luxury-dog-leash-set-chest-dog (Car Essentials)
+[15m33s] Import log → /Users/shivansh.sharma/Shivansh/PawPath/data/v2_pipeline_log.json
+
+[15m33s] ━━ Pipeline complete — 4 imported, 1 skipped, 0 failed ━━

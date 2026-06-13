@@ -66,23 +66,10 @@
     "pawpath_cart_trust": {
       "type": "pawpath-cart-trust",
       "settings": {}
-    },
-    "pawpath_cart_upsell": {
-      "type": "pawpath-featured-products",
-      "settings": {
-        "collection_handle": "bundles",
-        "eyebrow": "Complete your kit",
-        "heading": "Add to your outing",
-        "description": "Bundle and save on walk-ready and road trip kits.",
-        "max_products": 4,
-        "show_view_all": true,
-        "view_all_label": "View all bundles"
-      }
     }
   },
   "order": [
     "cart-section",
-    "pawpath_cart_trust",
-    "pawpath_cart_upsell"
+    "pawpath_cart_trust"
   ]
 }

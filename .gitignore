@@ -1,0 +1,10 @@
+.env
+.cache/
+data/cj_*.json
+data/v2_*.json
+data/pawpath_catalog.db
+!data/.gitkeep
+__pycache__/
+*.pyc
+.Python
+.venv/

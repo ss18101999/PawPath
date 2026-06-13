@@ -11,9 +11,7 @@
     {% if product.tags contains 'new' %}
       <span class="pawpath__badge pawpath__badge--new">New Arrival</span>
     {% endif %}
-    {% if product.tags contains 'bundle' %}
-      <span class="pawpath__badge pawpath__badge--bundle">Outing Kit</span>
-    {% endif %}
+    {% comment %} Outing kit / bundle badges removed — kit builder feature discontinued {% endcomment %}
     {% if product.tags contains 'high-aov' %}
       <span class="pawpath__badge pawpath__badge--premium">Premium Pick</span>
     {% endif %}

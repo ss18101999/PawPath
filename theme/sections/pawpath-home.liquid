@@ -42,8 +42,6 @@
                   assign collection_asset = 'collection-feeding'
                 when 'enrichment'
                   assign collection_asset = 'collection-enrichment'
-                when 'bundles'
-                  assign collection_asset = 'collection-bundles'
               endcase
             %}
             <a class="pawpath__collection-card" href="{{ card_url }}" {{ block.shopify_attributes }}>
@@ -159,54 +157,6 @@
       </div>
     </div>
   </div>
-
-  {%- comment -%} BUNDLES {%- endcomment -%}
-  <div id="bundles" class="pawpath__section">
-    <div class="pawpath__container">
-      <div class="pawpath__section-header">
-        <p class="pawpath__eyebrow">Outing Kits</p>
-        <h2 class="pawpath__heading pawpath__heading--section">Build Your PawPath Kit</h2>
-        <p class="pawpath__lead">Bundle the products your dog needs for walks, car rides, and park days. Fewer messes, fewer forgotten items, and more tail-wagging trips.</p>
-      </div>
-      {% for block in section.blocks %}
-        {% if block.type == 'bundle' %}
-          {% liquid
-            assign bundle_asset = 'collection-bundles'
-            assign price_label = block.settings.price_label
-            if block.settings.link contains 'walk-ready'
-              assign bundle_asset = 'lifestyle-walk'
-              assign bundle_product = all_products['walk-ready-bundle']
-            elsif block.settings.link contains 'road-trip'
-              assign bundle_asset = 'lifestyle-car'
-              assign bundle_product = all_products['road-trip-bundle']
-            endif
-            if bundle_product != blank and bundle_product.price > 0
-              assign price_label = bundle_product.price | money
-            endif
-          %}
-          <a class="pawpath__bundle pawpath__bundle--link" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
-            <div class="pawpath__bundle-thumb">
-              {% render 'pawpath-render-image',
-                asset: bundle_asset,
-                width: 800,
-                sizes: '120px',
-                alt: block.settings.title,
-                class: 'pawpath__bundle-img'
-              %}
-            </div>
-            <div>
-              <h3>{{ block.settings.title }}</h3>
-              <p>{{ block.settings.description }}</p>
-            </div>
-            <div class="pawpath__bundle-cta">
-              <span class="pawpath__price">{{ price_label }}</span>
-              <span class="pawpath__bundle-shop">Shop bundles</span>
-            </div>
-          </a>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
 </section>
 
 {% schema %}
@@ -307,16 +257,6 @@
         },
         { "type": "url", "id": "link", "label": "Product link" },
         { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop water bottles" }
-      ]
-    },
-    {
-      "type": "bundle",
-      "name": "Outing kit",
-      "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Walk Ready Kit" },
-        { "type": "textarea", "id": "description", "label": "Description" },
-        { "type": "text", "id": "price_label", "label": "Price label", "default": "$64.95" },
-        { "type": "url", "id": "link", "label": "Product or collection link" }
       ]
     },
     {

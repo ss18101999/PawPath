@@ -189,7 +189,7 @@
       "type": "pawpath-featured-products",
       "settings": {
         "collection_handle": "all",
-        "eyebrow": "Complete your kit",
+        "eyebrow": "You may also like",
         "heading": "Pairs well together",
         "description": "Add these essentials to your next outing.",
         "max_products": 4,

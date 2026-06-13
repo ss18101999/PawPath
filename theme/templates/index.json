@@ -26,8 +26,8 @@
         "metric_2_label": "happy dog parents",
         "primary_label": "Shop Travel Essentials",
         "primary_link": "/collections/all",
-        "secondary_label": "Build Your Outing Kit",
-        "secondary_link": "/#bundles"
+        "secondary_label": "View FAQs",
+        "secondary_link": "/pages/faq"
       }
     },
     "pawpath_featured": {
@@ -84,19 +84,15 @@
         "col_road": { "type": "collection", "settings": { "collection_handle": "car-essentials", "title": "Car Essentials", "description": "Seat covers, safety tethers, and cleaner drives", "icon": "car", "fallback_link": "/collections/car-essentials" } },
         "col_feeding": { "type": "collection", "settings": { "collection_handle": "feeding-hydration", "title": "Feeding & Hydration", "description": "Water bottles, bowls, and slow feeders", "icon": "water", "fallback_link": "/collections/feeding-hydration" } },
         "col_enrichment": { "type": "collection", "settings": { "collection_handle": "enrichment", "title": "Enrichment", "description": "Snuffle mats, lick mats, and calmer breaks", "icon": "bowl", "fallback_link": "/collections/enrichment" } },
-        "col_bundles": { "type": "collection", "settings": { "collection_handle": "bundles", "title": "Bundles", "description": "Curated kits for walks, road trips, and park days", "icon": "bundle", "fallback_link": "/collections/bundles" } },
         "life_car": { "type": "lifestyle", "settings": { "title": "Cleaner Car Rides", "description": "Protect your seats from mud, fur, and spills after park days and road trips.", "icon": "car", "placeholder_style": "car", "tall": true } },
         "life_walk": { "type": "lifestyle", "settings": { "title": "Better Walks", "description": "Hydration bottles and treat pouches for daily walks and errands.", "icon": "walk", "placeholder_style": "walk", "tall": false } },
         "life_mealtime": { "type": "lifestyle", "settings": { "title": "Calmer Mealtimes", "description": "Slow feeders and enrichment tools for more focused treat and meal routines.", "icon": "bowl", "placeholder_style": "mealtime", "tall": false } },
         "life_park": { "type": "lifestyle", "settings": { "title": "Park Days & Weekend Trips", "description": "Everything you need for short outings and longer trips with your dog.", "icon": "water", "placeholder_style": "park", "tall": false } },
         "use_1": { "type": "use_case", "settings": { "scenario": "On a walk", "title": "Fresh water without the hassle", "description": "Portable water bottles make hydration easier during walks, hikes, and errands — no separate bowl needed.", "icon": "water", "link": "/products/trailsip-portable-dog-water-bottle", "link_label": "Shop water bottles" } },
         "use_2": { "type": "use_case", "settings": { "scenario": "In the car", "title": "Cleaner seats after muddy park days", "description": "Waterproof seat covers catch fur, mud, and spills before they hit your upholstery.", "icon": "car", "link": "/products/roadguard-waterproof-dog-car-seat-cover", "link_label": "Shop car gear" } },
-        "use_3": { "type": "use_case", "settings": { "scenario": "At home or on the go", "title": "Calmer breaks between outings", "description": "Slow feeders and lick mats turn treat time into a focused, relaxing routine.", "icon": "bowl", "link": "/products/pawpath-portable-slow-feeder-lick-mat", "link_label": "Shop enrichment" } },
-        "bundle_1": { "type": "bundle", "settings": { "title": "Walk Ready Kit", "description": "Water bottle, treat pouch, and slow feeder for everyday walks.", "price_label": "$64.95", "link": "/products/walk-ready-bundle" } },
-        "bundle_2": { "type": "bundle", "settings": { "title": "Road Trip Kit", "description": "Seat cover, safety tether, and travel essentials for cleaner drives.", "price_label": "$84.95", "link": "/products/road-trip-bundle" } },
-        "bundle_3": { "type": "bundle", "settings": { "title": "All Outing Kits", "description": "Browse every bundle and save on complete walk and road trip sets.", "price_label": "From $64.95", "link": "/collections/bundles" } }
+        "use_3": { "type": "use_case", "settings": { "scenario": "At home or on the go", "title": "Calmer breaks between outings", "description": "Slow feeders and lick mats turn treat time into a focused, relaxing routine.", "icon": "bowl", "link": "/products/pawpath-portable-slow-feeder-lick-mat", "link_label": "Shop enrichment" } }
       },
-      "block_order": ["col_travel", "col_road", "col_feeding", "col_enrichment", "col_bundles", "life_car", "life_walk", "life_mealtime", "life_park", "use_1", "use_2", "use_3", "bundle_1", "bundle_2", "bundle_3"],
+      "block_order": ["col_travel", "col_road", "col_feeding", "col_enrichment", "life_car", "life_walk", "life_mealtime", "life_park", "use_1", "use_2", "use_3"],
       "settings": {
         "primary_label": "Shop Travel Essentials",
         "primary_link": "/collections/all"
@@ -109,10 +105,9 @@
         "row_2": { "type": "row", "settings": { "feature": "Waterproof & easy-clean materials", "brand_has_feature": true, "generic_has_feature": false } },
         "row_3": { "type": "row", "settings": { "feature": "Compact, travel-ready design", "brand_has_feature": true, "generic_has_feature": false } },
         "row_4": { "type": "row", "settings": { "feature": "30-day hassle-free returns", "brand_has_feature": true, "generic_has_feature": false } },
-        "row_5": { "type": "row", "settings": { "feature": "Dog-parent tested", "brand_has_feature": true, "brand_detail": "Real outing use cases", "generic_has_feature": false } },
-        "row_6": { "type": "row", "settings": { "feature": "Complete outing kits", "brand_has_feature": true, "generic_has_feature": false } }
+        "row_5": { "type": "row", "settings": { "feature": "Dog-parent tested", "brand_has_feature": true, "brand_detail": "Real outing use cases", "generic_has_feature": false } }
       },
-      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5", "row_6"],
+      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5"],
       "settings": {
         "eyebrow": "The PawPath Difference",
         "heading": "Not all pet travel gear is built the same.",
@@ -174,7 +169,7 @@
       "settings": {
         "eyebrow": "Join the pack",
         "heading": "Get the Dog Travel Checklist",
-        "description": "Packing tips, new gear drops, and bundle deals for dog parents who travel. Plus free US shipping on orders over $50."
+        "description": "Packing tips, new gear drops, and travel advice for dog parents. Plus free US shipping on orders over $50."
       }
     }
   },
