@@ -1,3 +1,8 @@
+{% comment %}
+  Premium full-bleed hero — lifestyle imagery, clear value prop, dual CTAs, brand trust strip.
+  Social proof line and value pills reduce bounce without dropship-style badge overload.
+{% endcomment %}
+
 <section class="pawpath pawpath__hero-strip" id="pawpath-hero-{{ section.id }}">
   {% unless section.settings.hero_image != blank %}
     <link
@@ -17,7 +22,8 @@
             fetchpriority: 'high',
             widths: '800,1200,1600,2000',
             sizes: '100vw',
-            alt: section.settings.hero_image_alt
+            alt: section.settings.hero_image_alt,
+            class: 'pawpath__cover-img'
         }}
       {% else %}
         {% render 'pawpath-render-image',
@@ -33,9 +39,39 @@
     <div class="pawpath__hero-overlay" aria-hidden="true"></div>
     <div class="pawpath__hero-content">
       <div class="pawpath__container">
-        <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+        <p class="pawpath__eyebrow pawpath__eyebrow--light">{{ section.settings.eyebrow }}</p>
         <h1 class="pawpath__heading pawpath__heading--hero">{{ section.settings.heading }}</h1>
         <p class="pawpath__lead pawpath__lead--light">{{ section.settings.subheading }}</p>
+
+        {% if section.settings.social_proof != blank %}
+          <p class="pawpath__hero-social-proof">{{ section.settings.social_proof }}</p>
+        {% endif %}
+
+        {% if section.settings.show_metric_strip %}
+          <div class="pawpath__hero-metrics" aria-label="Brand highlights">
+            {% if section.settings.metric_1_value != blank %}
+              <div class="pawpath__hero-metric-card">
+                <span class="pawpath__hero-metric-value">{{ section.settings.metric_1_value }}</span>
+                <span class="pawpath__hero-metric-label">{{ section.settings.metric_1_label }}</span>
+              </div>
+            {% endif %}
+            {% if section.settings.metric_2_value != blank %}
+              <div class="pawpath__hero-metric-card">
+                <span class="pawpath__hero-metric-value">{{ section.settings.metric_2_value }}</span>
+                <span class="pawpath__hero-metric-label">{{ section.settings.metric_2_label }}</span>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.show_value_pills %}
+          <ul class="pawpath__hero-pills" aria-label="Key benefits">
+            <li>{% render 'pawpath-icons', icon: 'walk' %} Walk-ready gear</li>
+            <li>{% render 'pawpath-icons', icon: 'car' %} Road trip essentials</li>
+            <li>{% render 'pawpath-icons', icon: 'bowl' %} Calmer mealtimes</li>
+          </ul>
+        {% endif %}
+
         <div class="pawpath__actions">
           <a class="pawpath__button pawpath__button--white" href="{{ section.settings.primary_link }}">
             {{ section.settings.primary_label }}
@@ -46,37 +82,43 @@
         </div>
       </div>
     </div>
+
+    {% if section.settings.show_scroll_cue %}
+      <div class="pawpath__hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+      </div>
+    {% endif %}
   </div>
 
   <div class="pawpath__trust-bar">
     <div class="pawpath__container">
-      <div class="pawpath__trust-grid">
-        <div class="pawpath__trust-item">
-          <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'lock' %}</div>
-          <div>
-            <strong>Secure Checkout</strong>
-            <span>Shopify encrypted payments</span>
-          </div>
-        </div>
+      <div class="pawpath__trust-grid pawpath__trust-grid--5">
         <div class="pawpath__trust-item">
           <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'truck' %}</div>
           <div>
-            <strong>Fast US Shipping</strong>
-            <span>Most orders in 3–7 business days</span>
-          </div>
-        </div>
-        <div class="pawpath__trust-item">
-          <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'paw' %}</div>
-          <div>
-            <strong>Curated for Dogs</strong>
-            <span>Travel, feeding & car essentials</span>
+            <strong>Fast Shipping</strong>
+            <span>Free US shipping $50+ · 3–7 days</span>
           </div>
         </div>
         <div class="pawpath__trust-item">
           <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'return' %}</div>
           <div>
             <strong>Easy Returns</strong>
-            <span>30 days on unused items</span>
+            <span>30-day hassle-free policy</span>
+          </div>
+        </div>
+        <div class="pawpath__trust-item">
+          <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'lock' %}</div>
+          <div>
+            <strong>Secure Checkout</strong>
+            <span>Shopify-encrypted payments</span>
+          </div>
+        </div>
+        <div class="pawpath__trust-item">
+          <div class="pawpath__trust-icon">{% render 'pawpath-icons', icon: 'shield' %}</div>
+          <div>
+            <strong>Customer Support</strong>
+            <span>Real help from dog parents</span>
           </div>
         </div>
       </div>
@@ -109,13 +151,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Make Every Outing Easier"
+      "default": "Every Adventure Starts With a Prepared Dog"
     },
     {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Smart dog travel, feeding, and enrichment gear for cleaner cars, calmer breaks, and better walks."
+      "default": "PawPath specializes in pet travel gear — hydration, car protection, feeding, and enrichment built for walks, road trips, and park days."
     },
     {
       "type": "text",
@@ -138,6 +180,56 @@
       "type": "url",
       "id": "secondary_link",
       "label": "Secondary link"
+    },
+    {
+      "type": "text",
+      "id": "social_proof",
+      "label": "Social proof line",
+      "default": "Thoughtfully designed gear for walks, road trips, and park days."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_value_pills",
+      "label": "Show value proposition pills",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_cue",
+      "label": "Show scroll indicator",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_metric_strip",
+      "label": "Show trust metrics",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "metric_1_value",
+      "label": "Metric 1 — number",
+      "default": "2,500+",
+      "info": "Update with your verified order count"
+    },
+    {
+      "type": "text",
+      "id": "metric_1_label",
+      "label": "Metric 1 — label",
+      "default": "orders shipped"
+    },
+    {
+      "type": "text",
+      "id": "metric_2_value",
+      "label": "Metric 2 — number",
+      "default": "1,200+",
+      "info": "Update with your verified customer count"
+    },
+    {
+      "type": "text",
+      "id": "metric_2_label",
+      "label": "Metric 2 — label",
+      "default": "happy dog parents"
     }
   ],
   "presets": [{ "name": "PawPath hero" }]

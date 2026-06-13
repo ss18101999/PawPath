@@ -1,0 +1,18 @@
+{% comment %} Product highlights — benefit-first bullets above variant picker. {% endcomment %}
+
+{% liquid
+  assign highlights = product.metafields.custom.highlights.value
+%}
+
+<ul class="pawpath-pdp__highlights" aria-label="Why dog parents choose this">
+  {% if highlights != blank and highlights.size > 0 %}
+    {% for highlight in highlights limit: 4 %}
+      <li>{{ highlight }}</li>
+    {% endfor %}
+  {% else %}
+    <li>Built for walks, road trips, and park days</li>
+    <li>Compact, travel-ready design</li>
+    <li>Easy wipe-down or rinse-clean materials</li>
+    <li>Curated by dog parents for real outings</li>
+  {% endif %}
+</ul>

@@ -1,0 +1,30 @@
+{% comment %}
+  Premium accordion — product story, shipping, returns, support.
+{% endcomment %}
+
+<div class="pawpath-pdp__accordion" id="pawpath-pdp-details">
+  <details class="pawpath-pdp__acc-item" open>
+    <summary><span>Product details</span><span class="pawpath-pdp__acc-icon" aria-hidden="true"></span></summary>
+    <div class="pawpath-pdp__acc-body rte">
+      {% if product.description != blank %}
+        {{ product.description }}
+      {% else %}
+        <p>Premium pet travel gear designed for walks, road trips, and everyday adventures with your dog.</p>
+      {% endif %}
+    </div>
+  </details>
+  <details class="pawpath-pdp__acc-item">
+    <summary><span>Shipping</span><span class="pawpath-pdp__acc-icon" aria-hidden="true"></span></summary>
+    <div class="pawpath-pdp__acc-body">
+      <p>Orders process in 1–2 business days. US delivery typically takes 3–7 business days. Free shipping on orders over $50. Tracking sent by email.</p>
+      <a class="pawpath__text-link" href="/pages/shipping-returns">Shipping policy →</a>
+    </div>
+  </details>
+  <details class="pawpath-pdp__acc-item">
+    <summary><span>Returns</span><span class="pawpath-pdp__acc-icon" aria-hidden="true"></span></summary>
+    <div class="pawpath-pdp__acc-body">
+      <p>Return unused items in original packaging within 30 days. Contact support and we'll guide you through a hassle-free return.</p>
+      <a class="pawpath__text-link" href="/pages/shipping-returns">Returns policy →</a>
+    </div>
+  </details>
+</div>

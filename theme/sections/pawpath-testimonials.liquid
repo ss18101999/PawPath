@@ -1,0 +1,125 @@
+{% comment %}
+  Homepage testimonials — editorial social proof until verified review counts are available.
+  Does not fabricate star ratings or review totals.
+{% endcomment %}
+
+<section class="pawpath pawpath__section pawpath__section--reviews" id="pawpath-testimonials-{{ section.id }}">
+  <div class="pawpath__container">
+    <div class="pawpath__section-header pawpath__section-header--center">
+      <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p class="pawpath__lead pawpath__lead--center">{{ section.settings.subheading }}</p>
+      {% endif %}
+
+      {% if section.settings.show_metric_placeholder and section.settings.review_count_placeholder != blank and section.settings.rating_placeholder != blank %}
+        {% unless section.settings.review_count_placeholder contains '[INSERT' or section.settings.rating_placeholder contains '[INSERT' %}
+        <div class="pawpath__metric-placeholder-row" aria-label="Review highlights">
+          <div class="pawpath__metric-placeholder">
+            <span class="pawpath__metric-placeholder-value">{{ section.settings.review_count_placeholder }}</span>
+            <span class="pawpath__metric-placeholder-label">Verified reviews</span>
+          </div>
+          <div class="pawpath__metric-placeholder">
+            <span class="pawpath__metric-placeholder-value">{{ section.settings.rating_placeholder }}</span>
+            <span class="pawpath__metric-placeholder-label">Average rating</span>
+          </div>
+        </div>
+        {% if section.settings.placeholder_note != blank %}
+          <p class="pawpath__metric-placeholder-note">{{ section.settings.placeholder_note }}</p>
+        {% endif %}
+        {% endunless %}
+      {% endif %}
+    </div>
+
+    <div class="pawpath__grid pawpath__grid--3">
+      {% for block in section.blocks %}
+        {% if block.type == 'review' %}
+          <article class="pawpath__review-card" {{ block.shopify_attributes }}>
+            <p class="pawpath__review-quote">"{{ block.settings.quote }}"</p>
+            <div class="pawpath__review-author">
+              {% if block.settings.avatar != blank %}
+                <div class="pawpath__review-avatar pawpath__review-avatar--photo">
+                  {{ block.settings.avatar | image_url: width: 84 | image_tag: loading: 'lazy', alt: block.settings.author, class: 'pawpath__review-avatar-img' }}
+                </div>
+              {% else %}
+                <div class="pawpath__review-avatar">{% render 'pawpath-icons', icon: 'paw' %}</div>
+              {% endif %}
+              <div>
+                <strong>{{ block.settings.author }}</strong>
+                <span class="pawpath__review-detail">{{ block.settings.detail }}</span>
+                {% if block.settings.verified %}
+                  <span class="pawpath__review-verified">Verified buyer</span>
+                {% endif %}
+              </div>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath testimonials",
+  "tag": "section",
+  "class": "pawpath-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "From the Pack" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Loved by dogs who live for the outdoors."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Real stories from dog parents who put PawPath gear through muddy paws, long drives, and daily walks."
+    },
+    { "type": "checkbox", "id": "show_metric_placeholder", "label": "Show review metric placeholders", "default": false },
+    {
+      "type": "text",
+      "id": "review_count_placeholder",
+      "label": "Review count placeholder",
+      "default": "[INSERT VERIFIED REVIEW COUNT]"
+    },
+    {
+      "type": "text",
+      "id": "rating_placeholder",
+      "label": "Rating placeholder",
+      "default": "[INSERT VERIFIED TRUSTPILOT RATING]"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_note",
+      "label": "Placeholder note",
+      "default": "Replace placeholders with verified review data from your review app."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "text", "id": "author", "label": "Author", "default": "Dog parent" },
+        { "type": "text", "id": "detail", "label": "Detail", "default": "Walk & park day essentials" },
+        { "type": "image_picker", "id": "avatar", "label": "Customer photo (optional)" },
+        { "type": "checkbox", "id": "verified", "label": "Show verified buyer badge", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath testimonials",
+      "blocks": [
+        { "type": "review", "settings": { "quote": "The water bottle and treat pouch made our park walks so much easier.", "author": "Sarah M.", "detail": "Golden Retriever parent · Portland, OR", "verified": true } },
+        { "type": "review", "settings": { "quote": "My back seat finally survives muddy paws.", "author": "James T.", "detail": "Car seat cover buyer · Austin, TX", "verified": true } },
+        { "type": "review", "settings": { "quote": "The slow feeder is now part of our daily routine.", "author": "Priya K.", "detail": "Feeding & enrichment · Denver, CO", "verified": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

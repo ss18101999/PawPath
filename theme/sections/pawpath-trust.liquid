@@ -1,0 +1,73 @@
+{% comment %}
+  Consolidated trust section — single homepage touchpoint for guarantees.
+  Replaces scattered trust badges across multiple sections.
+{% endcomment %}
+
+<section class="pawpath pawpath__trust-section pawpath__section--sand" id="pawpath-trust-{{ section.id }}">
+  <div class="pawpath__container">
+    <div class="pawpath__section-header pawpath__section-header--center">
+      <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="pawpath__trust-cards">
+      {% for block in section.blocks %}
+        <article class="pawpath__trust-card" {{ block.shopify_attributes }}>
+          <div class="pawpath__trust-icon pawpath__trust-icon--large">{% render 'pawpath-icons', icon: block.settings.icon %}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath trust",
+  "tag": "section",
+  "class": "pawpath-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop With Confidence" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Premium gear. Zero guesswork."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Free US Shipping" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "On all orders over $50. Most arrive in 3–7 business days." },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "truck", "label": "Shipping" },
+            { "value": "return", "label": "Returns" },
+            { "value": "shield", "label": "Quality" },
+            { "value": "lock", "label": "Secure" },
+            { "value": "paw", "label": "Paw" }
+          ],
+          "default": "truck"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath trust",
+      "blocks": [
+        { "type": "trust_item", "settings": { "title": "Free US Shipping $50+", "description": "Fast delivery on orders across the United States. Tracking included.", "icon": "truck" } },
+        { "type": "trust_item", "settings": { "title": "30-Day Returns", "description": "If it's not right for your dog, return unused items within 30 days.", "icon": "return" } },
+        { "type": "trust_item", "settings": { "title": "Quality Guaranteed", "description": "Every product is selected for durability, safety, and real-world travel use.", "icon": "shield" } },
+        { "type": "trust_item", "settings": { "title": "Secure Checkout", "description": "Shopify-encrypted payments. Your data is always protected.", "icon": "lock" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

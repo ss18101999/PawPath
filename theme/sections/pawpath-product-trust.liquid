@@ -1,5 +1,6 @@
 {% comment %}
-  PawPath product page enhancements: benefits, shipping, trust badges, FAQ.
+  PawPath product page trust zone — feature-benefits, shipping, returns, FAQ.
+  Trust badges removed here (shown once at hero + buy box) to avoid dropship repetition.
 {% endcomment %}
 
 <section class="pawpath pawpath__pdp-trust" id="pawpath-pdp-{{ section.id }}">
@@ -8,7 +9,7 @@
       <div>
         <p class="pawpath__eyebrow">Why You'll Love It</p>
         <h2 class="pawpath__heading pawpath__heading--section">Built for real outings with your dog.</h2>
-        <ul class="pawpath__benefits-list" style="margin-top: 28px;">
+        <ul class="pawpath__benefits-list">
           {% for block in section.blocks %}
             {% if block.type == 'benefit' %}
               <li {{ block.shopify_attributes }}>
@@ -20,33 +21,21 @@
             {% endif %}
           {% endfor %}
         </ul>
-        <div class="pawpath__pdp-badges">
-          <div class="pawpath__pdp-badge">
-            {% render 'pawpath-icons', icon: 'lock' %}
-            Secure Checkout
-          </div>
-          <div class="pawpath__pdp-badge">
-            {% render 'pawpath-icons', icon: 'truck' %}
-            Fast US Shipping
-          </div>
-          <div class="pawpath__pdp-badge">
-            {% render 'pawpath-icons', icon: 'return' %}
-            Easy 30-Day Returns
-          </div>
-          <div class="pawpath__pdp-badge">
-            {% render 'pawpath-icons', icon: 'shield' %}
-            Quality Guaranteed
-          </div>
-        </div>
       </div>
 
-      <div>
-        <div class="pawpath__shipping-box" style="margin-bottom: 24px;">
-          <h4>Shipping Information</h4>
+      <div class="pawpath__pdp-trust-sidebar">
+        <div class="pawpath__shipping-box">
+          <h4>Shipping</h4>
           <p><strong>Processing:</strong> Orders ship within 1–2 business days.</p>
           <p><strong>Delivery:</strong> Most US orders arrive in 3–7 business days.</p>
           <p><strong>Free shipping:</strong> On all US orders over $50.</p>
-          <p style="margin-bottom:0;color:var(--pp-muted);font-size:0.85rem;">Tracking provided via email once your order ships.</p>
+          <p class="pawpath__shipping-note">Tracking provided via email once your order ships.</p>
+        </div>
+
+        <div class="pawpath__returns-box">
+          <h4>Returns</h4>
+          <p>Unused items in original packaging can be returned within 30 days. Contact our support team and we'll guide you through a hassle-free return.</p>
+          <a class="pawpath__text-link" href="/pages/shipping-returns">Read full shipping & returns policy →</a>
         </div>
 
         <p class="pawpath__eyebrow">Common Questions</p>

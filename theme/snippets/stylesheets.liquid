@@ -1,3 +1,7 @@
 {{ 'overflow-list.css' | asset_url | preload_tag: as: 'style' }}
 {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'pawpath.css' | asset_url | stylesheet_tag }}
+{{ 'pawpath-store.css' | asset_url | stylesheet_tag }}
+{% if template.name == 'product' %}
+  {{ 'pawpath-pdp.css' | asset_url | stylesheet_tag }}
+{% endif %}

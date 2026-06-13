@@ -7,11 +7,27 @@
   assign img_loading = loading | default: 'lazy'
   assign img_alt = alt | default: 'PawPath dog travel gear'
   assign img_class = class | default: ''
+  if img_class != blank
+    unless img_class contains 'pawpath__cover-img'
+      assign img_class = img_class | append: ' pawpath__cover-img'
+    endunless
+  else
+    assign img_class = 'pawpath__cover-img'
+  endif
 %}
 
 {% case asset %}
   {% when 'hero' %}
-    <img src="{{ 'pawpath-hero-walk.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" fetchpriority="high" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
+    <img
+      src="{{ 'pawpath-hero-walk.jpg' | asset_url }}"
+      alt="{{ img_alt | escape }}"
+      loading="{{ img_loading }}"
+      fetchpriority="high"
+      decoding="async"
+      {% if img_class != blank %}class="{{ img_class }}"{% endif %}
+      width="2400"
+      height="1600"
+    >
   {% when 'collection-travel' %}
     <img src="{{ 'pawpath-collection-travel.jpg' | asset_url }}" alt="{{ img_alt | escape }}" loading="{{ img_loading }}" {% if img_class != blank %}class="{{ img_class }}"{% endif %} decoding="async">
   {% when 'collection-car' %}

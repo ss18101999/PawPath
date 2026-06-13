@@ -6,6 +6,10 @@
 {%- enddoc -%}
 
 <div class="cart-totals">
+  {% unless cart.empty? %}
+    {% render 'pawpath-shipping-progress', context: 'page' %}
+    {% render 'pawpath-delivery-estimate' %}
+  {% endunless %}
   {% # We need to keep this node in place to allow morphing to work properly # %}
   <div class="cart-totals__original-container cart-primary-typography">
     {%- if cart.cart_level_discount_applications.size > 0 -%}
@@ -258,6 +262,9 @@
 </div>
 
 <div class="cart__ctas">
+  {% unless cart.empty? %}
+    {% render 'pawpath-cart-trust-strip' %}
+  {% endunless %}
   <button
     type="submit"
     id="checkout"

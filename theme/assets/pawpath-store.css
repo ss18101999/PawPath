@@ -1,0 +1,535 @@
+/* ==========================================================================
+   PawPath Store Layer — Header, PLP, Cart, Search, Mobile
+   Premium American pet travel brand · Design system enforcement
+   ========================================================================== */
+
+/* --- Extended tokens (inherits --pp-* from pawpath.css) --- */
+.pawpath-store {
+  --pp-header-bg: rgba(255, 252, 248, 0.96);
+  --pp-header-border: rgba(30, 61, 49, 0.08);
+  --pp-header-shadow: 0 4px 24px rgba(26, 50, 41, 0.06);
+  --pp-touch-min: 44px;
+  --pp-container: min(1240px, calc(100% - 32px));
+  --pp-section-y: clamp(56px, 8vw, 96px);
+  --pp-card-radius: 20px;
+  --pp-btn-radius: 999px;
+  --pp-btn-height: 52px;
+  --pp-btn-height-sm: 44px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+/* Let Horizon handle sticky via .header-section — do NOT sticky #header-group */
+.pawpath-store #header-group {
+  margin: 0;
+  padding: 0;
+}
+
+.pawpath-store #header-group > .shopify-section {
+  margin: 0;
+  padding: 0;
+}
+
+.pawpath-store #header-group .section-background {
+  display: none;
+}
+
+/* Premium announcement trust strip */
+.pawpath-announcement {
+  background: linear-gradient(180deg, #1a3229 0%, #1e3830 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pawpath-announcement__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 32px;
+  width: min(1240px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 10px 16px;
+}
+
+.pawpath-announcement__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.pawpath-announcement__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--pp-sand);
+  flex-shrink: 0;
+}
+
+.pawpath-announcement__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pawpath-announcement__text {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media screen and (max-width: 749px) {
+  .pawpath-announcement__inner {
+    gap: 8px 16px;
+    padding: 9px 12px;
+    justify-content: center;
+  }
+
+  .pawpath-announcement__item {
+    font-size: 0.75rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .pawpath-announcement__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .pawpath-announcement__inner {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+.pawpath-store .header-announcements:not(.pawpath-announcement) {
+  background: var(--pp-forest-dark) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pawpath-store .header-announcements:not(.pawpath-announcement) .announcement-bar {
+  background: var(--pp-forest-dark) !important;
+}
+
+.pawpath-store .header-announcements:not(.pawpath-announcement) a,
+.pawpath-store .header-announcements:not(.pawpath-announcement) p,
+.pawpath-store .header-announcements:not(.pawpath-announcement) .announcement-bar__text,
+.pawpath-store .header-announcements:not(.pawpath-announcement) .announcement-bar__link,
+.pawpath-store .header-announcements:not(.pawpath-announcement) .paragraph {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+}
+
+.pawpath-store header-component,
+.pawpath-store .header {
+  background: var(--pp-header-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--pp-header-border);
+  box-shadow: var(--pp-header-shadow);
+}
+
+.pawpath-store .header__heading-link,
+.pawpath-store .header-logo a,
+.pawpath-store .header__menu-item a,
+.pawpath-store .menu-list__link {
+  color: var(--pp-forest-dark) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+}
+
+.pawpath-store .header__menu-item a:hover,
+.pawpath-store .menu-list__link:hover {
+  color: var(--pp-clay) !important;
+}
+
+.pawpath-store .header-actions__action,
+.pawpath-store .header-actions__cart-icon,
+.pawpath-store .search-action {
+  min-width: var(--pp-touch-min);
+  min-height: var(--pp-touch-min);
+  color: var(--pp-forest-dark) !important;
+}
+
+.pawpath-store .cart-bubble {
+  background: var(--pp-clay) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* Mega menu / drawer */
+.pawpath-store .menu-drawer,
+.pawpath-store .mega-menu {
+  background: var(--pp-cream) !important;
+}
+
+.pawpath-store .menu-drawer__menu-item a,
+.pawpath-store .mega-menu__link {
+  color: var(--pp-charcoal) !important;
+  font-weight: 600;
+}
+
+.pawpath-store .menu-drawer__close-button {
+  min-width: var(--pp-touch-min);
+  min-height: var(--pp-touch-min);
+}
+
+/* ==========================================================================
+   PRODUCT CARDS (PLP, search, recommendations)
+   ========================================================================== */
+
+.pawpath-store .product-card {
+  border-radius: var(--pp-card-radius) !important;
+  background: #ffffff;
+  border: 1px solid var(--pp-border);
+  box-shadow: var(--pp-shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pawpath-store.card-hover-effect-lift .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--pp-shadow-md);
+}
+
+.pawpath-store .product-card .card-gallery,
+.pawpath-store .product-card [class*='gallery'] {
+  border-radius: var(--pp-card-radius) var(--pp-card-radius) 0 0 !important;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--pp-sand-light);
+}
+
+.pawpath-store .product-card .card-gallery img,
+.pawpath-store .product-card [class*='gallery'] img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pawpath-store .product-card__content {
+  padding: 14px 12px 18px !important;
+}
+
+.pawpath-store .product-card h3,
+.pawpath-store .product-card .product-title {
+  font-family: var(--pp-font-display) !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  color: var(--pp-charcoal) !important;
+  line-height: 1.35 !important;
+}
+
+.pawpath-store .product-card .price {
+  color: var(--pp-forest) !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+}
+
+.pawpath-store .product-card .compare-at-price {
+  color: var(--pp-muted) !important;
+  font-size: 0.85rem !important;
+}
+
+.pawpath-store .quick-add button,
+.pawpath-store .quick-add__submit {
+  border-radius: var(--pp-btn-radius) !important;
+  background: var(--pp-forest) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  min-height: var(--pp-btn-height-sm) !important;
+}
+
+.pawpath-store .pawpath__product-labels {
+  margin-top: 4px;
+}
+
+.pawpath-store .pawpath__product-label {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--pp-radius-pill);
+  background: rgba(35, 66, 54, 0.08);
+  color: var(--pp-forest);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   COLLECTION PAGE
+   ========================================================================== */
+
+.pawpath-store .pawpath__collection-hero {
+  background: var(--pp-forest-dark);
+}
+
+.pawpath-store .pawpath__collection-hero-content .pawpath__eyebrow {
+  color: var(--pp-sand) !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.pawpath-store .pawpath__collection-hero-content .pawpath__heading {
+  color: #ffffff !important;
+}
+
+.pawpath-store .pawpath__collection-hero-content .pawpath__lead,
+.pawpath-store .pawpath__collection-desc {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.pawpath-store .pawpath__collection-hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pawpath-store .main-collection,
+.pawpath-store [class*='collection-wrapper'] {
+  background: var(--pp-cream);
+}
+
+.pawpath-store .facets,
+.pawpath-store .facets__form {
+  border-radius: var(--pp-radius-md);
+}
+
+.pawpath-store .facets__summary,
+.pawpath-store .facets__label {
+  font-weight: 600;
+  color: var(--pp-charcoal);
+}
+
+.pawpath-store .product-grid {
+  gap: 20px !important;
+}
+
+.pawpath-store .product-grid__item {
+  height: 100%;
+}
+
+/* ==========================================================================
+   CART — drawer + page
+   ========================================================================== */
+
+.pawpath-store cart-drawer .cart-drawer,
+.pawpath-store .cart-drawer__dialog {
+  background: var(--pp-cream) !important;
+}
+
+.pawpath-store .cart-drawer__heading,
+.pawpath-store .cart__title {
+  font-family: var(--pp-font-display) !important;
+  color: var(--pp-charcoal) !important;
+  font-weight: 700 !important;
+}
+
+.pawpath-store .cart-items__title {
+  font-weight: 600;
+  color: var(--pp-charcoal);
+}
+
+.pawpath-store .cart__checkout-button,
+.pawpath-store button[name='checkout'] {
+  border-radius: var(--pp-btn-radius) !important;
+  background: var(--pp-forest) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  min-height: var(--pp-btn-height) !important;
+}
+
+.pawpath-store .cart__checkout-button:hover,
+.pawpath-store button[name='checkout']:hover {
+  background: var(--pp-forest-dark) !important;
+}
+
+.pawpath-store .cart-summary {
+  border-radius: var(--pp-radius-lg);
+  border: 1px solid var(--pp-border);
+  background: var(--pp-sand-light) !important;
+}
+
+.pawpath-store .cart__empty,
+.pawpath-store .cart-drawer__empty {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.pawpath-store .cart__empty .button,
+.pawpath-store .cart-drawer__empty .button {
+  border-radius: var(--pp-btn-radius) !important;
+  background: var(--pp-forest) !important;
+  color: #ffffff !important;
+  min-height: var(--pp-btn-height);
+  font-weight: 700;
+}
+
+.pawpath-store .main-cart {
+  padding-bottom: var(--pp-section-y);
+}
+
+/* ==========================================================================
+   SEARCH
+   ========================================================================== */
+
+.pawpath-store .predictive-search,
+.pawpath-store .search-modal__content {
+  background: var(--pp-cream) !important;
+}
+
+.pawpath-store .predictive-search__item-heading {
+  font-weight: 600;
+  color: var(--pp-charcoal);
+}
+
+.pawpath-store .search-input {
+  border-radius: var(--pp-btn-radius) !important;
+  border-color: var(--pp-border) !important;
+}
+
+/* ==========================================================================
+   LAYOUT — flush top, no gap above hero
+   ========================================================================== */
+
+.pawpath-store main#MainContent,
+.pawpath-store .content-for-layout {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.pawpath-store .content-for-layout > .shopify-section:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.pawpath-store .shopify-section:has(.pawpath__hero-strip) {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0;
+}
+
+.pawpath-store .shopify-section:has(.pawpath__hero-strip) .pawpath__hero-strip {
+  line-height: normal;
+}
+
+/* ==========================================================================
+   FOOTER OVERRIDES
+   ========================================================================== */
+
+.pawpath-store .pawpath__footer-newsletter {
+  margin-top: 20px;
+}
+
+.pawpath-store .pawpath__footer .pawpath__button--outline.pawpath__newsletter-btn {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  background: transparent !important;
+}
+
+.pawpath-store .pawpath__footer .pawpath__button--outline.pawpath__newsletter-btn:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: #ffffff !important;
+}
+
+/* ==========================================================================
+   MOBILE FIRST
+   ========================================================================== */
+
+@media screen and (max-width: 749px) {
+  .pawpath-store {
+    --pp-container: min(1240px, calc(100% - 24px));
+  }
+
+  .pawpath-store .pawpath__button,
+  .pawpath-store .button,
+  .pawpath-store button[name='add'] {
+    min-height: var(--pp-btn-height-sm);
+  }
+
+  .pawpath-store .product-grid {
+    gap: 12px !important;
+  }
+
+  .pawpath-store .header__heading {
+    font-size: 1.1rem !important;
+  }
+
+  .pawpath-store .pawpath__hero-metrics {
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pawpath-store .pawpath__trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .pawpath-store .pawpath__trust-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .pawpath-store .pawpath__trust-icon {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .pawpath-store .pawpath__trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   HORIZON BUTTON NORMALIZATION
+   ========================================================================== */
+
+.pawpath-store .button--primary,
+.pawpath-store .button-primary {
+  background: var(--pp-forest) !important;
+  border-color: var(--pp-forest) !important;
+  color: #ffffff !important;
+  border-radius: var(--pp-btn-radius) !important;
+  font-weight: 700 !important;
+}
+
+.pawpath-store .button--secondary,
+.pawpath-store .button-secondary {
+  border-radius: var(--pp-btn-radius) !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   PAGE TRANSITIONS / FOCUS
+   ========================================================================== */
+
+.pawpath-store :focus-visible {
+  outline: 2px solid var(--pp-clay);
+  outline-offset: 2px;
+}
+
+.pawpath-store .skip-to-content-link:focus {
+  outline-color: var(--pp-forest);
+}

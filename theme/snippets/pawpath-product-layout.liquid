@@ -1,0 +1,55 @@
+{% comment %}
+  Premium PDP layout — Wild One / Ruffwear inspired two-column structure.
+{% endcomment %}
+
+{% liquid
+  assign product_has_media = true
+  if product_media_size == 0
+    assign product_has_media = false
+  endif
+
+  assign category_label = product.type
+  if product.collections.size > 0
+    assign primary_collection = product.collections.first
+    unless primary_collection.handle == 'all' or primary_collection.handle == 'frontpage'
+      assign category_label = primary_collection.title
+    endunless
+  endif
+  if category_label == blank
+    assign category_label = 'Pet Travel Gear'
+  endif
+%}
+
+<section class="pawpath pawpath-pdp" id="pawpath-pdp-{{ section_id }}" data-testid="pawpath-product">
+  <div class="pawpath-pdp__ribbon" aria-label="Store guarantees">
+    <div class="pawpath__container pawpath-pdp__ribbon-inner">
+      <span>{% render 'pawpath-icons', icon: 'truck' %} {{ settings.trust_ribbon_text }}</span>
+    </div>
+  </div>
+
+  <div class="pawpath__container pawpath-pdp__shell">
+    <nav class="pawpath-pdp__crumbs" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span aria-hidden="true">/</span>
+      {% if product.collections.size > 0 %}
+        <a href="{{ product.collections.first.url }}">{{ category_label }}</a>
+        <span aria-hidden="true">/</span>
+      {% endif %}
+      <span class="pawpath-pdp__crumbs-current">{{ product.title }}</span>
+    </nav>
+
+    <div class="pawpath-pdp__grid{% unless product_has_media %} pawpath-pdp__grid--no-media{% endunless %}">
+      {% if product_has_media %}
+        <div class="pawpath-pdp__gallery-col" data-testid="product-information-media">
+          <div class="pawpath-pdp__gallery-frame">
+            {{ media_gallery }}
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="pawpath-pdp__buy-col">
+        {{ product_details }}
+      </div>
+    </div>
+  </div>
+</section>

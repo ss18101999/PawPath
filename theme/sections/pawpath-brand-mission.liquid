@@ -1,0 +1,108 @@
+{% comment %}
+  Brand mission — establishes PawPath as a specialist pet travel company.
+  Editorial layout with lifestyle imagery and founder-quality storytelling.
+{% endcomment %}
+
+<section class="pawpath pawpath__brand-mission" id="pawpath-mission-{{ section.id }}">
+  <div class="pawpath__container">
+    <div class="pawpath__brand-mission-grid">
+      <div class="pawpath__brand-mission-media">
+        {% if section.settings.image != blank %}
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              widths: '600,900,1200',
+              sizes: '(max-width: 990px) 100vw, 45vw',
+              alt: section.settings.image_alt,
+              class: 'pawpath__brand-mission-img'
+          }}
+        {% else %}
+          {% render 'pawpath-render-image',
+            asset: 'lifestyle-walk',
+            width: 1200,
+            sizes: '(max-width: 990px) 100vw, 45vw',
+            alt: section.settings.image_alt,
+            class: 'pawpath__brand-mission-img'
+          %}
+        {% endif %}
+      </div>
+
+      <div class="pawpath__brand-mission-content">
+        <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+        <div class="pawpath__brand-mission-body">
+          {{ section.settings.body }}
+        </div>
+
+        {% if section.settings.show_values %}
+          <ul class="pawpath__brand-mission-values">
+            {% for block in section.blocks %}
+              {% if block.type == 'value' %}
+                <li {{ block.shopify_attributes }}>
+                  <strong>{{ block.settings.title }}</strong>
+                  <span>{{ block.settings.description }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+          <a class="pawpath__text-link pawpath__brand-mission-cta" href="{{ section.settings.cta_link | default: '/pages/about' }}">
+            {{ section.settings.cta_label }} →
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath brand mission",
+  "tag": "section",
+  "class": "pawpath-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Mission image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt", "default": "Dog parent and dog on a scenic walk" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Mission" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We exist to make traveling with your dog simpler, safer, and more enjoyable."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body copy",
+      "default": "<p>PawPath was built by dog parents who got tired of generic pet gear that wasn't made for real outings. Muddy park days, long road trips, quick errands — every product we carry is chosen because it solves a specific travel problem.</p><p>We're not a marketplace of everything pet-related. We specialize in gear that makes life with a traveling dog easier — from hydration on walks to protecting your car seats after a rainy hike.</p>"
+    },
+    { "type": "checkbox", "id": "show_values", "label": "Show value pillars", "default": true },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Read our full story" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Specialist, not generalist" },
+        { "type": "text", "id": "description", "label": "Description", "default": "Every product is travel-tested for real outings." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath brand mission",
+      "blocks": [
+        { "type": "value", "settings": { "title": "Specialist, not generalist", "description": "Curated for dog travel — not a catch-all pet store." } },
+        { "type": "value", "settings": { "title": "Honest quality", "description": "Materials and design chosen for durability on the road." } },
+        { "type": "value", "settings": { "title": "Dog-parent first", "description": "Built around the chaos, joy, and mess of life with dogs." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

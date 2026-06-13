@@ -1,0 +1,31 @@
+{% comment %}
+  Free shipping progress bar — cart drawer + cart page.
+  Drives AOV by showing distance to $50 free shipping threshold.
+  @param {string} [context] - 'drawer' or 'page'
+{% endcomment %}
+
+{% liquid
+  assign threshold_cents = 5000
+  assign cart_subtotal = cart.items_subtotal_price
+  assign remaining = threshold_cents | minus: cart_subtotal
+  assign progress_pct = cart_subtotal | times: 100 | divided_by: threshold_cents
+  if progress_pct > 100
+    assign progress_pct = 100
+  endif
+%}
+
+<div class="pawpath__shipping-progress pawpath__shipping-progress--{{ context | default: 'drawer' }}" aria-live="polite">
+  {% if remaining > 0 %}
+    <p class="pawpath__shipping-progress-text">
+      You're <strong>{{ remaining | money }}</strong> away from free US shipping
+    </p>
+  {% else %}
+    <p class="pawpath__shipping-progress-text pawpath__shipping-progress-text--unlocked">
+      {% render 'pawpath-icons', icon: 'truck' %}
+      <span>You've unlocked <strong>free US shipping</strong></span>
+    </p>
+  {% endif %}
+  <div class="pawpath__shipping-progress-track" role="progressbar" aria-valuenow="{{ progress_pct }}" aria-valuemin="0" aria-valuemax="100">
+    <div class="pawpath__shipping-progress-fill" style="width: {{ progress_pct }}%;"></div>
+  </div>
+</div>

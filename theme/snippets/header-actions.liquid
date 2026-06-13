@@ -222,11 +222,20 @@
                 aria-label="{{ 'accessibility.cart' | t }}"
                 style="--header-height: 60px;"
               >
+                {% unless cart.empty? %}
+                  {% render 'pawpath-shipping-progress', context: 'drawer' %}
+                {% endunless %}
+
                 <scroll-hint
                   class="cart-drawer__items"
                 >
                   {% render 'cart-products' %}
                 </scroll-hint>
+
+                {% unless cart.empty? %}
+                  {% render 'pawpath-cart-upsell' %}
+                  {% render 'pawpath-delivery-estimate' %}
+                {% endunless %}
 
                 <div
                   class="cart-drawer__summary"

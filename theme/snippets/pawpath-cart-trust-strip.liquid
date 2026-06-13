@@ -1,0 +1,18 @@
+{% comment %}
+  Compact trust strip for cart checkout area — secure checkout, returns, support.
+{% endcomment %}
+
+<div class="pawpath__cart-checkout-trust" aria-label="Purchase guarantees">
+  <div class="pawpath__cart-checkout-trust-item">
+    {% render 'pawpath-icons', icon: 'lock' %}
+    <span>Secure Shopify checkout</span>
+  </div>
+  <div class="pawpath__cart-checkout-trust-item">
+    {% render 'pawpath-icons', icon: 'return' %}
+    <span>30-day easy returns</span>
+  </div>
+  <div class="pawpath__cart-checkout-trust-item">
+    {% render 'pawpath-icons', icon: 'truck' %}
+    <span>Free US shipping $50+</span>
+  </div>
+</div>

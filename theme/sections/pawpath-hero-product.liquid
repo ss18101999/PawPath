@@ -1,0 +1,150 @@
+{% comment %}
+  Flagship product spotlight — premium DTC pattern (hero product below main hero).
+  Showcases one best-seller with lifestyle context and clear conversion path.
+{% endcomment %}
+
+{% liquid
+  assign spotlight = section.settings.product
+  if spotlight == blank and section.settings.product_handle != blank
+    assign spotlight = all_products[section.settings.product_handle]
+  endif
+%}
+
+{% if spotlight != blank %}
+  <section class="pawpath pawpath__hero-product" id="pawpath-hero-product-{{ section.id }}">
+    <div class="pawpath__container">
+      <div class="pawpath__hero-product-grid">
+        <div class="pawpath__hero-product-media">
+          {% if section.settings.lifestyle_image != blank %}
+            {{
+              section.settings.lifestyle_image
+              | image_url: width: 1200
+              | image_tag:
+                loading: 'lazy',
+                widths: '600,900,1200',
+                sizes: '(max-width: 990px) 100vw, 50vw',
+                alt: section.settings.lifestyle_image_alt,
+                class: 'pawpath__hero-product-img'
+            }}
+          {% elsif spotlight.featured_image != blank %}
+            {{
+              spotlight.featured_image
+              | image_url: width: 1200
+              | image_tag:
+                loading: 'lazy',
+                widths: '600,900,1200',
+                sizes: '(max-width: 990px) 100vw, 50vw',
+                alt: spotlight.title,
+                class: 'pawpath__hero-product-img'
+            }}
+          {% else %}
+            {% render 'pawpath-product-fallback-image', product: spotlight, class: 'pawpath__hero-product-img' %}
+          {% endif %}
+          {% if section.settings.show_badge %}
+            <span class="pawpath__hero-product-badge">{{ section.settings.badge_text }}</span>
+          {% endif %}
+        </div>
+
+        <div class="pawpath__hero-product-content">
+          <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+          <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading | default: spotlight.title }}</h2>
+          <p class="pawpath__lead">{{ section.settings.description | default: spotlight.description | strip_html | truncate: 200 }}</p>
+
+          <ul class="pawpath__hero-product-benefits" aria-label="Product benefits">
+            {% for block in section.blocks %}
+              {% if block.type == 'benefit' %}
+                <li {{ block.shopify_attributes }}>
+                  {% render 'pawpath-icons', icon: block.settings.icon %}
+                  <span>{{ block.settings.text }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+          <div class="pawpath__hero-product-price-row">
+            <span class="pawpath__hero-product-price">{{ spotlight.price | money }}</span>
+            {% if spotlight.compare_at_price > spotlight.price %}
+              <span class="pawpath__hero-product-compare">{{ spotlight.compare_at_price | money }}</span>
+            {% endif %}
+            {% render 'pawpath-rating', product: spotlight %}
+          </div>
+
+          <div class="pawpath__actions">
+            <a class="pawpath__button pawpath__button--primary" href="{{ spotlight.url }}">
+              {{ section.settings.cta_label }}
+            </a>
+            {% if section.settings.secondary_label != blank and section.settings.secondary_link != blank %}
+              <a class="pawpath__button pawpath__button--outline" href="{{ section.settings.secondary_link | default: '/collections/travel-gear' }}">
+                {{ section.settings.secondary_label }}
+              </a>
+            {% endif %}
+          </div>
+
+          {% if section.settings.show_trust_line %}
+            <p class="pawpath__hero-product-trust">
+              {% render 'pawpath-icons', icon: 'truck' %}
+              {{ section.settings.trust_line }}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "PawPath hero product",
+  "tag": "section",
+  "class": "pawpath-section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Featured product" },
+    { "type": "text", "id": "product_handle", "label": "Product handle (fallback)", "default": "trailsip-portable-dog-water-bottle" },
+    { "type": "image_picker", "id": "lifestyle_image", "label": "Lifestyle image (optional)" },
+    { "type": "text", "id": "lifestyle_image_alt", "label": "Lifestyle image alt", "default": "Dog using portable travel water bottle on a walk" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our #1 Travel Essential" },
+    { "type": "text", "id": "heading", "label": "Heading override" },
+    { "type": "textarea", "id": "description", "label": "Description override" },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop Now" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary CTA", "default": "See all travel gear" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary link" },
+    { "type": "checkbox", "id": "show_badge", "label": "Show badge", "default": true },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Best Seller" },
+    { "type": "checkbox", "id": "show_trust_line", "label": "Show trust line", "default": true },
+    { "type": "text", "id": "trust_line", "label": "Trust line", "default": "Free US shipping $50+ · 30-day returns" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Benefit text", "default": "One-handed hydration on walks and hikes" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "water", "label": "Water" },
+            { "value": "walk", "label": "Walk" },
+            { "value": "car", "label": "Car" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "paw", "label": "Paw" }
+          ],
+          "default": "water"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath hero product",
+      "settings": { "product_handle": "trailsip-portable-dog-water-bottle" },
+      "blocks": [
+        { "type": "benefit", "settings": { "text": "Leak-proof design for active outings", "icon": "water" } },
+        { "type": "benefit", "settings": { "text": "Compact enough for any bag or cup holder", "icon": "walk" } },
+        { "type": "benefit", "settings": { "text": "Quick-rinse cleanup after muddy adventures", "icon": "shield" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

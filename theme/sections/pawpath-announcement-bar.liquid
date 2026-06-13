@@ -1,0 +1,75 @@
+{% comment %}
+  Premium announcement / trust strip — replaces generic Horizon announcement bar.
+{% endcomment %}
+
+<aside class="pawpath-announcement header-announcements" id="pawpath-announcement-{{ section.id }}" aria-label="{{ section.settings.aria_label }}">
+  <div class="pawpath-announcement__inner">
+    {% for block in section.blocks %}
+      {% if block.settings.text != blank %}
+        <span class="pawpath-announcement__item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != 'none' %}
+            <span class="pawpath-announcement__icon" aria-hidden="true">
+              {% render 'pawpath-icons', icon: block.settings.icon %}
+            </span>
+          {% endif %}
+          <span class="pawpath-announcement__text">{{ block.settings.text }}</span>
+        </span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</aside>
+
+{% schema %}
+{
+  "name": "PawPath announcement",
+  "class": "pawpath-announcement-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Accessibility label",
+      "default": "Store guarantees"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Trust message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Message",
+          "default": "Free US shipping $50+"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "truck", "label": "Shipping" },
+            { "value": "return", "label": "Returns" },
+            { "value": "shield", "label": "Quality" },
+            { "value": "lock", "label": "Secure" },
+            { "value": "paw", "label": "Paw" }
+          ],
+          "default": "truck"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath announcement",
+      "blocks": [
+        { "type": "message", "settings": { "text": "Free US shipping $50+", "icon": "truck" } },
+        { "type": "message", "settings": { "text": "30-day hassle-free returns", "icon": "return" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

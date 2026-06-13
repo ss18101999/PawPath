@@ -1,0 +1,139 @@
+{% comment %}
+  Comparison section — PawPath vs generic alternatives.
+  Premium DTC pattern: reduce decision friction by showing clear differentiation.
+{% endcomment %}
+
+<section class="pawpath pawpath__comparison" id="pawpath-comparison-{{ section.id }}">
+  <div class="pawpath__container">
+    <div class="pawpath__section-header pawpath__section-header--center">
+      <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+      {% if section.settings.description != blank %}
+        <p class="pawpath__lead pawpath__lead--center">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <div class="pawpath__comparison-table-wrap">
+      <table class="pawpath__comparison-table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col" class="pawpath__comparison-highlight">{{ section.settings.brand_column_label }}</th>
+            <th scope="col">{{ section.settings.generic_column_label }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for block in section.blocks %}
+            {% if block.type == 'row' %}
+              <tr {{ block.shopify_attributes }}>
+                <th scope="row">{{ block.settings.feature }}</th>
+                <td class="pawpath__comparison-highlight">
+                  {% if block.settings.brand_has_feature %}
+                    <span class="pawpath__comparison-yes" aria-label="Yes">✓</span>
+                    {% if block.settings.brand_detail != blank %}
+                      <span class="pawpath__comparison-detail">{{ block.settings.brand_detail }}</span>
+                    {% endif %}
+                  {% else %}
+                    <span class="pawpath__comparison-no" aria-label="No">—</span>
+                  {% endif %}
+                </td>
+                <td>
+                  {% if block.settings.generic_has_feature %}
+                    <span class="pawpath__comparison-yes" aria-label="Yes">✓</span>
+                  {% else %}
+                    <span class="pawpath__comparison-no" aria-label="No">—</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+      <div class="pawpath__actions pawpath__actions--center" style="margin-top: 32px;">
+        <a class="pawpath__button pawpath__button--primary" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath comparison",
+  "tag": "section",
+  "class": "pawpath-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The PawPath Difference"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Not all pet travel gear is built the same."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We design for dog parents who travel often — not one-size-fits-all marketplace listings."
+    },
+    {
+      "type": "text",
+      "id": "brand_column_label",
+      "label": "Brand column label",
+      "default": "PawPath"
+    },
+    {
+      "type": "text",
+      "id": "generic_column_label",
+      "label": "Generic column label",
+      "default": "Generic alternatives"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Shop travel essentials"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison row",
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Feature", "default": "Designed for car travel" },
+        { "type": "checkbox", "id": "brand_has_feature", "label": "PawPath has this", "default": true },
+        { "type": "text", "id": "brand_detail", "label": "PawPath detail (optional)" },
+        { "type": "checkbox", "id": "generic_has_feature", "label": "Generic has this", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath comparison",
+      "settings": {
+        "cta_link": "/collections/all"
+      },
+      "blocks": [
+        { "type": "row", "settings": { "feature": "Curated for pet travel", "brand_has_feature": true, "generic_has_feature": false } },
+        { "type": "row", "settings": { "feature": "Waterproof & easy-clean materials", "brand_has_feature": true, "generic_has_feature": false } },
+        { "type": "row", "settings": { "feature": "Compact, travel-ready design", "brand_has_feature": true, "generic_has_feature": false } },
+        { "type": "row", "settings": { "feature": "30-day hassle-free returns", "brand_has_feature": true, "generic_has_feature": false } },
+        { "type": "row", "settings": { "feature": "Dog-parent tested", "brand_has_feature": true, "brand_detail": "Real outing use cases", "generic_has_feature": false } },
+        { "type": "row", "settings": { "feature": "Complete outing kits", "brand_has_feature": true, "generic_has_feature": false } }
+      ]
+    }
+  ]
+}
+{% endschema %}

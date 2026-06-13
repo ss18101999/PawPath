@@ -1,14 +1,39 @@
-<div class="pawpath__buy-trust" aria-label="Purchase guarantees">
-  <div class="pawpath__buy-trust-item">
-    {% render 'pawpath-icons', icon: 'truck' %}
-    <span>Ships in 3–7 business days</span>
+{% comment %}
+  Post-CTA trust panel — compact, credible, not dropship-badge spam.
+{% endcomment %}
+
+<aside class="pawpath-pdp__trust-panel" aria-label="Delivery and support">
+  <div class="pawpath-pdp__trust-panel-grid">
+    <div class="pawpath-pdp__trust-panel-item">
+      {% render 'pawpath-icons', icon: 'truck' %}
+      <div>
+        <strong>Fast US delivery</strong>
+        <span>Most orders arrive in 3–7 business days</span>
+      </div>
+    </div>
+    <div class="pawpath-pdp__trust-panel-item">
+      {% render 'pawpath-icons', icon: 'return' %}
+      <div>
+        <strong>30-day returns</strong>
+        <span>Unused items in original packaging</span>
+      </div>
+    </div>
+    <div class="pawpath-pdp__trust-panel-item">
+      {% render 'pawpath-icons', icon: 'shield' %}
+      <div>
+        <strong>Free shipping $50+</strong>
+        <span>On all US orders over $50</span>
+      </div>
+    </div>
+    <div class="pawpath-pdp__trust-panel-item">
+      {% render 'pawpath-icons', icon: 'lock' %}
+      <div>
+        <strong>Shopify secure</strong>
+        <span>Encrypted checkout</span>
+      </div>
+    </div>
   </div>
-  <div class="pawpath__buy-trust-item">
-    {% render 'pawpath-icons', icon: 'return' %}
-    <span>30-day easy returns</span>
-  </div>
-  <div class="pawpath__buy-trust-item">
-    {% render 'pawpath-icons', icon: 'lock' %}
-    <span>Secure checkout</span>
-  </div>
-</div>
+  <p class="pawpath-pdp__support-line">
+    Need help choosing? <a href="/pages/contact">Talk to our team</a>
+  </p>
+</aside>

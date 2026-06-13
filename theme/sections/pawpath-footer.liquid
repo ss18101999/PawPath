@@ -1,4 +1,27 @@
 <footer class="pawpath pawpath__footer" id="pawpath-footer-{{ section.id }}">
+  <div class="pawpath__footer-trust-strip">
+    <div class="pawpath__container">
+      <div class="pawpath__footer-trust-grid">
+        <div class="pawpath__footer-trust-item">
+          {% render 'pawpath-icons', icon: 'truck' %}
+          <span>Free US shipping $50+</span>
+        </div>
+        <div class="pawpath__footer-trust-item">
+          {% render 'pawpath-icons', icon: 'return' %}
+          <span>30-day easy returns</span>
+        </div>
+        <div class="pawpath__footer-trust-item">
+          {% render 'pawpath-icons', icon: 'lock' %}
+          <span>Secure checkout</span>
+        </div>
+        <div class="pawpath__footer-trust-item">
+          {% render 'pawpath-icons', icon: 'shield' %}
+          <span>Quality guaranteed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="pawpath__footer-main">
     <div class="pawpath__container">
       <div class="pawpath__footer-grid">
@@ -40,7 +63,8 @@
           <ul class="pawpath__footer-links">
             <li><a href="/pages/contact">Contact Us</a></li>
             <li><a href="/pages/faq">FAQ</a></li>
-            <li><a href="/pages/shipping-returns">Shipping Policy</a></li>
+            <li><a href="/pages/shipping-returns">Shipping & Returns</a></li>
+            <li><a href="/pages/shipping-returns">How Shipping Works</a></li>
             {% for policy in shop.policies %}
               {% if policy.title contains 'Refund' or policy.title contains 'Return' %}
                 <li><a href="{{ policy.url }}">Refund Policy</a></li>
@@ -60,7 +84,7 @@
             <li><a href="/#bundles">Outing Kits</a></li>
           </ul>
           {% if section.settings.show_newsletter %}
-            <div class="pawpath__footer-newsletter" style="margin-top: 20px;">
+            <div class="pawpath__footer-newsletter">
               {% form 'customer', class: 'pawpath-newsletter-form' %}
                 <input type="hidden" name="contact[tags]" value="newsletter">
                 <div class="pawpath__newsletter-row">

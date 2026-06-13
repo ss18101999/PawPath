@@ -1,0 +1,26 @@
+{% comment %}
+  PDP rating display — uses Shopify Product Reviews metafields when available.
+  Shows nothing when no real reviews exist (honest social proof, no fake counts).
+  @param {object} product - Shopify product object
+{% endcomment %}
+
+{% liquid
+  assign rating = product.metafields.reviews.rating.value.rating
+  assign rating_count = product.metafields.reviews.rating_count
+%}
+
+{% if rating != blank and rating_count != blank and rating_count > 0 %}
+  <div class="pawpath__pdp-rating" aria-label="{{ rating }} out of 5 stars, {{ rating_count }} reviews">
+    <div class="pawpath__pdp-rating-stars" aria-hidden="true">
+      {% assign full_stars = rating | floor %}
+      {% for i in (1..5) %}
+        {% if i <= full_stars %}
+          <span class="pawpath__pdp-star pawpath__pdp-star--full">★</span>
+        {% else %}
+          <span class="pawpath__pdp-star">★</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <span class="pawpath__pdp-rating-text">{{ rating | round: 1 }} · {{ rating_count }} reviews</span>
+  </div>
+{% endif %}

@@ -1,0 +1,126 @@
+{% comment %}
+  Brand value pillars — Travel Safety, Comfort, Durability, Convenience.
+  Core positioning for premium pet travel accessories.
+{% endcomment %}
+
+<section class="pawpath pawpath__value-props" id="pawpath-value-{{ section.id }}">
+  <div class="pawpath__container">
+    <div class="pawpath__section-header pawpath__section-header--center">
+      <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+      {% if section.settings.description != blank %}
+        <p class="pawpath__lead pawpath__lead--center">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+    <div class="pawpath__grid pawpath__grid--4 pawpath__value-props-grid">
+      {% for block in section.blocks %}
+        <article class="pawpath__value-prop-card" {{ block.shopify_attributes }}>
+          <div class="pawpath__value-prop-icon">{% render 'pawpath-icons', icon: block.settings.icon %}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath value proposition",
+  "tag": "section",
+  "class": "pawpath-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why PawPath"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Travel with your dog — safer, easier, more enjoyable."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Every product is designed around the real challenges of traveling with pets: safety on the road, comfort on long trips, gear that lasts, and convenience when you're on the go."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Value pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Travel Safety"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Secure tethers, protective covers, and road-ready gear that keeps your dog safe in the car."
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "shield", "label": "Safety" },
+            { "value": "car", "label": "Car" },
+            { "value": "walk", "label": "Walk" },
+            { "value": "bowl", "label": "Comfort" },
+            { "value": "water", "label": "Hydration" },
+            { "value": "bundle", "label": "Kit" }
+          ],
+          "default": "shield"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath value proposition",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "Travel Safety",
+            "description": "Car safety tethers, secure harness points, and protective gear designed for road trips and daily drives.",
+            "icon": "shield"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "Comfort",
+            "description": "Soft-touch materials, ergonomic designs, and hydration solutions that keep your dog comfortable on long outings.",
+            "icon": "bowl"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "Durability",
+            "description": "Waterproof fabrics, reinforced stitching, and materials built to handle mud, fur, and miles of adventure.",
+            "icon": "walk"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "Convenience",
+            "description": "Compact, packable gear that fits in your car, bag, or glove box — ready when your dog is.",
+            "icon": "bundle"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

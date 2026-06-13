@@ -1,0 +1,119 @@
+{% comment %}
+  PDP specifications — materials, dimensions, care instructions.
+  Pulls from product metafields when available; falls back to configurable defaults.
+{% endcomment %}
+
+{% liquid
+  assign product = section.settings.product
+  if product == blank
+    assign product = closest.product
+  endif
+
+  assign specs = product.metafields.custom.specifications.value
+  assign materials = product.metafields.custom.materials.value
+  assign dimensions = product.metafields.custom.dimensions.value
+  assign care = product.metafields.custom.care_instructions.value
+%}
+
+{% if product != blank %}
+  <section class="pawpath pawpath__product-specs" id="pawpath-specs-{{ section.id }}">
+    <div class="pawpath__container">
+      <div class="pawpath__section-header pawpath__section-header--center">
+        <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+      </div>
+
+      <div class="pawpath__specs-grid">
+        {% if materials != blank or section.settings.default_materials != blank %}
+          <div class="pawpath__specs-card">
+            <h3>{% render 'pawpath-icons', icon: 'shield' %} Materials</h3>
+            <p>{% if materials != blank %}{{ materials }}{% else %}{{ section.settings.default_materials }}{% endif %}</p>
+          </div>
+        {% endif %}
+
+        {% if dimensions != blank or section.settings.default_dimensions != blank %}
+          <div class="pawpath__specs-card">
+            <h3>{% render 'pawpath-icons', icon: 'bundle' %} Dimensions</h3>
+            <p>{% if dimensions != blank %}{{ dimensions }}{% else %}{{ section.settings.default_dimensions }}{% endif %}</p>
+          </div>
+        {% endif %}
+
+        {% if care != blank or section.settings.default_care != blank %}
+          <div class="pawpath__specs-card">
+            <h3>{% render 'pawpath-icons', icon: 'water' %} Care</h3>
+            <p>{% if care != blank %}{{ care }}{% else %}{{ section.settings.default_care }}{% endif %}</p>
+          </div>
+        {% endif %}
+
+        {% for block in section.blocks %}
+          {% if block.type == 'spec' %}
+            <div class="pawpath__specs-card" {{ block.shopify_attributes }}>
+              <h3>{% render 'pawpath-icons', icon: block.settings.icon %}{{ block.settings.title }}</h3>
+              <p>{{ block.settings.value }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if specs != blank %}
+        <div class="pawpath__specs-table-wrap">
+          {{ specs }}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "PawPath product specs",
+  "tag": "section",
+  "class": "pawpath-pdp-section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product override" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Details" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Product specifications" },
+    {
+      "type": "text",
+      "id": "default_materials",
+      "label": "Default materials",
+      "default": "Durable, pet-safe materials selected for travel and daily use. See product description for specifics."
+    },
+    {
+      "type": "text",
+      "id": "default_dimensions",
+      "label": "Default dimensions",
+      "default": "Compact, travel-ready sizing. Refer to the product description for exact measurements."
+    },
+    {
+      "type": "text",
+      "id": "default_care",
+      "label": "Default care",
+      "default": "Wipe clean or rinse as needed. Allow to dry fully before storage."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Specification",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Weight" },
+        { "type": "text", "id": "value", "label": "Value", "default": "Lightweight for travel" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "walk", "label": "Walk" },
+            { "value": "car", "label": "Car" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "paw", "label": "Paw" }
+          ],
+          "default": "walk"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "PawPath product specs" }]
+}
+{% endschema %}

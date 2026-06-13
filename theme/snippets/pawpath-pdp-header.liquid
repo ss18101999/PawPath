@@ -1,0 +1,47 @@
+{% comment %}
+  Premium PDP buy-column header — editorial hierarchy.
+{% endcomment %}
+
+{% liquid
+  assign category_label = product.type
+  if product.collections.size > 0
+    assign primary_collection = product.collections.first
+    unless primary_collection.handle == 'all' or primary_collection.handle == 'frontpage'
+      assign category_label = primary_collection.title
+    endunless
+  endif
+  if category_label == blank
+    assign category_label = 'Pet Travel Gear'
+  endif
+
+  assign subtitle = product.description | strip_html | truncate: 140
+%}
+
+<header class="pawpath-pdp__header">
+  <p class="pawpath-pdp__category">{{ category_label }}</p>
+
+  <div class="pawpath-pdp__badge-row">
+    <span class="pawpath-pdp__badge pawpath-pdp__badge--forest">Specialist gear</span>
+    {% if product.tags contains 'bestseller' or product.tags contains 'Bestseller' %}
+      <span class="pawpath-pdp__badge pawpath-pdp__badge--clay">Best seller</span>
+    {% endif %}
+    <span class="pawpath-pdp__badge pawpath-pdp__badge--outline">30-day returns</span>
+  </div>
+
+  <h1 class="pawpath-pdp__title">{{ product.title }}</h1>
+
+  {% if subtitle != blank %}
+    <p class="pawpath-pdp__subtitle">{{ subtitle }}</p>
+  {% endif %}
+
+  <div class="pawpath-pdp__price-row">
+    {% render 'price', product_resource: product, show_sale_price_first: true %}
+    {% render 'pawpath-pdp-rating', product: product %}
+  </div>
+
+  <ul class="pawpath-pdp__guarantees" aria-label="Purchase guarantees">
+    <li>{% render 'pawpath-icons', icon: 'truck' %} Ships in 1–2 days</li>
+    <li>{% render 'pawpath-icons', icon: 'return' %} Easy returns</li>
+    <li>{% render 'pawpath-icons', icon: 'lock' %} Secure checkout</li>
+  </ul>
+</header>

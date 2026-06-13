@@ -1,0 +1,82 @@
+{% comment %}
+  Email capture — Klaviyo/Shopify-compatible newsletter signup.
+  Replaces CTA band that only linked to shop without capturing emails.
+{% endcomment %}
+
+<section class="pawpath pawpath__email-capture" id="pawpath-email-{{ section.id }}">
+  <div class="pawpath__email-capture-bg">
+    {% if section.settings.background_image != blank %}
+      {{ section.settings.background_image | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '100vw', class: 'pawpath__email-capture-img', alt: '' }}
+    {% else %}
+      {% render 'pawpath-render-image', asset: 'lifestyle-park', width: 1600, loading: 'lazy', sizes: '100vw', alt: 'Dog on a park outing', class: 'pawpath__email-capture-img' %}
+    {% endif %}
+  </div>
+  <div class="pawpath__container pawpath__email-capture-inner">
+    <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+    <p class="pawpath__lead">{{ section.settings.description }}</p>
+
+    {% form 'customer', class: 'pawpath__newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter,homepage">
+      <div class="pawpath__newsletter-row pawpath__newsletter-row--capture">
+        <label class="visually-hidden" for="pawpath-email-{{ section.id }}">Email address</label>
+        <input
+          id="pawpath-email-{{ section.id }}"
+          type="email"
+          name="contact[email]"
+          placeholder="{{ section.settings.placeholder }}"
+          required
+          autocomplete="email"
+        >
+        <button type="submit" class="pawpath__button pawpath__button--white">{{ section.settings.button_label }}</button>
+      </div>
+      {% if form.posted_successfully? %}
+        <p class="pawpath__newsletter-success" role="status">{{ section.settings.success_message }}</p>
+      {% endif %}
+      {% if form.errors %}
+        <p class="pawpath__newsletter-error" role="alert">{{ form.errors.messages.email }}</p>
+      {% endif %}
+    {% endform %}
+
+    <p class="pawpath__email-capture-fine">{{ section.settings.fine_print }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath email capture",
+  "tag": "section",
+  "class": "pawpath-section",
+  "settings": [
+    { "type": "image_picker", "id": "background_image", "label": "Background image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Join the pack" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get the Dog Travel Checklist"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Packing tips, new gear drops, and bundle deals for dog parents who travel. Plus free US shipping on orders over $50."
+    },
+    { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "Your email address" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Subscribe" },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "You're in! Check your inbox for travel tips and exclusive offers."
+    },
+    {
+      "type": "text",
+      "id": "fine_print",
+      "label": "Fine print",
+      "default": "No spam. Unsubscribe anytime."
+    }
+  ],
+  "presets": [{ "name": "PawPath email capture" }]
+}
+{% endschema %}

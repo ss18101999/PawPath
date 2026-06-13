@@ -1,0 +1,87 @@
+{% comment %}
+  PDP product usage — how-to / in-context usage for premium storytelling.
+  Reduces returns by setting expectations; increases conversion via visualization.
+{% endcomment %}
+
+{% liquid
+  assign product = section.settings.product
+  if product == blank
+    assign product = closest.product
+  endif
+%}
+
+{% if product != blank %}
+  <section class="pawpath pawpath__product-usage" id="pawpath-usage-{{ section.id }}">
+    <div class="pawpath__container">
+      <div class="pawpath__product-usage-grid">
+        <div class="pawpath__product-usage-media">
+          {% if section.settings.image != blank %}
+            {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '500,800,1000', sizes: '(max-width: 990px) 100vw, 50vw', alt: section.settings.heading }}
+          {% elsif product.featured_image != blank %}
+            {{ product.featured_image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '500,800,1000', sizes: '(max-width: 990px) 100vw, 50vw', alt: product.title }}
+          {% else %}
+            {% render 'pawpath-product-fallback-image', product: product, class: 'pawpath__product-usage-img' %}
+          {% endif %}
+        </div>
+        <div class="pawpath__product-usage-content">
+          <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+          <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+          <p class="pawpath__lead">{{ section.settings.description }}</p>
+          <ol class="pawpath__usage-steps">
+            {% for block in section.blocks %}
+              {% if block.type == 'step' %}
+                <li {{ block.shopify_attributes }}>
+                  <span class="pawpath__usage-step-num">{{ forloop.index }}</span>
+                  <div>
+                    <strong>{{ block.settings.title }}</strong>
+                    <span>{{ block.settings.description }}</span>
+                  </div>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "PawPath product usage",
+  "tag": "section",
+  "class": "pawpath-pdp-section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product (optional override)" },
+    { "type": "image_picker", "id": "image", "label": "Usage image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How To Use" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built for real travel with your dog." },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Simple setup, everyday use — whether you're heading to the park or packing for a road trip."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Usage step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Pack it" },
+        { "type": "text", "id": "description", "label": "Description", "default": "Fits easily in your car, bag, or travel kit." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath product usage",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Pack it", "description": "Compact design fits in your car, bag, or glove box." } },
+        { "type": "step", "settings": { "title": "Use it on the go", "description": "Quick setup for walks, park days, and road trips." } },
+        { "type": "step", "settings": { "title": "Clean up fast", "description": "Wipe down or rinse clean after muddy adventures." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

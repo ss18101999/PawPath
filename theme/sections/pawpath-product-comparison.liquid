@@ -1,0 +1,89 @@
+{% comment %}
+  PDP product comparison — why this product vs alternatives.
+  Contextual conversion element for premium DTC PDPs.
+{% endcomment %}
+
+<section class="pawpath pawpath__pdp-comparison" id="pawpath-pdp-compare-{{ section.id }}">
+  <div class="pawpath__container">
+    <div class="pawpath__section-header pawpath__section-header--center">
+      <p class="pawpath__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="pawpath__heading pawpath__heading--section">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="pawpath__pdp-compare-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'compare_card' %}
+          <article class="pawpath__pdp-compare-card{% if block.settings.highlighted %} pawpath__pdp-compare-card--highlight{% endif %}" {{ block.shopify_attributes }}>
+            {% if block.settings.highlighted %}
+              <span class="pawpath__badge pawpath__badge--premium">PawPath</span>
+            {% endif %}
+            <h3>{{ block.settings.title }}</h3>
+            <ul>
+              {% assign items = block.settings.points | newline_to_br | split: '<br />' %}
+              {% for item in items %}
+                {% if item != blank %}
+                  <li>{{ item | strip }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PawPath PDP compare",
+  "tag": "section",
+  "class": "pawpath-pdp-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why This Gear" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See how PawPath compares."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "compare_card",
+      "name": "Comparison card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "PawPath" },
+        { "type": "checkbox", "id": "highlighted", "label": "Highlight as PawPath", "default": true },
+        {
+          "type": "textarea",
+          "id": "points",
+          "label": "Bullet points (one per line)",
+          "default": "Designed for pet travel\nEasy-clean materials\n30-day returns\nDog-parent tested"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PawPath PDP compare",
+      "blocks": [
+        {
+          "type": "compare_card",
+          "settings": {
+            "title": "PawPath",
+            "highlighted": true,
+            "points": "Purpose-built for dog travel\nWaterproof & durable materials\nCompact, packable design\n30-day hassle-free returns"
+          }
+        },
+        {
+          "type": "compare_card",
+          "settings": {
+            "title": "Generic alternatives",
+            "highlighted": false,
+            "points": "Generic sizing & fit\nThin, hard-to-clean fabrics\nBulky or impractical design\nLimited return policies"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

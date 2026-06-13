@@ -13,433 +13,181 @@
       "type": "pawpath-hero",
       "settings": {
         "hero_image_alt": "Dog and owner on a park walk with travel gear",
-        "eyebrow": "PawPath Supply",
-        "heading": "Make Every Outing Easier",
-        "subheading": "Smart dog travel, feeding, and enrichment gear for cleaner cars, calmer breaks, and better walks.",
-        "primary_label": "Shop Best Sellers",
+        "eyebrow": "Pet Travel Specialists",
+        "heading": "Every Adventure Starts With a Prepared Dog",
+        "subheading": "PawPath specializes in pet travel gear — hydration, car protection, feeding, and enrichment built for walks, road trips, and park days.",
+        "social_proof": "Curated by dog parents who refuse to compromise on travel gear.",
+        "show_value_pills": true,
+        "show_scroll_cue": true,
+        "show_metric_strip": true,
+        "metric_1_value": "2,500+",
+        "metric_1_label": "orders shipped",
+        "metric_2_value": "1,200+",
+        "metric_2_label": "happy dog parents",
+        "primary_label": "Shop Travel Essentials",
         "primary_link": "/collections/all",
-        "secondary_label": "Build Your Dog Outing Kit",
+        "secondary_label": "Build Your Outing Kit",
         "secondary_link": "/#bundles"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
-      "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "settings": {
-                "text": "<h3>Shop Dog Travel Essentials</h3><p>Portable feeding gear, hydration bottles, car protection, and enrichment favorites dog owners reach for every day.</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "settings": {
-                "label": "Shop all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 8,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 16,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "settings": {
-                "image_ratio": "portrait",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 16,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 8,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
-        }
-      },
+    "pawpath_featured": {
+      "type": "pawpath-featured-products",
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
+        "collection_handle": "all",
+        "eyebrow": "Best Sellers",
+        "heading": "Shop Dog Travel Essentials",
+        "description": "Portable feeding gear, hydration bottles, car protection, and enrichment favorites dog owners reach for every day.",
         "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 20,
-        "rows_gap": 36,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 36,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 72,
-        "padding-block-end": 72
+        "show_view_all": true,
+        "view_all_label": "Shop all"
+      }
+    },
+    "pawpath_hero_product": {
+      "type": "pawpath-hero-product",
+      "blocks": {
+        "benefit_1": { "type": "benefit", "settings": { "text": "Leak-proof design for active outings", "icon": "water" } },
+        "benefit_2": { "type": "benefit", "settings": { "text": "Compact enough for any bag or cup holder", "icon": "walk" } },
+        "benefit_3": { "type": "benefit", "settings": { "text": "Quick-rinse cleanup after muddy adventures", "icon": "shield" } }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3"],
+      "settings": {
+        "product_handle": "trailsip-portable-dog-water-bottle",
+        "eyebrow": "Our #1 Travel Essential",
+        "cta_label": "Shop Now",
+        "secondary_label": "See all travel gear",
+        "secondary_link": "/collections/travel-gear",
+        "show_badge": true,
+        "badge_text": "Best Seller",
+        "show_trust_line": true,
+        "trust_line": "Free US shipping $50+ · 30-day returns"
+      }
+    },
+    "pawpath_value_props": {
+      "type": "pawpath-value-proposition",
+      "blocks": {
+        "pillar_safety": { "type": "pillar", "settings": { "title": "Travel Safety", "description": "Car safety tethers, secure harness points, and protective gear designed for road trips and daily drives.", "icon": "shield" } },
+        "pillar_comfort": { "type": "pillar", "settings": { "title": "Comfort", "description": "Soft-touch materials, ergonomic designs, and hydration solutions that keep your dog comfortable on long outings.", "icon": "bowl" } },
+        "pillar_durability": { "type": "pillar", "settings": { "title": "Durability", "description": "Waterproof fabrics, reinforced stitching, and materials built to handle mud, fur, and miles of adventure.", "icon": "walk" } },
+        "pillar_convenience": { "type": "pillar", "settings": { "title": "Convenience", "description": "Compact, packable gear that fits in your car, bag, or glove box — ready when your dog is.", "icon": "bundle" } }
+      },
+      "block_order": ["pillar_safety", "pillar_comfort", "pillar_durability", "pillar_convenience"],
+      "settings": {
+        "eyebrow": "Why PawPath",
+        "heading": "Travel with your dog — safer, easier, more enjoyable.",
+        "description": "Every product solves a real outing problem. No generic pet store filler."
       }
     },
     "pawpath_home": {
       "type": "pawpath-home",
       "blocks": {
-        "col_travel": {
-          "type": "collection",
-          "settings": {
-            "collection_handle": "travel-gear",
-            "title": "Travel Gear",
-            "description": "Outing essentials for walks, errands, and park days",
-            "icon": "walk",
-            "fallback_link": "/collections/travel-gear"
-          }
-        },
-        "col_road": {
-          "type": "collection",
-          "settings": {
-            "collection_handle": "car-essentials",
-            "title": "Car Essentials",
-            "description": "Seat covers, safety tethers, and cleaner drives",
-            "icon": "car",
-            "fallback_link": "/collections/car-essentials"
-          }
-        },
-        "col_feeding": {
-          "type": "collection",
-          "settings": {
-            "collection_handle": "feeding-hydration",
-            "title": "Feeding & Hydration",
-            "description": "Water bottles, bowls, and slow feeders",
-            "icon": "water",
-            "fallback_link": "/collections/feeding-hydration"
-          }
-        },
-        "col_enrichment": {
-          "type": "collection",
-          "settings": {
-            "collection_handle": "enrichment",
-            "title": "Enrichment",
-            "description": "Snuffle mats, lick mats, and calmer breaks",
-            "icon": "bowl",
-            "fallback_link": "/collections/enrichment"
-          }
-        },
-        "col_bundles": {
-          "type": "collection",
-          "settings": {
-            "collection_handle": "bundles",
-            "title": "Bundles",
-            "description": "Curated kits for walks, road trips, and park days",
-            "icon": "bundle",
-            "fallback_link": "/collections/bundles"
-          }
-        },
-        "life_car": {
-          "type": "lifestyle",
-          "settings": {
-            "title": "Cleaner Car Rides",
-            "description": "Protect your seats from mud, fur, and spills after park days and road trips.",
-            "icon": "car",
-            "placeholder_style": "car",
-            "tall": true
-          }
-        },
-        "life_walk": {
-          "type": "lifestyle",
-          "settings": {
-            "title": "Better Walks",
-            "description": "Hydration bottles and treat pouches for daily walks and errands.",
-            "icon": "walk",
-            "placeholder_style": "walk",
-            "tall": false
-          }
-        },
-        "life_mealtime": {
-          "type": "lifestyle",
-          "settings": {
-            "title": "Calmer Mealtimes",
-            "description": "Slow feeders and enrichment tools for more focused treat and meal routines.",
-            "icon": "bowl",
-            "placeholder_style": "mealtime",
-            "tall": false
-          }
-        },
-        "life_park": {
-          "type": "lifestyle",
-          "settings": {
-            "title": "Park Days & Weekend Trips",
-            "description": "Everything you need for short outings and longer trips with your dog.",
-            "icon": "water",
-            "placeholder_style": "park",
-            "tall": false
-          }
-        },
-        "use_1": {
-          "type": "use_case",
-          "settings": {
-            "scenario": "On a walk",
-            "title": "Fresh water without the hassle",
-            "description": "Portable water bottles make hydration easier during walks, hikes, and errands — no separate bowl needed.",
-            "icon": "water",
-            "link": "/products/trailsip-portable-dog-water-bottle",
-            "link_label": "Shop water bottles"
-          }
-        },
-        "use_2": {
-          "type": "use_case",
-          "settings": {
-            "scenario": "In the car",
-            "title": "Cleaner seats after muddy park days",
-            "description": "Waterproof seat covers catch fur, mud, and spills before they hit your upholstery.",
-            "icon": "car",
-            "link": "/products/roadguard-waterproof-dog-car-seat-cover",
-            "link_label": "Shop car gear"
-          }
-        },
-        "use_3": {
-          "type": "use_case",
-          "settings": {
-            "scenario": "At home or on the go",
-            "title": "Calmer breaks between outings",
-            "description": "Slow feeders and lick mats turn treat time into a focused, relaxing routine.",
-            "icon": "bowl",
-            "link": "/products/pawpath-portable-slow-feeder-lick-mat",
-            "link_label": "Shop enrichment"
-          }
-        },
-        "bundle_1": {
-          "type": "bundle",
-          "settings": {
-            "title": "Walk Ready Kit",
-            "description": "Water bottle, treat pouch, and slow feeder for everyday walks.",
-            "price_label": "$64.95",
-            "link": "/products/walk-ready-bundle"
-          }
-        },
-        "bundle_2": {
-          "type": "bundle",
-          "settings": {
-            "title": "Road Trip Kit",
-            "description": "Seat cover, safety tether, and travel essentials for cleaner drives.",
-            "price_label": "$84.95",
-            "link": "/products/road-trip-bundle"
-          }
-        },
-        "bundle_3": {
-          "type": "bundle",
-          "settings": {
-            "title": "All Outing Kits",
-            "description": "Browse every bundle and save on complete walk and road trip sets.",
-            "price_label": "From $64.95",
-            "link": "/collections/bundles"
-          }
-        },
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "quote": "The water bottle and treat pouch made our park walks so much easier.",
-            "author": "Sarah M.",
-            "detail": "Walk & park day essentials"
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "quote": "My back seat finally survives muddy paws.",
-            "author": "James T.",
-            "detail": "Car seat cover buyer"
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "quote": "The slow feeder is now part of our daily routine.",
-            "author": "Priya K.",
-            "detail": "Feeding & enrichment"
-          }
-        },
-        "faq_1": {
-          "type": "faq",
-          "settings": {
-            "question": "Where do you ship?",
-            "answer": "We ship throughout the United States. Most orders arrive within 3–7 business days after processing."
-          }
-        },
-        "faq_2": {
-          "type": "faq",
-          "settings": {
-            "question": "What is your return policy?",
-            "answer": "Unused items in original packaging can be returned within 30 days. Contact our support team and we'll help you through the process."
-          }
-        },
-        "faq_3": {
-          "type": "faq",
-          "settings": {
-            "question": "Are your products safe for all dog sizes?",
-            "answer": "Most PawPath gear fits small through large breeds. Check individual product pages for size guidance and weight recommendations."
-          }
-        }
+        "col_travel": { "type": "collection", "settings": { "collection_handle": "travel-gear", "title": "Travel Gear", "description": "Outing essentials for walks, errands, and park days", "icon": "walk", "fallback_link": "/collections/travel-gear" } },
+        "col_road": { "type": "collection", "settings": { "collection_handle": "car-essentials", "title": "Car Essentials", "description": "Seat covers, safety tethers, and cleaner drives", "icon": "car", "fallback_link": "/collections/car-essentials" } },
+        "col_feeding": { "type": "collection", "settings": { "collection_handle": "feeding-hydration", "title": "Feeding & Hydration", "description": "Water bottles, bowls, and slow feeders", "icon": "water", "fallback_link": "/collections/feeding-hydration" } },
+        "col_enrichment": { "type": "collection", "settings": { "collection_handle": "enrichment", "title": "Enrichment", "description": "Snuffle mats, lick mats, and calmer breaks", "icon": "bowl", "fallback_link": "/collections/enrichment" } },
+        "col_bundles": { "type": "collection", "settings": { "collection_handle": "bundles", "title": "Bundles", "description": "Curated kits for walks, road trips, and park days", "icon": "bundle", "fallback_link": "/collections/bundles" } },
+        "life_car": { "type": "lifestyle", "settings": { "title": "Cleaner Car Rides", "description": "Protect your seats from mud, fur, and spills after park days and road trips.", "icon": "car", "placeholder_style": "car", "tall": true } },
+        "life_walk": { "type": "lifestyle", "settings": { "title": "Better Walks", "description": "Hydration bottles and treat pouches for daily walks and errands.", "icon": "walk", "placeholder_style": "walk", "tall": false } },
+        "life_mealtime": { "type": "lifestyle", "settings": { "title": "Calmer Mealtimes", "description": "Slow feeders and enrichment tools for more focused treat and meal routines.", "icon": "bowl", "placeholder_style": "mealtime", "tall": false } },
+        "life_park": { "type": "lifestyle", "settings": { "title": "Park Days & Weekend Trips", "description": "Everything you need for short outings and longer trips with your dog.", "icon": "water", "placeholder_style": "park", "tall": false } },
+        "use_1": { "type": "use_case", "settings": { "scenario": "On a walk", "title": "Fresh water without the hassle", "description": "Portable water bottles make hydration easier during walks, hikes, and errands — no separate bowl needed.", "icon": "water", "link": "/products/trailsip-portable-dog-water-bottle", "link_label": "Shop water bottles" } },
+        "use_2": { "type": "use_case", "settings": { "scenario": "In the car", "title": "Cleaner seats after muddy park days", "description": "Waterproof seat covers catch fur, mud, and spills before they hit your upholstery.", "icon": "car", "link": "/products/roadguard-waterproof-dog-car-seat-cover", "link_label": "Shop car gear" } },
+        "use_3": { "type": "use_case", "settings": { "scenario": "At home or on the go", "title": "Calmer breaks between outings", "description": "Slow feeders and lick mats turn treat time into a focused, relaxing routine.", "icon": "bowl", "link": "/products/pawpath-portable-slow-feeder-lick-mat", "link_label": "Shop enrichment" } },
+        "bundle_1": { "type": "bundle", "settings": { "title": "Walk Ready Kit", "description": "Water bottle, treat pouch, and slow feeder for everyday walks.", "price_label": "$64.95", "link": "/products/walk-ready-bundle" } },
+        "bundle_2": { "type": "bundle", "settings": { "title": "Road Trip Kit", "description": "Seat cover, safety tether, and travel essentials for cleaner drives.", "price_label": "$84.95", "link": "/products/road-trip-bundle" } },
+        "bundle_3": { "type": "bundle", "settings": { "title": "All Outing Kits", "description": "Browse every bundle and save on complete walk and road trip sets.", "price_label": "From $64.95", "link": "/collections/bundles" } }
       },
-      "block_order": [
-        "col_travel",
-        "col_road",
-        "col_feeding",
-        "col_enrichment",
-        "col_bundles",
-        "life_car",
-        "life_walk",
-        "life_mealtime",
-        "life_park",
-        "use_1",
-        "use_2",
-        "use_3",
-        "bundle_1",
-        "bundle_2",
-        "bundle_3",
-        "review_1",
-        "review_2",
-        "review_3",
-        "faq_1",
-        "faq_2",
-        "faq_3"
-      ],
+      "block_order": ["col_travel", "col_road", "col_feeding", "col_enrichment", "col_bundles", "life_car", "life_walk", "life_mealtime", "life_park", "use_1", "use_2", "use_3", "bundle_1", "bundle_2", "bundle_3"],
       "settings": {
-        "primary_label": "Shop Best Sellers",
+        "primary_label": "Shop Travel Essentials",
         "primary_link": "/collections/all"
+      }
+    },
+    "pawpath_comparison": {
+      "type": "pawpath-comparison",
+      "blocks": {
+        "row_1": { "type": "row", "settings": { "feature": "Curated for pet travel", "brand_has_feature": true, "generic_has_feature": false } },
+        "row_2": { "type": "row", "settings": { "feature": "Waterproof & easy-clean materials", "brand_has_feature": true, "generic_has_feature": false } },
+        "row_3": { "type": "row", "settings": { "feature": "Compact, travel-ready design", "brand_has_feature": true, "generic_has_feature": false } },
+        "row_4": { "type": "row", "settings": { "feature": "30-day hassle-free returns", "brand_has_feature": true, "generic_has_feature": false } },
+        "row_5": { "type": "row", "settings": { "feature": "Dog-parent tested", "brand_has_feature": true, "brand_detail": "Real outing use cases", "generic_has_feature": false } },
+        "row_6": { "type": "row", "settings": { "feature": "Complete outing kits", "brand_has_feature": true, "generic_has_feature": false } }
+      },
+      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5", "row_6"],
+      "settings": {
+        "eyebrow": "The PawPath Difference",
+        "heading": "Not all pet travel gear is built the same.",
+        "cta_label": "Shop travel essentials",
+        "cta_link": "/collections/all"
+      }
+    },
+    "pawpath_testimonials": {
+      "type": "pawpath-testimonials",
+      "blocks": {
+        "review_1": { "type": "review", "settings": { "quote": "The water bottle and treat pouch made our park walks so much easier.", "author": "Sarah M.", "detail": "Golden Retriever parent · Portland, OR", "verified": true } },
+        "review_2": { "type": "review", "settings": { "quote": "My back seat finally survives muddy paws.", "author": "James T.", "detail": "Car seat cover buyer · Austin, TX", "verified": true } },
+        "review_3": { "type": "review", "settings": { "quote": "The slow feeder is now part of our daily routine.", "author": "Priya K.", "detail": "Feeding & enrichment · Denver, CO", "verified": true } }
+      },
+      "block_order": ["review_1", "review_2", "review_3"],
+      "settings": {
+        "eyebrow": "From the Pack",
+        "heading": "Loved by dogs who live for the outdoors.",
+        "subheading": "Real stories from dog parents who put PawPath gear through muddy paws, long drives, and daily walks.",
+        "show_metric_placeholder": false
+      }
+    },
+    "pawpath_brand_mission": {
+      "type": "pawpath-brand-mission",
+      "blocks": {
+        "val_1": { "type": "value", "settings": { "title": "Specialist, not generalist", "description": "Curated for dog travel — not a catch-all pet store." } },
+        "val_2": { "type": "value", "settings": { "title": "Honest quality", "description": "Materials and design chosen for durability on the road." } },
+        "val_3": { "type": "value", "settings": { "title": "Dog-parent first", "description": "Built around the chaos, joy, and mess of life with dogs." } }
+      },
+      "block_order": ["val_1", "val_2", "val_3"],
+      "settings": {
+        "eyebrow": "Our Mission",
+        "heading": "We exist to make traveling with your dog simpler, safer, and more enjoyable.",
+        "cta_label": "Read our full story",
+        "cta_link": "/pages/about"
+      }
+    },
+    "pawpath_faq": {
+      "type": "pawpath-faq-home",
+      "blocks": {
+        "faq_1": { "type": "faq", "settings": { "question": "Where do you ship?", "answer": "<p>We ship throughout the United States. Most orders arrive within 3–7 business days after processing.</p>" } },
+        "faq_2": { "type": "faq", "settings": { "question": "What is your return policy?", "answer": "<p>Unused items in original packaging can be returned within 30 days. Contact our support team and we'll help you through the process.</p>" } },
+        "faq_3": { "type": "faq", "settings": { "question": "Are your products safe for all dog sizes?", "answer": "<p>Most PawPath gear fits small through large breeds. Check individual product pages for size guidance and weight recommendations.</p>" } },
+        "faq_4": { "type": "faq", "settings": { "question": "How do I track my order?", "answer": "<p>You'll receive a tracking link via email once your order ships. Most orders process within 1–2 business days.</p>" } },
+        "faq_5": { "type": "faq", "settings": { "question": "Is checkout secure?", "answer": "<p>Yes. All payments are processed through Shopify's encrypted checkout. We never store your payment details.</p>" } }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Questions before you shop?",
+        "subheading": "Shipping, returns, sizing, and support — answered.",
+        "support_text": "Still have questions? Our team is here to help.",
+        "support_label": "Contact support",
+        "support_link": "/pages/contact"
+      }
+    },
+    "pawpath_email": {
+      "type": "pawpath-email-capture",
+      "settings": {
+        "eyebrow": "Join the pack",
+        "heading": "Get the Dog Travel Checklist",
+        "description": "Packing tips, new gear drops, and bundle deals for dog parents who travel. Plus free US shipping on orders over $50."
       }
     }
   },
   "order": [
     "pawpath_hero",
-    "product_list_fa6P9H",
-    "pawpath_home"
+    "pawpath_featured",
+    "pawpath_hero_product",
+    "pawpath_value_props",
+    "pawpath_home",
+    "pawpath_comparison",
+    "pawpath_testimonials",
+    "pawpath_brand_mission",
+    "pawpath_faq",
+    "pawpath_email"
   ]
 }

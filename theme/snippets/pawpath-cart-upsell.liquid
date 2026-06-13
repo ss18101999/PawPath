@@ -1,0 +1,36 @@
+{% comment %}
+  Cart drawer upsell — suggests bundle collection when cart has single items.
+  Increases AOV via contextual kit recommendations.
+{% endcomment %}
+
+{% liquid
+  assign bundles_collection = collections['bundles']
+  assign show_upsell = false
+  if bundles_collection != blank and bundles_collection.products_count > 0 and cart.item_count > 0 and cart.item_count < 3
+    assign show_upsell = true
+  endif
+%}
+
+{% if show_upsell %}
+  <div class="pawpath__cart-upsell">
+    <p class="pawpath__cart-upsell-label">Complete your outing kit</p>
+    <div class="pawpath__cart-upsell-grid">
+      {% for product in bundles_collection.products limit: 2 %}
+        <a class="pawpath__cart-upsell-card" href="{{ product.url }}">
+          <div class="pawpath__cart-upsell-media">
+            {% if product.featured_image != blank %}
+              {{ product.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: product.title }}
+            {% else %}
+              {% render 'pawpath-product-fallback-image', product: product %}
+            {% endif %}
+          </div>
+          <div class="pawpath__cart-upsell-info">
+            <span class="pawpath__cart-upsell-title">{{ product.title }}</span>
+            <span class="pawpath__cart-upsell-price">{{ product.price | money }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    <a class="pawpath__text-link pawpath__cart-upsell-all" href="{{ bundles_collection.url }}">View all outing kits →</a>
+  </div>
+{% endif %}
