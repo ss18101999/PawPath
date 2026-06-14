@@ -119,8 +119,8 @@
           },
           "block_order": [
             "pawpath_pdp_header",
-            "pawpath_product_highlights",
             "pawpath_buy_open",
+            "pawpath_product_highlights",
             "variant_picker",
             "buy_buttons",
             "pawpath_buy_close",
@@ -131,6 +131,7 @@
       },
       "settings": {
         "enable_sticky_add_to_cart": true,
+        "show_trust_ribbon": false,
         "trust_ribbon_text": "Free US shipping $50+ · 30-day returns · Secure checkout"
       }
     },

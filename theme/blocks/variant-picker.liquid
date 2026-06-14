@@ -8,7 +8,19 @@
 -%}
 
 {% unless product_resource == blank %}
-  {% render 'variant-main-picker', product_resource: product_resource, section: section, product: product %}
+  {% liquid
+    assign smart_picker = false
+    if section.type == 'pawpath-product-main'
+      assign smart_picker = true
+    endif
+  %}
+  {% render 'variant-main-picker',
+    product_resource: product_resource,
+    section: section,
+    product: product,
+    block: block,
+    smart_picker: smart_picker
+  %}
 {% endunless %}
 
 {% schema %}

@@ -101,10 +101,18 @@
       "default": true
     },
     {
+      "type": "checkbox",
+      "id": "show_trust_ribbon",
+      "label": "Show trust ribbon below header",
+      "info": "Off by default — the site announcement bar already shows shipping and returns.",
+      "default": false
+    },
+    {
       "type": "text",
       "id": "trust_ribbon_text",
       "label": "Trust ribbon text",
-      "default": "Free US shipping $50+ · 30-day returns · Secure checkout"
+      "default": "Free US shipping $50+ · 30-day returns · Secure checkout",
+      "visible_if": "{{ section.settings.show_trust_ribbon }}"
     }
   ]
 }

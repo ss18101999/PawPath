@@ -1,14 +1,65 @@
-{% comment %} Product highlights — benefit-first bullets above variant picker. {% endcomment %}
+{% comment %}
+  Product highlights — metafields, description bullets, or category-aware defaults.
+{% endcomment %}
 
 {% liquid
   assign highlights = product.metafields.custom.highlights.value
+  assign pdp_theme = 'travel'
+
+  for tag in product.tags
+    assign tag_l = tag | downcase
+    if tag_l == 'car' or tag_l == 'road-trip' or tag_l contains 'car-essentials'
+      assign pdp_theme = 'car'
+      break
+    elsif tag_l == 'feeding' or tag_l == 'travel-feeding' or tag_l contains 'feeding'
+      assign pdp_theme = 'feeding'
+      break
+    elsif tag_l == 'enrichment'
+      assign pdp_theme = 'enrichment'
+      break
+    elsif tag_l == 'travel' or tag_l == 'travel-essentials' or tag_l contains 'travel'
+      assign pdp_theme = 'travel'
+      break
+    endif
+  endfor
+
+  assign has_list_items = false
+  if highlights == blank and product.description contains '<li>'
+    assign has_list_items = true
+  endif
 %}
 
-<ul class="pawpath-pdp__highlights" aria-label="Why dog parents choose this">
+<ul class="pawpath-pdp__highlights" aria-label="Why dog parents choose this" data-pdp-theme="{{ pdp_theme }}">
   {% if highlights != blank and highlights.size > 0 %}
     {% for highlight in highlights limit: 4 %}
       <li>{{ highlight }}</li>
     {% endfor %}
+  {% elsif has_list_items %}
+    {% assign list_part = product.description | split: '<ul>' | last | split: '</ul>' | first %}
+    {% assign items = list_part | split: '<li>' %}
+    {% assign count = 0 %}
+    {% for item in items %}
+      {% assign text = item | split: '</li>' | first | strip_html | strip %}
+      {% if text != blank and count < 4 %}
+        <li>{{ text }}</li>
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% elsif pdp_theme == 'feeding' %}
+    <li>Food-safe materials for meals and hydration on the go</li>
+    <li>Compact design that packs into your outing bag</li>
+    <li>Built for walks, park days, and road trips</li>
+    <li>Easy rinse-clean after use</li>
+  {% elsif pdp_theme == 'car' %}
+    <li>Designed to protect your car interior from fur and mess</li>
+    <li>Secure fit for everyday drives and long road trips</li>
+    <li>Durable, wipe-clean materials</li>
+    <li>Quick to set up and remove</li>
+  {% elsif pdp_theme == 'enrichment' %}
+    <li>Encourages calmer, focused treat time</li>
+    <li>Supports mental stimulation at home or on the road</li>
+    <li>Easy to pack for travel and downtime</li>
+    <li>Made for daily enrichment routines</li>
   {% else %}
     <li>Built for walks, road trips, and park days</li>
     <li>Compact, travel-ready design</li>

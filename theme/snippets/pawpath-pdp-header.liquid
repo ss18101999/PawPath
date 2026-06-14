@@ -1,31 +1,77 @@
 {% comment %}
-  Premium PDP buy-column header — editorial hierarchy.
+  Premium PDP buy-column header — editorial hierarchy, product-aware.
 {% endcomment %}
 
 {% liquid
   assign category_label = product.type
-  if product.collections.size > 0
-    assign primary_collection = product.collections.first
-    unless primary_collection.handle == 'all' or primary_collection.handle == 'frontpage'
-      assign category_label = primary_collection.title
-    endunless
+  assign pdp_theme = 'travel'
+  assign badge_primary = 'Travel ready'
+
+  for tag in product.tags
+    assign tag_l = tag | downcase
+    if tag_l == 'car' or tag_l == 'road-trip' or tag_l contains 'car-essentials'
+      assign pdp_theme = 'car'
+      assign category_label = 'Road Trip Accessories'
+      assign badge_primary = 'Car ready'
+      break
+    elsif tag_l == 'feeding' or tag_l == 'travel-feeding' or tag_l contains 'feeding'
+      assign pdp_theme = 'feeding'
+      assign category_label = 'Travel Feeding'
+      assign badge_primary = 'On-the-go feeding'
+      break
+    elsif tag_l == 'enrichment'
+      assign pdp_theme = 'enrichment'
+      assign category_label = 'Enrichment & Play'
+      assign badge_primary = 'Mental enrichment'
+      break
+    elsif tag_l == 'travel' or tag_l == 'travel-essentials' or tag_l contains 'travel'
+      assign pdp_theme = 'travel'
+      assign category_label = 'Travel Essentials'
+      assign badge_primary = 'Travel ready'
+      break
+    endif
+  endfor
+
+  if category_label == blank or category_label == product.type
+    for coll in product.collections
+      unless coll.handle == 'all' or coll.handle == 'frontpage'
+        assign category_label = coll.title
+        break
+      endunless
+    endfor
   endif
+
   if category_label == blank
     assign category_label = 'Pet Travel Gear'
   endif
 
-  assign subtitle = product.description | strip_html | truncate: 140
+  assign subtitle = product.metafields.custom.subtitle.value
+  if subtitle == blank
+    assign desc_plain = product.description | strip_html | strip
+    if desc_plain != blank
+      assign first_sentence = desc_plain | split: '.' | first | strip
+      if first_sentence.size > 20 and first_sentence.size < 200
+        assign subtitle = first_sentence | append: '.'
+      else
+        assign subtitle = desc_plain | truncate: 140
+      endif
+    endif
+  endif
 %}
 
-<header class="pawpath-pdp__header">
+<header class="pawpath-pdp__header" data-pdp-theme="{{ pdp_theme }}">
   <p class="pawpath-pdp__category">{{ category_label }}</p>
 
   <div class="pawpath-pdp__badge-row">
-    <span class="pawpath-pdp__badge pawpath-pdp__badge--forest">Specialist gear</span>
+    <span class="pawpath-pdp__badge pawpath-pdp__badge--forest">{{ badge_primary }}</span>
     {% if product.tags contains 'bestseller' or product.tags contains 'Bestseller' %}
       <span class="pawpath-pdp__badge pawpath-pdp__badge--clay">Best seller</span>
     {% endif %}
-    <span class="pawpath-pdp__badge pawpath-pdp__badge--outline">30-day returns</span>
+    {% if product.tags contains 'cj-sourced' or product.tags contains 'pawpath-curated' %}
+      <span class="pawpath-pdp__badge pawpath-pdp__badge--outline">PawPath curated</span>
+    {% else %}
+      <span class="pawpath-pdp__badge pawpath-pdp__badge--outline">30-day returns</span>
+    {% endif %}
   </div>
 
   <h1 class="pawpath-pdp__title">{{ product.title }}</h1>

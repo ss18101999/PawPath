@@ -21,11 +21,13 @@
 %}
 
 <section class="pawpath pawpath-pdp" id="pawpath-pdp-{{ section_id }}" data-testid="pawpath-product">
-  <div class="pawpath-pdp__ribbon" aria-label="Store guarantees">
-    <div class="pawpath__container pawpath-pdp__ribbon-inner">
-      <span>{% render 'pawpath-icons', icon: 'truck' %} {{ settings.trust_ribbon_text }}</span>
+  {% if settings.show_trust_ribbon and settings.trust_ribbon_text != blank %}
+    <div class="pawpath-pdp__ribbon" aria-label="Store guarantees">
+      <div class="pawpath__container pawpath-pdp__ribbon-inner">
+        <span>{% render 'pawpath-icons', icon: 'truck' %} {{ settings.trust_ribbon_text }}</span>
+      </div>
     </div>
-  </div>
+  {% endif %}
 
   <div class="pawpath__container pawpath-pdp__shell">
     <nav class="pawpath-pdp__crumbs" aria-label="Breadcrumb">

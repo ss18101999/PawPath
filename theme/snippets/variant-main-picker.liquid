@@ -40,8 +40,31 @@
           assign swatch_count = product_option.values | map: 'swatch' | compact | size
           assign variant_style = block_settings.variant_style
 
+          if smart_picker
+            assign variant_style = 'buttons'
+            if product_option.values.size > 4
+              assign variant_style = 'dropdowns'
+            else
+              assign has_short_value = false
+              assign has_long_value = false
+              for product_option_value in product_option.values
+                if product_option_value.size <= 3
+                  assign has_short_value = true
+                endif
+                if product_option_value.size > 10
+                  assign has_long_value = true
+                endif
+              endfor
+              if has_short_value and has_long_value
+                assign variant_style = 'dropdowns'
+              elsif has_long_value
+                assign variant_style = 'dropdowns'
+              endif
+            endif
+          endif
+
           if swatch_count > 0 and block_settings.show_swatches
-            if block_settings.variant_style == 'dropdown'
+            if variant_style == 'dropdowns'
               assign variant_style = 'swatch_dropdown'
             else
               assign variant_style = 'swatch'
@@ -68,7 +91,7 @@
               {{- product_option.selected_value -}}
             </span>
           </div>
-        {%- elsif variant_style == 'swatch' or block_settings.variant_style == 'buttons' -%}
+        {%- elsif variant_style == 'swatch' or variant_style == 'buttons' -%}
           {%- assign fieldset_index = forloop.index0 -%}
           <fieldset
             class="variant-option variant-option--buttons{% if variant_style == 'swatch' %} variant-option--swatches{% else %} variant-option--{{ settings.variant_button_width }}{% endif %}"
@@ -155,7 +178,7 @@
               {% endstyle %}
             {% endif %}
           </fieldset>
-        {%- elsif block_settings.variant_style == 'dropdowns' -%}
+        {%- elsif variant_style == 'dropdowns' -%}
           {%
             # There is an opportunity to build a custom select component that will allow us to style the select element further (animation for dropdown, swatches shown in the dropdown options, etc)
             # It's too bad as it mean rebuilding baked in behaviours but I think we've already done that for the locale selectors

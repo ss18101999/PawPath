@@ -1,12 +1,23 @@
 {% liquid
   assign col = collection
   assign col_image = col.image
+  assign hero_position = 'center 40%'
+  case col.handle
+    when 'car-essentials'
+      assign hero_position = 'center 30%'
+    when 'travel-gear'
+      assign hero_position = 'center 45%'
+    when 'feeding-hydration'
+      assign hero_position = 'center 50%'
+    when 'enrichment'
+      assign hero_position = 'center 40%'
+  endcase
 %}
 
 <div class="pawpath pawpath__collection-hero">
-  <div class="pawpath__collection-hero-media">
+  <div class="pawpath__collection-hero-media" style="--collection-hero-position: {{ hero_position }};">
     {% if col_image != blank %}
-      {{ col_image | image_url: width: 1600 | image_tag: loading: 'eager', sizes: '100vw', alt: col.title }}
+      {{ col_image | image_url: width: 2000 | image_tag: loading: 'eager', sizes: '100vw', alt: col.title, class: 'pawpath__collection-hero-img' }}
     {% else %}
       {% liquid
         assign collection_asset = ''
@@ -34,16 +45,17 @@
         class: 'pawpath__collection-hero-img'
       %}
     {% endif %}
-    <div class="pawpath__collection-hero-overlay" aria-hidden="true"></div>
-  </div>
-  <div class="pawpath__container pawpath__collection-hero-content">
-    <p class="pawpath__eyebrow pawpath__eyebrow--light">PawPath Collection</p>
-    <h1 class="pawpath__heading pawpath__heading--section">{{ col.title }}</h1>
-    {% if col.description != blank %}
-      <div class="pawpath__lead pawpath__collection-desc">{{ col.description }}</div>
-    {% else %}
-      <p class="pawpath__lead">Practical dog travel, feeding, and car gear for walks, road trips, and park days.</p>
-    {% endif %}
+    <div class="pawpath__container pawpath__collection-hero-content">
+      <div class="pawpath__collection-hero-text">
+        <p class="pawpath__eyebrow pawpath__eyebrow--light">PawPath Collection</p>
+        <h1 class="pawpath__heading pawpath__heading--section">{{ col.title }}</h1>
+        {% if col.description != blank %}
+          <div class="pawpath__lead pawpath__collection-desc">{{ col.description }}</div>
+        {% else %}
+          <p class="pawpath__lead">Practical dog travel, feeding, and car gear for walks, road trips, and park days.</p>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </div>
 

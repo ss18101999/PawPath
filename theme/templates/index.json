@@ -51,7 +51,7 @@
       },
       "block_order": ["benefit_1", "benefit_2", "benefit_3"],
       "settings": {
-        "product_handle": "trailsip-portable-dog-water-bottle",
+        "product_handle": "pawpath-portable-dog-water-bottle-for-walking-portable-pet-water",
         "eyebrow": "Our #1 Travel Essential",
         "cta_label": "Shop Now",
         "secondary_label": "See all travel gear",
@@ -88,9 +88,9 @@
         "life_walk": { "type": "lifestyle", "settings": { "title": "Better Walks", "description": "Hydration bottles and treat pouches for daily walks and errands.", "icon": "walk", "placeholder_style": "walk", "tall": false } },
         "life_mealtime": { "type": "lifestyle", "settings": { "title": "Calmer Mealtimes", "description": "Slow feeders and enrichment tools for more focused treat and meal routines.", "icon": "bowl", "placeholder_style": "mealtime", "tall": false } },
         "life_park": { "type": "lifestyle", "settings": { "title": "Park Days & Weekend Trips", "description": "Everything you need for short outings and longer trips with your dog.", "icon": "water", "placeholder_style": "park", "tall": false } },
-        "use_1": { "type": "use_case", "settings": { "scenario": "On a walk", "title": "Fresh water without the hassle", "description": "Portable water bottles make hydration easier during walks, hikes, and errands — no separate bowl needed.", "icon": "water", "link": "/products/trailsip-portable-dog-water-bottle", "link_label": "Shop water bottles" } },
-        "use_2": { "type": "use_case", "settings": { "scenario": "In the car", "title": "Cleaner seats after muddy park days", "description": "Waterproof seat covers catch fur, mud, and spills before they hit your upholstery.", "icon": "car", "link": "/products/roadguard-waterproof-dog-car-seat-cover", "link_label": "Shop car gear" } },
-        "use_3": { "type": "use_case", "settings": { "scenario": "At home or on the go", "title": "Calmer breaks between outings", "description": "Slow feeders and lick mats turn treat time into a focused, relaxing routine.", "icon": "bowl", "link": "/products/pawpath-portable-slow-feeder-lick-mat", "link_label": "Shop enrichment" } }
+        "use_1": { "type": "use_case", "settings": { "scenario": "On a walk", "title": "Fresh water without the hassle", "description": "Portable water bottles make hydration easier during walks, hikes, and errands — no separate bowl needed.", "icon": "water", "link": "/products/pawpath-portable-dog-water-bottle-for-walking-portable-pet-water", "link_label": "Shop water bottles" } },
+        "use_2": { "type": "use_case", "settings": { "scenario": "In the car", "title": "Cleaner seats after muddy park days", "description": "Waterproof seat covers catch fur, mud, and spills before they hit your upholstery.", "icon": "car", "link": "/products/waterproof-dog-car-seat-cover", "link_label": "Shop car gear" } },
+        "use_3": { "type": "use_case", "settings": { "scenario": "At home or on the go", "title": "Calmer breaks between outings", "description": "Slow feeders and lick mats turn treat time into a focused, relaxing routine.", "icon": "bowl", "link": "/products/3-in-1-pet-travel-collapsible-bowl-foldable-slow-feeder-with-strong-suction", "link_label": "Shop enrichment" } }
       },
       "block_order": ["col_travel", "col_road", "col_feeding", "col_enrichment", "life_car", "life_walk", "life_mealtime", "life_park", "use_1", "use_2", "use_3"],
       "settings": {
