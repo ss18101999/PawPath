@@ -74,8 +74,12 @@ def assign_collection(
     *,
     db: Optional[CatalogDB] = None,
 ) -> CollectionAssignment:
-    """Find existing Shopify collection or create a premium automated one."""
+    """Resolve the PawPath manual collection for this category."""
     db = db or CatalogDB()
+    cfg = COLLECTIONS.get(opp.category_key, COLLECTIONS["travel-gear"])
+    legacy_id = cfg.get("shopify_collection_id")
+    canonical_tag = cfg.get("tag", "travel")
+
     collections = shopify_client.list_collections()
     db.sync_collections_cache(
         [
@@ -89,6 +93,18 @@ def assign_collection(
         ]
     )
 
+    if legacy_id:
+        for col in collections:
+            if col.get("id") == legacy_id:
+                return CollectionAssignment(
+                    collection_id=legacy_id,
+                    collection_title=col.get("title") or cfg["title"],
+                    collection_handle=col.get("handle") or "",
+                    collection_tag=canonical_tag,
+                    created=False,
+                    category_key=opp.category_key,
+                )
+
     existing = _match_existing_collection(
         collections,
         category_key=opp.category_key,
@@ -96,7 +112,7 @@ def assign_collection(
     )
 
     if existing:
-        tag = _extract_collection_tag(existing) or COLLECTIONS.get(opp.category_key, {}).get("tag", "travel")
+        tag = canonical_tag or _extract_collection_tag(existing)
         return CollectionAssignment(
             collection_id=existing["id"],
             collection_title=existing["title"],
@@ -109,14 +125,14 @@ def assign_collection(
     premium = PREMIUM_COLLECTION_NAMES.get(opp.category_key, PREMIUM_COLLECTION_NAMES["travel-gear"])
     created = shopify_client.create_automated_collection(
         title=premium["title"],
-        tag=premium["tag"],
+        tag=canonical_tag,
         description=premium.get("description", ""),
     )
     return CollectionAssignment(
         collection_id=created["id"],
         collection_title=created["title"],
         collection_handle=created["handle"],
-        collection_tag=premium["tag"],
+        collection_tag=canonical_tag,
         created=True,
         category_key=opp.category_key,
     )

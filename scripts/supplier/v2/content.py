@@ -6,7 +6,7 @@ import re
 from html import escape
 from typing import Any
 
-from ..config import BRAND_NAME, BRAND_TAGLINE, SAFETY_FOOTER
+from ..config import BRAND_NAME, BRAND_TAGLINE, COLLECTIONS, SAFETY_FOOTER
 from .models import MerchandisedContent, ProductOpportunity
 
 CATEGORY_BENEFITS: dict[str, list[str]] = {
@@ -133,6 +133,7 @@ def generate_content(opp: ProductOpportunity) -> MerchandisedContent:
     )[:155]
 
     tags = [
+        COLLECTIONS.get(opp.category_key, COLLECTIONS["travel-gear"])["tag"],
         opp.category_key.replace("-", " "),
         "dog gear",
         "pet travel",

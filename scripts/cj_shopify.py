@@ -11,9 +11,10 @@ Setup:
   3. shopify store auth --store j53k50-mp.myshopify.com --scopes read_products,write_products,read_publications,write_publications,read_inventory,write_inventory,read_locations
 
 Usage (V2 — recommended):
-  python scripts/cj_shopify.py run --import-limit 5
-  python scripts/cj_shopify.py discover --dry-run
-  python scripts/cj_shopify.py run --dry-run --import-limit 10
+  python scripts/cj_shopify.py run
+  python scripts/cj_shopify.py run --dry-run
+  python scripts/cj_shopify.py run --max-catalog 100
+  python scripts/cj_shopify.py discover
 
 Usage (V1 — legacy):
   python scripts/cj_shopify.py research --per-category 3
@@ -133,6 +134,8 @@ def cmd_run(args: argparse.Namespace) -> int:
             cj,
             per_seed=args.per_seed,
             import_limit=args.import_limit,
+            max_catalog=args.max_catalog,
+            maintain=not args.no_maintain,
             shop_id=shop_id,
             status=args.status,
             dry_run=args.dry_run,
@@ -167,6 +170,55 @@ def cmd_import(args: argparse.Namespace) -> int:
         return 0 if not log["failed"] else 1
     except (CJError, FileNotFoundError) as exc:
         prog.warn(f"Import failed: {exc}")
+        return 1
+
+
+def cmd_repair(args: argparse.Namespace) -> int:
+    from scripts.supplier.progress import get_logger
+    from scripts.supplier.v2.db import CatalogDB
+
+    prog = get_logger()
+    category_by_id: dict[str, str] = {}
+    inventory_by_id: dict[str, int] = {}
+
+    db = CatalogDB()
+    with db._conn() as conn:
+        rows = conn.execute(
+            """
+            SELECT i.shopify_id, s.category_key
+            FROM imported_products i
+            LEFT JOIN scored_products s ON s.cj_pid = i.cj_pid
+            WHERE i.shopify_id IS NOT NULL
+            """
+        ).fetchall()
+        for row in rows:
+            if row["shopify_id"] and row["category_key"]:
+                category_by_id[row["shopify_id"]] = row["category_key"]
+
+    log_path = ROOT / "data" / "cj_import_log.json"
+    if log_path.exists():
+        for row in json.loads(log_path.read_text()).get("imported") or []:
+            pid = row.get("shopify_id")
+            cat = row.get("category") or row.get("category_key")
+            if pid and cat:
+                category_by_id[pid] = cat
+
+    prog.info("Repairing CJ catalog (category, inventory, collections — keeps DRAFT status)...")
+    try:
+        result = shopify_client.repair_cj_catalog(
+            category_by_id=category_by_id,
+            inventory_by_id=inventory_by_id,
+            publish=args.publish,
+            add_to_collections=not args.skip_collections,
+        )
+        prog.info(
+            f"Done: {len(result['fixed'])} repaired, "
+            f"{sum(result.get('collections', {}).values())} collection adds, "
+            f"{len(result['failed'])} failed"
+        )
+        return 0 if not result["failed"] else 1
+    except ShopifyError as exc:
+        prog.warn(f"Repair failed: {exc}")
         return 1
 
 
@@ -239,12 +291,28 @@ def main() -> int:
     p_discover.add_argument("--show", type=int, default=15, help="How many top results to print")
     p_discover.set_defaults(func=cmd_discover)
 
-    p_run = sub.add_parser("run", help="V2: full autonomous discover → curate → import pipeline")
+    p_run = sub.add_parser("run", help="V2: discover → score → maintain catalog → import/archive")
     p_run.add_argument("--per-seed", type=int, default=8)
-    p_run.add_argument("--import-limit", type=int, default=5)
+    p_run.add_argument(
+        "--import-limit",
+        type=int,
+        default=5,
+        help="Max imports per run when --no-maintain (legacy mode)",
+    )
+    p_run.add_argument(
+        "--max-catalog",
+        type=int,
+        default=int(os.getenv("MAX_CATALOG_PRODUCTS", "100")),
+        help="Target ACTIVE+DRAFT products across 4 categories (default 100)",
+    )
+    p_run.add_argument(
+        "--no-maintain",
+        action="store_true",
+        help="Disable catalog maintenance; use legacy top-N import only",
+    )
     p_run.add_argument("--status", type=str, default=os.getenv("V2_IMPORT_STATUS", os.getenv("IMPORT_STATUS", "DRAFT")))
     p_run.add_argument("--shop-id", type=str, default=None)
-    p_run.add_argument("--dry-run", action="store_true", help="Discover & score only, no Shopify import")
+    p_run.add_argument("--dry-run", action="store_true", help="Discover, score, and preview catalog changes only")
     p_run.set_defaults(func=cmd_run)
 
     # --- V1 legacy commands ---
@@ -261,6 +329,22 @@ def main() -> int:
 
     p_fix = sub.add_parser("fix", help="Publish CJ products, set category & inventory")
     p_fix.set_defaults(func=cmd_fix)
+
+    p_repair = sub.add_parser(
+        "repair",
+        help="Fix category, inventory & collection mapping (keeps DRAFT unless --publish)",
+    )
+    p_repair.add_argument(
+        "--publish",
+        action="store_true",
+        help="Also publish ACTIVE products to Online Store",
+    )
+    p_repair.add_argument(
+        "--skip-collections",
+        action="store_true",
+        help="Skip adding products to manual collections",
+    )
+    p_repair.set_defaults(func=cmd_repair)
 
     p_pipe = sub.add_parser("pipeline", help="[V1] Research then import")
     p_pipe.add_argument("--per-category", type=int, default=3)

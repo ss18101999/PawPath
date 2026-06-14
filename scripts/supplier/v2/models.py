@@ -103,6 +103,9 @@ class ProductOpportunity:
     cj_product: Optional[dict[str, Any]] = None
     rejected: bool = False
     rejection_reasons: list[str] = field(default_factory=list)
+    shopify_id: Optional[str] = None
+    shopify_handle: Optional[str] = None
+    shopify_status: Optional[str] = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -120,6 +123,8 @@ class ProductOpportunity:
             "pricing": asdict(self.pricing),
             "rejected": self.rejected,
             "rejection_reasons": self.rejection_reasons,
+            "shopify_id": self.shopify_id,
+            "shopify_status": self.shopify_status,
             "title": self.content.title if self.content else None,
             "collection": asdict(self.collection) if self.collection else None,
         }

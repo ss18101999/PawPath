@@ -26,6 +26,50 @@ def _collect_image_urls(product: dict[str, Any]) -> list[str]:
     return urls
 
 
+def score_raw_cj_product(
+    product: dict[str, Any],
+    *,
+    search_query: str = "",
+    hint_category: str = "",
+    log: Optional[ProgressLogger] = None,
+) -> ProductOpportunity:
+    """Score a single CJ product dict (discovery search or live product fetch)."""
+    category_key = resolve_category(product, hint_category or "travel-gear")
+    image_urls = _collect_image_urls(product)
+    _, image_score = assess_product_images(image_urls, max_images=4, log=log)
+
+    score, breakdown, reject_reasons = compute_opportunity_score(
+        product,
+        category_key=category_key,
+        image_score=image_score,
+    )
+    cost = parse_cost(product.get("sellPrice") or product.get("nowPrice"))
+    pricing = recommend_pricing(
+        cost,
+        category_key=category_key,
+        shipping_estimate=DEFAULT_SHIPPING_ESTIMATE,
+    )
+
+    return ProductOpportunity(
+        cj_pid=str(product.get("id") or ""),
+        cj_sku=str(product.get("sku") or product.get("spu") or ""),
+        title_raw=product.get("nameEn") or product.get("productNameEn") or "",
+        cost_usd=cost,
+        listed_num=int(product.get("listedNum") or 0),
+        inventory=int(product.get("warehouseInventoryNum") or 0),
+        category_key=category_key,
+        search_query=search_query,
+        opportunity_score=score,
+        score_breakdown=breakdown,
+        image_urls=image_urls,
+        image_score=image_score,
+        images=[],
+        pricing=pricing,
+        rejection_reasons=reject_reasons,
+        cj_product=product,
+    )
+
+
 def discover_products(
     cj: CJClient,
     *,
@@ -120,44 +164,13 @@ def discover_products(
             every=max(1, total_score // 25),
         )
 
-        category_key = resolve_category(product, hint_category or "travel-gear")
-        image_urls = _collect_image_urls(product)
-        _, image_score = assess_product_images(
-            image_urls,
-            max_images=4,
+        opp = score_raw_cj_product(
+            product,
+            search_query=query,
+            hint_category=hint_category,
             log=log if idx % 10 == 1 or idx == total_score else None,
         )
-
-        score, breakdown, reject_reasons = compute_opportunity_score(
-            product,
-            category_key=category_key,
-            image_score=image_score,
-        )
-        cost = parse_cost(product.get("sellPrice") or product.get("nowPrice"))
-        pricing = recommend_pricing(
-            cost,
-            category_key=category_key,
-            shipping_estimate=DEFAULT_SHIPPING_ESTIMATE,
-        )
-
-        opp = ProductOpportunity(
-            cj_pid=str(product.get("id") or ""),
-            cj_sku=str(product.get("sku") or product.get("spu") or ""),
-            title_raw=product.get("nameEn") or "",
-            cost_usd=cost,
-            listed_num=int(product.get("listedNum") or 0),
-            inventory=int(product.get("warehouseInventoryNum") or 0),
-            category_key=category_key,
-            search_query=query,
-            opportunity_score=score,
-            score_breakdown=breakdown,
-            image_urls=image_urls,
-            image_score=image_score,
-            images=[],
-            pricing=pricing,
-            rejection_reasons=reject_reasons,
-            cj_product=product,
-        )
+        opp.search_query = query
         opportunities.append(opp)
         db.upsert_scored(
             {

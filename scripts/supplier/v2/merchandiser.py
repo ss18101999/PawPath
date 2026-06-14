@@ -9,7 +9,7 @@ from typing import Any, Optional
 
 from .. import shopify_client
 from ..cj_client import CJClient
-from ..config import MAX_VARIANTS_PER_PRODUCT, V2_AUTO_PUBLISH, V2_IMPORT_STATUS, V2_PIPELINE_LOG
+from ..config import COLLECTIONS, MAX_VARIANTS_PER_PRODUCT, V2_AUTO_PUBLISH, V2_IMPORT_STATUS, V2_PIPELINE_LOG
 from ..importer import _inventory_quantity, _product_images, _variant_option_values
 from ..pricing import parse_cost
 from ..progress import ProgressLogger, get_logger
@@ -130,8 +130,18 @@ def import_opportunity(
         cj_sku=opp.cj_sku,
         category_key=opp.category_key,
         finalize=import_status == "ACTIVE",
+        setup_catalog=True,
+        publish=import_status == "ACTIVE",
         inventory_quantity=_inventory_quantity({"inventory": opp.inventory}),
     )
+
+    collection_id = (
+        COLLECTIONS.get(opp.category_key, {}).get("shopify_collection_id")
+        or opp.collection.collection_id
+    )
+    if collection_id:
+        log.detail("adding to collection...")
+        shopify_client.add_products_to_collection(collection_id, [product["id"]])
 
     log.detail("setting SEO + metafields...")
     shopify_client.update_product_seo(

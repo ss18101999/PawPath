@@ -56,15 +56,34 @@ python3 scripts/cj_shopify.py discover -q
 ## V2 Commands (recommended)
 
 ```bash
-# Full autonomous pipeline: discover → curate → import
-python3 scripts/cj_shopify.py run --import-limit 5
+# Full pipeline: discover → re-score Shopify + CJ → keep top 100 → archive losers → import new as DRAFT
+python3 scripts/cj_shopify.py run
 
-# Preview without importing
-python3 scripts/cj_shopify.py run --dry-run --import-limit 10
+# Preview catalog changes without touching Shopify
+python3 scripts/cj_shopify.py run --dry-run
+
+# Custom catalog size
+python3 scripts/cj_shopify.py run --max-catalog 100
+
+# Legacy mode: import top N only (no archive / no catalog cap)
+python3 scripts/cj_shopify.py run --no-maintain --import-limit 5
 
 # Discovery & scoring only
 python3 scripts/cj_shopify.py discover --per-seed 8
 ```
+
+## Catalog maintenance (V2 `run`)
+
+Each `run` (default) will:
+
+1. **Discover** new CJ products and score them
+2. **Re-score** existing Shopify CJ products from live CJ data
+3. **Merge & rank** into one pool (four categories: travel, car, feeding, enrichment)
+4. **Keep top 100** (ACTIVE + DRAFT combined, configurable via `MAX_CATALOG_PRODUCTS`)
+5. **Archive** lower-ranked Shopify products (unpublished + ARCHIVED)
+6. **Import** new winners from CJ as **DRAFT** when slots open
+
+Use `--dry-run` to preview keeps, archives, and imports without changes.
 
 ## V1 Commands (legacy, still supported)
 
@@ -127,6 +146,7 @@ TARGET_GROSS_MARGIN_PCT=55
 V2_IMPORT_STATUS=DRAFT
 V2_AUTO_PUBLISH=false
 DEFAULT_INVENTORY_QUANTITY=999
+MAX_CATALOG_PRODUCTS=100
 ```
 
 Set `V2_AUTO_PUBLISH=true` and `V2_IMPORT_STATUS=ACTIVE` when ready to go live automatically.
