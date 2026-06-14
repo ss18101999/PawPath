@@ -1,0 +1,8 @@
+adset_name,campaign_name,cpc,cpm,ctr,entity_id,entity_name,impressions,period,purchases,rank,roas,score,section,spend
+,,3.126798,65.093393,2.081791,act_462401667748180,Account Total,12153,maximum,0,,0.0,,account,791.08
+,,1.732612,35.641478,2.057095,120209969022850666,LinkedinAutomationSoftware Campaign,11910,maximum,0,,0.0,,campaign,424.49
+,,45.82375,1508.600823,3.292181,120250110463790666,PawPath_Supply_Campaigns,243,maximum,0,,0.0,,campaign,366.59
+,,1.732612,35.641478,2.057095,120209969022910666,FirstADset,11910,maximum,0,,0.0,,adset,424.49
+,,45.82375,1508.600823,3.292181,120250110463780666,PawPath_FirstAddSet,243,maximum,0,,0.0,,adset,366.59
+PawPath_FirstAddSet,PawPath_Supply_Campaigns,45.82375,1508.600823,3.292181,120250110463770666,PawPath_FirstAdd,243,maximum,0,1,0.0,-13.43,ad_ranked,366.59
+FirstADset,LinkedinAutomationSoftware Campaign,1.732612,35.641478,2.057095,120209969023050666,New Sales Ad,11910,maximum,0,2,0.0,-16.83,ad_ranked,424.49

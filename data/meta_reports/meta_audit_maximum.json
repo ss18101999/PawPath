@@ -1,0 +1,177 @@
+{
+  "report_type": "account_audit",
+  "generated_at": "2026-06-14T10:39:53.974780+00:00",
+  "period": "maximum",
+  "ad_account_id": "act_462401667748180",
+  "summary": {
+    "active_campaigns": 0,
+    "active_ad_sets": 0,
+    "active_ads": 0,
+    "ads_with_performance": 2
+  },
+  "account": {
+    "metrics": {
+      "spend": 791.08,
+      "impressions": 12153,
+      "clicks": 253,
+      "ctr": 2.081791,
+      "cpc": 3.126798,
+      "cpm": 65.093393,
+      "purchases": 0,
+      "purchase_value": 0.0,
+      "roas": 0.0,
+      "entity_id": null,
+      "entity_name": null
+    }
+  },
+  "active_campaigns": [],
+  "active_ad_sets": [],
+  "active_ads": [],
+  "campaign_performance": [
+    {
+      "id": "120209969022850666",
+      "name": "LinkedinAutomationSoftware Campaign",
+      "metrics": {
+        "spend": 424.49,
+        "impressions": 11910,
+        "clicks": 245,
+        "ctr": 2.057095,
+        "cpc": 1.732612,
+        "cpm": 35.641478,
+        "purchases": 0,
+        "purchase_value": 0.0,
+        "roas": 0.0,
+        "entity_id": "120209969022850666",
+        "entity_name": "LinkedinAutomationSoftware Campaign"
+      }
+    },
+    {
+      "id": "120250110463790666",
+      "name": "PawPath_Supply_Campaigns",
+      "metrics": {
+        "spend": 366.59,
+        "impressions": 243,
+        "clicks": 8,
+        "ctr": 3.292181,
+        "cpc": 45.82375,
+        "cpm": 1508.600823,
+        "purchases": 0,
+        "purchase_value": 0.0,
+        "roas": 0.0,
+        "entity_id": "120250110463790666",
+        "entity_name": "PawPath_Supply_Campaigns"
+      }
+    }
+  ],
+  "adset_performance": [
+    {
+      "id": "120209969022910666",
+      "name": "FirstADset",
+      "metrics": {
+        "spend": 424.49,
+        "impressions": 11910,
+        "clicks": 245,
+        "ctr": 2.057095,
+        "cpc": 1.732612,
+        "cpm": 35.641478,
+        "purchases": 0,
+        "purchase_value": 0.0,
+        "roas": 0.0,
+        "entity_id": "120209969022910666",
+        "entity_name": "FirstADset"
+      }
+    },
+    {
+      "id": "120250110463780666",
+      "name": "PawPath_FirstAddSet",
+      "metrics": {
+        "spend": 366.59,
+        "impressions": 243,
+        "clicks": 8,
+        "ctr": 3.292181,
+        "cpc": 45.82375,
+        "cpm": 1508.600823,
+        "purchases": 0,
+        "purchase_value": 0.0,
+        "roas": 0.0,
+        "entity_id": "120250110463780666",
+        "entity_name": "PawPath_FirstAddSet"
+      }
+    }
+  ],
+  "ads_ranked": [
+    {
+      "rank": 1,
+      "ad_id": "120250110463770666",
+      "ad_name": "PawPath_FirstAdd",
+      "adset_id": "120250110463780666",
+      "adset_name": "PawPath_FirstAddSet",
+      "campaign_id": "120250110463790666",
+      "campaign_name": "PawPath_Supply_Campaigns",
+      "score": -13.43,
+      "metrics": {
+        "spend": 366.59,
+        "impressions": 243,
+        "clicks": 8,
+        "ctr": 3.292181,
+        "cpc": 45.82375,
+        "cpm": 1508.600823,
+        "purchases": 0,
+        "purchase_value": 0.0,
+        "roas": 0.0,
+        "entity_id": "120250110463770666",
+        "entity_name": "PawPath_FirstAdd"
+      }
+    },
+    {
+      "rank": 2,
+      "ad_id": "120209969023050666",
+      "ad_name": "New Sales Ad",
+      "adset_id": "120209969022910666",
+      "adset_name": "FirstADset",
+      "campaign_id": "120209969022850666",
+      "campaign_name": "LinkedinAutomationSoftware Campaign",
+      "score": -16.83,
+      "metrics": {
+        "spend": 424.49,
+        "impressions": 11910,
+        "clicks": 245,
+        "ctr": 2.057095,
+        "cpc": 1.732612,
+        "cpm": 35.641478,
+        "purchases": 0,
+        "purchase_value": 0.0,
+        "roas": 0.0,
+        "entity_id": "120209969023050666",
+        "entity_name": "New Sales Ad"
+      }
+    }
+  ],
+  "ad_analysis": {
+    "period": "maximum",
+    "account_benchmarks": {
+      "spend": 791.08,
+      "impressions": 12153,
+      "clicks": 253,
+      "ctr": 2.081791,
+      "cpc": 3.126798,
+      "cpm": 65.093393,
+      "purchases": 0,
+      "purchase_value": 0.0,
+      "roas": 0.0,
+      "entity_id": null,
+      "entity_name": null
+    },
+    "summary": {
+      "total_ads": 2,
+      "winners": 0,
+      "losers": 0,
+      "neutral": 2
+    },
+    "winning_ads": [],
+    "losing_ads": [],
+    "recommendations": [
+      "Collect more data before making major budget shifts (aim for 7+ days of spend)."
+    ]
+  }
+}

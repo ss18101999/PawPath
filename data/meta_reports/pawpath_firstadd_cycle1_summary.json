@@ -1,0 +1,90 @@
+{
+  "cycle": 1,
+  "timestamp": "2026-06-14T10:45:00Z",
+  "campaign": "PawPath_Supply_Campaigns",
+  "ad": "PawPath_FirstAdd",
+  "before_metrics": {
+    "spend": 366.59,
+    "impressions": 243,
+    "clicks": 8,
+    "ctr": 3.29,
+    "cpc": 45.82,
+    "cpm": 1508.6,
+    "purchases": 0,
+    "roas": 0.0
+  },
+  "bottlenecks_identified": [
+    "Cat/kitten interests on a dog products store",
+    "50+ hyper-local US cities instead of nationwide US targeting",
+    "Campaign paused — zero delivery",
+    "₹500/day budget burning on wrong audience ($45 CPC, $1,508 CPM)",
+    "Irrelevant Advantage+ interest expansion (TV shows, bands)",
+    "Empty headline slot in creative asset feed",
+    "Zero purchase conversions despite PURCHASE optimization goal"
+  ],
+  "changes_applied": [
+    {
+      "change": "Campaign budget ₹500 → ₹150/day",
+      "reason": "Reduce waste while retesting; account currency is INR"
+    },
+    {
+      "change": "Targeting → United States (nationwide), age 25-65, 8 dog-specific interests",
+      "reason": "Replace cat interests + city-level geo that caused extreme CPM"
+    },
+    {
+      "change": "Removed false-positive interests (Fear the Walking Dead, Dogs British band, Nature documentary)",
+      "reason": "Interest search API returned non-pet matches"
+    },
+    {
+      "change": "Created A/B ad set PawPath_US_DogOwners_AB + ad PawPath_FirstAdd_v2_Purchase",
+      "reason": "Clean learning phase with same purchase optimization, CBO split"
+    },
+    {
+      "change": "Resumed campaign, both ad sets, and both ads (ACTIVE / IN_PROCESS)",
+      "reason": "Restart delivery with fixed configuration"
+    }
+  ],
+  "changes_blocked": [
+    {
+      "change": "New creative via API",
+      "reason": "Meta app in development mode — must switch app to Live in Meta Developer Console, or edit copy in Ads Manager"
+    },
+    {
+      "change": "Update existing creative asset_feed_spec via API",
+      "reason": "Meta API only allows name/status/label updates on existing creatives"
+    }
+  ],
+  "manual_action_required": {
+    "location": "Meta Ads Manager → PawPath_FirstAdd creative",
+    "recommended_headlines": [
+      "Keep Your Dog Cool This Summer",
+      "Dog Cooling Vest | PawPath Supply",
+      "Free Shipping $50+ | Shop Dog Gear",
+      "Beat the Heat on Walks & Road Trips"
+    ],
+    "recommended_primary_text": [
+      "Hot pavement? Long summer walks? This cooling vest helps keep your dog comfortable outdoors. Free US shipping on orders $50+ at PawPath Supply.",
+      "Dog parents are switching to lightweight cooling gear for hikes, park days, and road trips. Shop the PawPath Cooling Vest — built for real adventures with your pup."
+    ]
+  },
+  "current_structure": {
+    "campaign_id": "120250110463790666",
+    "campaign_status": "ACTIVE",
+    "daily_budget_inr": 150,
+    "ad_sets": [
+      {"id": "120250110463780666", "name": "PawPath_FirstAddSet", "status": "ACTIVE"},
+      {"id": "120250165801540666", "name": "PawPath_US_DogOwners_AB", "status": "ACTIVE"}
+    ],
+    "ads": [
+      {"id": "120250110463770666", "name": "PawPath_FirstAdd", "adset": "PawPath_FirstAddSet"},
+      {"id": "120250165804690666", "name": "PawPath_FirstAdd_v2_Purchase", "adset": "PawPath_US_DogOwners_AB"}
+    ]
+  },
+  "next_actions": [
+    "Update ad copy manually in Ads Manager (API blocked)",
+    "Verify Meta Pixel Purchase event fires on Shopify test checkout",
+    "Monitor 48-72h: compare PawPath_FirstAddSet vs PawPath_US_DogOwners_AB on CPC, CPM, purchases",
+    "Pause worse ad set after 50+ clicks or ₹3,000 spend with 0 purchases",
+    "Scale winning ad set by increasing campaign budget to ₹250-300/day if ROAS > 2x"
+  ]
+}

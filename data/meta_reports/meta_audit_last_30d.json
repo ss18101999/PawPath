@@ -1,0 +1,60 @@
+{
+  "report_type": "account_audit",
+  "generated_at": "2026-06-14T10:39:12.161779+00:00",
+  "period": "last_30d",
+  "ad_account_id": "act_462401667748180",
+  "summary": {
+    "active_campaigns": 0,
+    "active_ad_sets": 0,
+    "active_ads": 0,
+    "ads_with_performance": 0
+  },
+  "account": {
+    "metrics": {
+      "spend": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": 0.0,
+      "cpc": 0.0,
+      "cpm": 0.0,
+      "purchases": 0,
+      "purchase_value": 0.0,
+      "roas": 0.0,
+      "entity_id": null,
+      "entity_name": null
+    }
+  },
+  "active_campaigns": [],
+  "active_ad_sets": [],
+  "active_ads": [],
+  "campaign_performance": [],
+  "adset_performance": [],
+  "ads_ranked": [],
+  "ad_analysis": {
+    "period": "last_30d",
+    "account_benchmarks": {
+      "spend": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": 0.0,
+      "cpc": 0.0,
+      "cpm": 0.0,
+      "purchases": 0,
+      "purchase_value": 0.0,
+      "roas": 0.0,
+      "entity_id": null,
+      "entity_name": null
+    },
+    "summary": {
+      "total_ads": 0,
+      "winners": 0,
+      "losers": 0,
+      "neutral": 0
+    },
+    "winning_ads": [],
+    "losing_ads": [],
+    "recommendations": [
+      "Collect more data before making major budget shifts (aim for 7+ days of spend)."
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{"timestamp": "2026-06-14T10:48:48.049716Z", "action": "fix_adset_interests", "entity": "120250110463780666", "reason": "Removed false-positive interests (Fear the Walking Dead, Dogs British band, Nature documentary) from Advantage+ expansion", "interests": ["Dogs (animals)", "Puppy (dogs)", "Dog training (pets)", "Pet store (pet supplies)", "Dog walking (dogs)", "Dog food (pet supplies)", "Dog park (place)", "Pedigree Petfoods"]}
+{"timestamp": "2026-06-14T10:48:48.049805Z", "action": "create_ab_adset", "entity": "120250165801540666", "name": "PawPath_US_DogOwners_AB"}
+{"timestamp": "2026-06-14T10:48:48.049819Z", "action": "create_ab_ad", "entity": "120250165804690666", "name": "PawPath_FirstAdd_v2_Purchase"}
+{"timestamp": "2026-06-14T10:48:48.049827Z", "action": "resume_all", "status": "ACTIVE"}
+{"timestamp": "2026-06-14T10:56:52.037926+00:00", "action": "create_creative", "entity": "1679532376616581", "reason": "Purchase-focused headlines and primary text with UTM tracking (app now Live)"}
+{"timestamp": "2026-06-14T10:56:54.159454+00:00", "action": "update_ad_creative", "entity": "120250110463770666", "ad_name": "PawPath_FirstAdd", "creative_id": "1679532376616581", "reason": "Apply purchase-optimized creative to live ad"}
+{"timestamp": "2026-06-14T10:56:56.088343+00:00", "action": "update_ad_creative", "entity": "120250165804690666", "ad_name": "PawPath_FirstAdd_v2_Purchase", "creative_id": "1679532376616581", "reason": "Apply purchase-optimized creative to live ad"}
